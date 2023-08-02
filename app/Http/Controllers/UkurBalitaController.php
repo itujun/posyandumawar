@@ -267,18 +267,14 @@ class UkurBalitaController extends Controller
     // private function klasifikasiUlang($id, $u, $bb, $tb, $lk ){
     private function klasifikasiUlang($id)
     {
+        // dd(UkurBalita::where('id_ukur', $id)->first());
         $dataDiubah = UkurBalita::where('id_ukur', $id)->first();
         $udb = $dataDiubah->usia_ukur;
         $bdb = $dataDiubah->bb_ukur;
         $tdb = $dataDiubah->tb_ukur;
         $lkdb = $dataDiubah->lk_ukur;
-        $pengukuran = $dataDiubah->pengukuran;
-        $jenis_kelamin = $dataDiubah->jenis_kelamin;
 
-        $query = Dataset::where('jenis_kelamin', $jenis_kelamin)
-            ->where('pengukuran', $pengukuran)
-            ->get()->toArray();
-
+        $query = Dataset::all()->toArray();
 
         $jarakberat = [];
         $jaraktinggi = [];
@@ -344,25 +340,16 @@ class UkurBalitaController extends Controller
             'skepala' => $slkepala,
         ]);
 
-        $dataset = [
+        Dataset::create([
             'usia' => $udb,
             'bb' => $bdb,
             'tb' => $tdb,
             'lk' => $lkdb,
-            'pengukuran' => $pengukuran,
-            'jenis_kelamin' => $jenis_kelamin,
             'sberat' => $sberat,
             'stinggi' => $stinggi,
             'sgizi' => $sgizi,
             'skepala' => $slkepala,
-        ];
-
-        $datasetModel = new Dataset();
-        $datasetController = new DatasetController($datasetModel);
-        $cekKesamaanData = $datasetController->cekKesamaanData($dataset);
-        if (!$cekKesamaanData) {
-            Dataset::create($dataset);
-        }
+        ]);
     }
 
     private function customBgGizi($gizi)

@@ -17,7 +17,7 @@
                         <label for="usia" class="col-sm-2 col-form-label">Usia</label>
                         <input type="text" class="form-control col-sm-2 @error('usia') is-invalid @enderror"
                             id="usia" name="usia" placeholder="....." value="{{ old('usia') }}"
-                            onchange="usiaDatasetBerubah()" required autofocus>
+                            onchange="usiaDatasetBerubah()" required>
                         <div class="col-form-label col-sm-1"> Bulan.</div>
                         @error('usia')
                             <div class="invalid-feedback col-sm-5">
@@ -84,67 +84,6 @@
                                 {{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="form-group row">
-                        <label for="sberat" class="col-sm-2 col-form-label">Status Berat</label>
-                        <select class="form-control col-sm-3 @error('sberat') is-invalid @enderror" id="sberat"
-                            name="sberat" required>
-                            <option hidden selected disabled>Pilih status berat</option>
-                            @foreach ($statusberat as $sberat)
-                                <option value="{{ $sberat }}" {{ old('sberat') === $sberat ? 'selected' : '' }}>
-                                    {{ $sberat }}</option>
-                            @endforeach
-                        </select>
-                        @error('sberat')
-                            <div class="invalid-feedback col-sm-5">
-                                {{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group row">
-                        <label for="stinggi" class="col-sm-2 col-form-label">Status Tinggi</label>
-                        <select class="form-control col-sm-3 @error('stinggi') is-invalid @enderror" id="stinggi"
-                            name="stinggi" required>
-                            <option hidden selected disabled>Pilih status tinggi</option>
-                            @foreach ($statustinggi as $stinggi)
-                                <option value="{{ $stinggi }}" {{ old('stinggi') === $stinggi ? 'selected' : '' }}>
-                                    {{ $stinggi }}</option>
-                            @endforeach
-                        </select>
-                        @error('stinggi')
-                            <div class="invalid-feedback col-sm-5">
-                                {{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group row">
-                        <label for="sgizi" class="col-sm-2 col-form-label">Status Gizi</label>
-                        <select class="form-control col-sm-3 @error('sgizi') is-invalid @enderror" id="sgizi"
-                            name="sgizi" required>
-                            <option hidden selected disabled>Pilih status gizi</option>
-                            @foreach ($statusgizi as $sgizi)
-                                <option value="{{ $sgizi }}" {{ old('sgizi') === $sgizi ? 'selected' : '' }}>
-                                    {{ $sgizi }}</option>
-                            @endforeach
-                        </select>
-                        @error('sgizi')
-                            <div class="invalid-feedback col-sm-5">
-                                {{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group row">
-                        <label for="skepala" class="col-sm-2 col-form-label">Lingkar Kepala</label>
-                        <select class="form-control col-sm-3 @error('skepala') is-invalid @enderror" id="skepala"
-                            name="skepala" required>
-                            <option hidden selected disabled>Pilih lingkar kepala</option>
-                            @foreach ($statuskepala as $skepala)
-                                <option value="{{ $skepala }}" {{ old('skepala') === $skepala ? 'selected' : '' }}>
-                                    {{ $skepala }}</option>
-                            @endforeach
-                        </select>
-                        @error('skepala')
-                            <div class="invalid-feedback col-sm-5">
-                                {{ $message }}</div>
-                        @enderror
-                    </div>
                 </div>
 
                 <div class="container">
@@ -190,6 +129,7 @@
             const usiapengukuran = document.getElementById('usia');
             const pengukuranSelect = document.getElementById('pengukuran');
 
+            // Ubah elemen pengukuran menjadi objek jQuery supaya menggunakan metode fine()
             const $pengukuranSelect = $(pengukuranSelect);
 
             const usia = parseInt(usiapengukuran.value);

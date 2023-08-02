@@ -104,6 +104,7 @@ class KnnController extends Controller
         $slkepala = collect($data[3])->search(max($data[3]));
 
         $dataset = collect(Dataset::all())->last();
+
         UkurBalita::where('id_ukur', $data[4])->update([
             'sberat' => $sberat,
             'stinggi' => $stinggi,
@@ -117,5 +118,6 @@ class KnnController extends Controller
             'sgizi' => $sgizi,
             'skepala' => $slkepala,
         ]);
+        // dd([$sberat, $stinggi, $sgizi, $slkepala]);
     }
 }
