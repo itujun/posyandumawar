@@ -17,7 +17,7 @@
                         <label for="usia" class="col-sm-2 col-form-label">Usia</label>
                         <input type="text" class="form-control col-sm-2 @error('usia') is-invalid @enderror"
                             id="usia" name="usia" placeholder="....." value="{{ old('usia') }}"
-                            onchange="usiaDatasetBerubah()" required>
+                            onchange="usiaDatasetBerubah()" autofocus required>
                         <div class="col-form-label col-sm-1"> Bulan.</div>
                         @error('usia')
                             <div class="invalid-feedback col-sm-5">

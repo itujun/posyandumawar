@@ -50,10 +50,10 @@
                                     <th class="text-center">#</th>
                                     <th class="text-center">Nama Balita</th>
                                     <th class="text-center">Usia</th>
+                                    <th class="text-center">JK</th>
                                     <th class="text-center">BB</th>
                                     <th class="text-center">TB</th>
-                                    {{-- <th class="text-center">Berat</th>
-                                    <th class="text-center">Tinggi</th> --}}
+                                    <th class="text-center">LK</th>
                                     <th class="text-center">Gizi</th>
                                     <th class="text-center">Bulan</th>
                                     <th class="text-center">Tahun</th>
@@ -71,14 +71,10 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $nmb->balita->nama }}</td>
                                             <td>{{ $nmb->usia_ukur }} <span>bulan</span></td>
+                                            <td class="text-center">{{ $nmb->jenis_kelamin }}</td>
                                             <td>{{ $nmb->bb_ukur }} <span>kg</span></td>
                                             <td>{{ $nmb->tb_ukur }} <span>cm</span></td>
-                                            {{-- <td
-                                                class="text-center font-weight-bold {{ $nmb->sberat === 'Sangat kurang' || $nmb->sberat === 'Risiko BB lebih' ? 'bg-danger text-white ' : '' }}{{ $nmb->sberat === 'Normal' ? 'bg-success text-white' : '' }}{{ $nmb->sberat === 'Kurang' ? 'bg-warning text-dark' : '' }} ">
-                                                {{ $nmb->sberat }}</td>
-                                            <td
-                                                class="text-center font-weight-bold {{ $nmb->stinggi === 'Sangat pendek' || $nmb->stinggi === 'Tinggi' ? 'bg-danger text-white ' : '' }}{{ $nmb->stinggi === 'Normal' ? 'bg-success text-white' : '' }}{{ $nmb->stinggi === 'Pendek' ? 'bg-warning text-dark' : '' }}">
-                                                {{ $nmb->stinggi }}</td> --}}
+                                            <td>{{ $nmb->lk_ukur }} <span>cm</span></td>
                                             <td
                                                 class="text-center font-weight-bold {{ $nmb->sgizi === 'Gizi buruk' || $nmb->sgizi === 'Gizi lebih' || $nmb->sgizi === 'Obesitas' ? 'bg-danger text-white ' : '' }}{{ $nmb->sgizi === 'Gizi baik' ? 'bg-success text-white' : '' }}{{ $nmb->sgizi === 'Gizi kurang' || $nmb->sgizi === 'Berisiko gizi lebih' ? 'bg-warning text-dark' : '' }}">
                                                 {{ $nmb->sgizi }}</td>

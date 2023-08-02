@@ -23,7 +23,7 @@
                     <h6 class="card-subtitle  text-muted mt-2 mb-2">Cara pengukuran: {{ $ukurbalita->pengukuran }}.</h6>
                     <div class="badge mt-1 bg-info text-white p-2">Berat Badan ukur: {{ $ukurbalita->bb_ukur }} kg</div>
                     <div class="badge mt-1 bg-info text-white p-2">Tinggi Badan ukur: {{ $ukurbalita->tb_ukur }} cm</div>
-                    <div class="badge mt-1 bg-info text-white p-2">Lebar Kepala ukur: {{ $ukurbalita->lk_ukur }} cm</div>
+                    <div class="badge mt-1 bg-info text-white p-2">Lingkar Kepala ukur: {{ $ukurbalita->lk_ukur }} cm</div>
                     <br><br>
                     <table class="table tablestripped">
                         <thead>
