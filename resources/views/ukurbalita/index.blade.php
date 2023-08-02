@@ -63,7 +63,7 @@
                             <tbody>
                                 @if ($namabalita->count() === 0)
                                     <tr>
-                                        <td colspan="6" class="text-center"><b>Tidak ada dataset.</b></td>
+                                        <td colspan="9" class="text-center"><b>Tidak ada dataset.</b></td>
                                     </tr>
                                 @else
                                     @foreach ($namabalita as $nmb)
