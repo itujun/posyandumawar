@@ -25,6 +25,21 @@
                         @enderror
                     </div>
                     <div class="form-group row">
+                        <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                        <select class="form-control col-sm-3 @error('jenis_kelamin') is-invalid @enderror"
+                            id="jenis_kelamin" name="jenis_kelamin" required>
+                            <option hidden selected disabled>Pilih jenis kelamin</option>
+                            @foreach ($jeniskelamin as $jk)
+                                <option value="{{ $jk }}" {{ old('jenis_kelamin') === $jk ? 'selected' : '' }}>
+                                    {{ $jk == 'L' ? 'Laki-laki' : 'Perempuan' }}</option>
+                            @endforeach
+                        </select>
+                        @error('jenis_kelamin')
+                            <div class="invalid-feedback col-sm-5">
+                                {{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group row">
                         <label for="bb" class="col-sm-2 col-form-label">Berat Badan</label>
                         <input type="text" class="form-control col-sm-2 @error('bb') is-invalid @enderror" id="bb"
                             name="bb" placeholder="....." value="{{ old('bb') }}" required>
@@ -65,21 +80,6 @@
                             name="lk" placeholder="....." value="{{ old('lk') }}" required>
                         <div class="col-form-label col-sm-1"> Cm.</div>
                         @error('lk')
-                            <div class="invalid-feedback col-sm-5">
-                                {{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group row">
-                        <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                        <select class="form-control col-sm-3 @error('jenis_kelamin') is-invalid @enderror"
-                            id="jenis_kelamin" name="jenis_kelamin" required>
-                            <option hidden selected disabled>Pilih jenis kelamin</option>
-                            @foreach ($jeniskelamin as $jk)
-                                <option value="{{ $jk }}" {{ old('jenis_kelamin') === $jk ? 'selected' : '' }}>
-                                    {{ $jk == 'L' ? 'Laki-laki' : 'Perempuan' }}</option>
-                            @endforeach
-                        </select>
-                        @error('jenis_kelamin')
                             <div class="invalid-feedback col-sm-5">
                                 {{ $message }}</div>
                         @enderror
