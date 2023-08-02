@@ -1,0 +1,9 @@
+.bg-masuk {
+    background: url("http://127.0.0.1:8000/sample/background2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-transparant {
+    opacity: 0.9;
+}
