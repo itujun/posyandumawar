@@ -44,28 +44,47 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">Nama Balita</th>
-                                    <th class="text-center">Usia</th>
-                                    <th class="text-center">JK</th>
-                                    <th class="text-center">BB</th>
-                                    <th class="text-center">TB</th>
-                                    <th class="text-center">LK</th>
-                                    <th class="text-center">Gizi</th>
-                                    <th class="text-center">Bulan</th>
-                                    <th class="text-center">Tahun</th>
-                                    <th class="text-center">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($namabalita->count() === 0)
+                        @if ($namabalita->count() === 0)
+                            <table class="table table-bordered table-striped">
+                                <thead>
                                     <tr>
-                                        <td colspan="9" class="text-center"><b>Tidak ada dataset.</b></td>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Nama Balita</th>
+                                        <th class="text-center">Usia</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">BB</th>
+                                        <th class="text-center">TB</th>
+                                        <th class="text-center">LK</th>
+                                        <th class="text-center">Gizi</th>
+                                        <th class="text-center">Bulan</th>
+                                        <th class="text-center">Tahun</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
-                                @else
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="11" class="text-center"><b>Tidak ada ukur balita.</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        @else
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Nama Balita</th>
+                                        <th class="text-center">Usia</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">BB</th>
+                                        <th class="text-center">TB</th>
+                                        <th class="text-center">LK</th>
+                                        <th class="text-center">Gizi</th>
+                                        <th class="text-center">Bulan</th>
+                                        <th class="text-center">Tahun</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($namabalita as $nmb)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
@@ -98,9 +117,9 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>

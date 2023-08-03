@@ -38,23 +38,37 @@
                 <div class="card-body">
                     <a href="/balita/create" class="btn btn-primary btn-sm font-weight-bold mb-3">Tambah Data Balita</a>
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">NIK</th>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">JK</th>
-                                    <th class="text-center">Tanggal Lahir</th>
-                                    <th class="text-center">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($balita->count() === 0)
+                        @if ($balita->count() === 0)
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">NIK</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">Tanggal Lahir</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="6" class="text-center"><b>Tidak ada data balita.</b></td>
                                     </tr>
-                                @else
+                                </tbody>
+                            </table>
+                        @else
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">NIK</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">Tanggal Lahir</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($balita as $b)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
@@ -79,9 +93,9 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>

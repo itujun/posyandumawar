@@ -38,29 +38,49 @@
                 <div class="card-body">
                     <a href="/dataset/create" class="btn btn-primary btn-sm font-weight-bold mb-3">Tambah Dataset</a>
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">Usia</th>
-                                    <th class="text-center">BB</th>
-                                    <th class="text-center">TB</th>
-                                    <th class="text-center">LK</th>
-                                    <th class="text-center">JK</th>
-                                    <th class="text-center">Pengukuran</th>
-                                    <th class="text-center">Status BB/U</th>
-                                    <th class="text-center">Status TB/U</th>
-                                    <th class="text-center">Status Gizi</th>
-                                    <th class="text-center">Status LK</th>
-                                    <th class="text-center">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($dataset->count() === 0)
+                        @if ($dataset->count() === 0)
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Usia</th>
+                                        <th class="text-center">BB</th>
+                                        <th class="text-center">TB</th>
+                                        <th class="text-center">LK</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">Pengukuran</th>
+                                        <th class="text-center">Status BB/U</th>
+                                        <th class="text-center">Status TB/U</th>
+                                        <th class="text-center">Status Gizi</th>
+                                        <th class="text-center">Status LK</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="12" class="text-center"><b>Tidak ada dataset.</b></td>
                                     </tr>
-                                @else
+                                </tbody>
+                            </table>
+                        @else
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Usia</th>
+                                        <th class="text-center">BB</th>
+                                        <th class="text-center">TB</th>
+                                        <th class="text-center">LK</th>
+                                        <th class="text-center">JK</th>
+                                        <th class="text-center">Pengukuran</th>
+                                        <th class="text-center">Status BB/U</th>
+                                        <th class="text-center">Status TB/U</th>
+                                        <th class="text-center">Status Gizi</th>
+                                        <th class="text-center">Status LK</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($dataset as $dts)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
@@ -96,9 +116,9 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endif
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -82,14 +82,6 @@ class UkurBalitaController extends Controller
         $validateData['tahun'] = $request->tahun;
 
         UkurBalita::create($validateData);
-        Dataset::create([
-            'usia' => $request['usia_ukur'],
-            'bb' => $request['bb_ukur'],
-            'tb' => $request['tb_ukur'],
-            'lk' => $request['lk_ukur'],
-            'pengukuran' => $request['pengukuran'],
-            'jenis_kelamin' => $request['jenis_kelamin'] === 'Laki-laki' ? 'L' : 'P',
-        ]);
         $Knn = new KnnController();
         $Knn->tentukanKelasBaru();
 
@@ -264,15 +256,15 @@ class UkurBalitaController extends Controller
         }
     }
 
-    // private function klasifikasiUlang($id, $u, $bb, $tb, $lk ){
     private function klasifikasiUlang($id)
     {
-        // dd(UkurBalita::where('id_ukur', $id)->first());
         $dataDiubah = UkurBalita::where('id_ukur', $id)->first();
         $udb = $dataDiubah->usia_ukur;
         $bdb = $dataDiubah->bb_ukur;
         $tdb = $dataDiubah->tb_ukur;
         $lkdb = $dataDiubah->lk_ukur;
+        $pengukuran = $dataDiubah->pengukuran;
+        $jenis_kelamin = $dataDiubah->jenis_kelamin;
 
         $query = Dataset::all()->toArray();
 
@@ -295,38 +287,10 @@ class UkurBalitaController extends Controller
         $knngizi = collect($jarakgizi)->sort()->take($k);
         $knnlk = collect($jaraklk)->sort()->take($k);
 
-        foreach ($knnberat as $kb => $value) {
-            $statusberat = Dataset::where('id', $kb)->value('sberat');
-            if (isset($totalstatusberat[$statusberat])) {
-                $totalstatusberat[$statusberat]++;
-            } else {
-                $totalstatusberat[$statusberat] = 1;
-            }
-        }
-        foreach ($knntinggi as $kt => $value) {
-            $statustinggi = Dataset::where('id', $kt)->value('stinggi');
-            if (isset($totalstatustinggi[$statustinggi])) {
-                $totalstatustinggi[$statustinggi]++;
-            } else {
-                $totalstatustinggi[$statustinggi] = 1;
-            }
-        }
-        foreach ($knngizi as $kg => $value) {
-            $statusgizi = Dataset::where('id', $kg)->value('sgizi');
-            if (isset($totalstatusgizi[$statusgizi])) {
-                $totalstatusgizi[$statusgizi]++;
-            } else {
-                $totalstatusgizi[$statusgizi] = 1;
-            }
-        }
-        foreach ($knnlk as $klk => $value) {
-            $statuslk = Dataset::where('id', $klk)->value('skepala');
-            if (isset($totalstatuslk[$statuslk])) {
-                $totalstatuslk[$statuslk]++;
-            } else {
-                $totalstatuslk[$statuslk] = 1;
-            }
-        }
+        $totalstatusberat = $this->getKTerdekat($knnberat, 'sberat');
+        $totalstatustinggi = $this->getKTerdekat($knntinggi, 'stinggi');
+        $totalstatuslk = $this->getKTerdekat($knnlk, 'skepala');
+        $totalstatusgizi = $this->getKTerdekat($knngizi, 'sgizi');
 
         $sberat = collect($totalstatusberat)->search(max($totalstatusberat));
         $stinggi = collect($totalstatustinggi)->search(max($totalstatustinggi));
@@ -340,16 +304,20 @@ class UkurBalitaController extends Controller
             'skepala' => $slkepala,
         ]);
 
-        Dataset::create([
+        $datasetBaru = [
             'usia' => $udb,
             'bb' => $bdb,
             'tb' => $tdb,
             'lk' => $lkdb,
+            'pengukuran' => $pengukuran,
+            'jenis_kelamin' => $jenis_kelamin,
             'sberat' => $sberat,
             'stinggi' => $stinggi,
             'sgizi' => $sgizi,
             'skepala' => $slkepala,
-        ]);
+        ];
+
+        Dataset::create($datasetBaru);
     }
 
     private function customBgGizi($gizi)
@@ -392,5 +360,18 @@ class UkurBalitaController extends Controller
         } else {
             return 'bg-gradient-success text-light';
         }
+    }
+
+    private function getKTerdekat($data, $filter)
+    {
+        foreach ($data as $dt => $value) {
+            $status = Dataset::where('id', $dt)->value($filter);
+            if (isset($totalstatus[$status])) {
+                $totalstatus[$status]++;
+            } else {
+                $totalstatus[$status] = 1;
+            }
+        }
+        return $totalstatus;
     }
 }

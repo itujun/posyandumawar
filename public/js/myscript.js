@@ -192,8 +192,8 @@ function updateTime() {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    const formattedDate = `Hari: ${day}, Tanggal: ${date}-${month}-${year}.`;
-    const formattedTime = ` Jam: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    const formattedDate = `${day}, ${date}-${month}-${year}.`;
+    const formattedTime = ` ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     const dateTimeString = `${formattedDate} ${formattedTime}`;
 
     document.getElementById('real-time-clock').textContent = dateTimeString;

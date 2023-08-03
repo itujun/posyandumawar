@@ -35,7 +35,6 @@ class KnnController extends Controller
         $jarakgizi = [];
         $jaraklk = [];
 
-
         foreach ($query as $key) {
             $jarakberat[$key['id']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['bb'] - $beratDataBaru, 2));
             $jaraktinggi[$key['id']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['tb'] - $tinggiDataBaru, 2));
@@ -90,7 +89,6 @@ class KnnController extends Controller
                 $totalstatuslk[$statuslk] = 1;
             }
         }
-
         return [$totalstatusberat, $totalstatustinggi, $totalstatusgizi, $totalstatuslk, $data[4]];
     }
 
@@ -103,8 +101,6 @@ class KnnController extends Controller
         $sgizi = collect($data[2])->search(max($data[2]));
         $slkepala = collect($data[3])->search(max($data[3]));
 
-        $dataset = collect(Dataset::all())->last();
-
         UkurBalita::where('id_ukur', $data[4])->update([
             'sberat' => $sberat,
             'stinggi' => $stinggi,
@@ -112,12 +108,22 @@ class KnnController extends Controller
             'skepala' => $slkepala,
         ]);
 
-        Dataset::where('id', $dataset['id'])->update([
+        $ukurBalita = UkurBalita::where('id_ukur', $data[4])->first()->toArray();
+
+        $datasetBaru = [
+            'usia' => $ukurBalita['usia_ukur'],
+            'bb' => $ukurBalita['bb_ukur'],
+            'tb' => $ukurBalita['tb_ukur'],
+            'lk' => $ukurBalita['lk_ukur'],
+            'pengukuran' => $ukurBalita['pengukuran'],
+            'jenis_kelamin' => $ukurBalita['jenis_kelamin'],
             'sberat' => $sberat,
             'stinggi' => $stinggi,
             'sgizi' => $sgizi,
             'skepala' => $slkepala,
-        ]);
+        ];
+
+        Dataset::create($datasetBaru);
         // dd([$sberat, $stinggi, $sgizi, $slkepala]);
     }
 }

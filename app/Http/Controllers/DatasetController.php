@@ -46,7 +46,7 @@ class DatasetController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'usia' => 'required|numeric|max:60|min:0|regex:/^[0-60]+$/',
+            'usia' => 'required|numeric|max:60|min:0|regex:/^[0-9]+$/',
             'bb' => 'required|numeric|max:50|min:0',
             'tb' => 'required|numeric|max:150|min:10',
             'lk' => 'required|numeric|max:70|min:0',
@@ -178,7 +178,7 @@ class DatasetController extends Controller
         }
     }
 
-    private function cekKesamaanData($data)
+    public function cekKesamaanData($data)
     {
         $cek = [
             'usia' => $data['usia'],
@@ -203,29 +203,17 @@ class DatasetController extends Controller
             $usia =  $data[$i]->usia;
             $bb =  $data[$i]->bb;
             $tb =  $data[$i]->tb;
+            $lk =  $data[$i]->lk;
+            $jenis_kelamin =  $data[$i]->jenis_kelamin;
 
             if ($usia <= 23) {
                 $pengukuran = 'Telentang';
             } else if ($usia >= 25) {
                 $pengukuran = 'Berdiri';
             } else {
-                $pengukuran = array_rand(['Telentang', 'Berdiri']);
-            }
-
-            $jkarray = ['L', 'P'];
-            $randomIndex = array_rand($jkarray);
-            $jenis_kelamin = $jkarray[$randomIndex];
-
-            if ($jenis_kelamin === 'L') {
-                $lkdslaki = DB::table('lk_u_laki')->where('usia', $usia)->get()->toArray()[0];
-                $min = collect($lkdslaki)['15th'] - 1.5;
-                $max = collect($lkdslaki)['85th'] + 1.5;
-                $lk = rand($min, $max);
-            } else {
-                $lkdspermpuan = DB::table('lk_u_perempuan')->where('usia', $usia)->get()->toArray()[0];
-                $min = collect($lkdspermpuan)['15th'] - 1.5;
-                $max = collect($lkdspermpuan)['85th'] + 1.5;
-                $lk = rand($min, $max);
+                $pilihanUkur = ['Telentang', 'Berdiri'];
+                $indeksUkur = array_rand($pilihanUkur);
+                $pengukuran = $pilihanUkur[$indeksUkur];
             }
 
             $zscoregizi = $this->DatasetM->getZscoreGizi($usia, $bb, $tb, $pengukuran, $jenis_kelamin);
@@ -253,7 +241,7 @@ class DatasetController extends Controller
             $db['skepala'] = $statuslebarkepala;
 
             Dataset::where('id', $id)->update($db);
-            echo 'Sukses update data ke-' . $i . ' <br>';
+            echo 'Sukses update data ke-' . $i + 1 . ' <br>';
         };
     }
 }
