@@ -32,8 +32,9 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('layouts.sidebar')
-
+        @can('admin')
+            @include('layouts.sidebar')
+        @endcan
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 

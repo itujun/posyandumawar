@@ -10,6 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
 {
+
+    // Menambahkan property $redirects untuk mapping route berdasarkan role_id
+    protected $redirects = [
+        1 => RouteServiceProvider::HOME,
+        0 => 'dashboard-user',
+    ];
+
     /**
      * Handle an incoming request.
      *
@@ -21,7 +28,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                // Menambahkan role_id dari user yang terautentikasi
+                $roleId = Auth::guard($guard)->user()->role_id;
+                $redirect = $this->redirects[$roleId] ?? RouteServiceProvider::HOME;
+                return redirect($redirect);
             }
         }
 

@@ -17,10 +17,12 @@ class UkurBalita extends Model
         return $this->belongsTo(Balita::class, 'id_balita', 'id');
     }
 
-    public function getJarakBerat($usia, $bb, $k)
+    public function getJarakBerat($usia, $bb, $k, $jk, $p)
     {
         $query = 'SQRT(POW((usia - ' . $usia . '), 2) + POW((bb - ' . $bb . '), 2))';
-        $res = Dataset::select('id', 'usia', 'bb', 'sberat')
+        $res = Dataset::where('jenis_kelamin', $jk)
+            ->where('pengukuran', $p)
+            ->select('id', 'usia', 'bb', 'sberat')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)
@@ -54,10 +56,11 @@ class UkurBalita extends Model
         return $res;
     }
 
-    public function getJarakLK($usia, $lk, $k)
+    public function getJarakLK($usia, $lk, $k, $jk)
     {
         $query = 'SQRT(POW((usia - ' . $usia . '), 2) + POW((lk - ' . $lk . '), 2))';
-        $res = Dataset::select('id', 'usia', 'lk', 'skepala')
+        $res = Dataset::where('jenis_kelamin', $jk)
+            ->select('id', 'usia', 'lk', 'skepala')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)

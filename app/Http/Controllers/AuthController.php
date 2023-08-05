@@ -38,8 +38,13 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return back()->with('gagal', 'Password salah! Silahkan coba lagi.');
         }
-        $request->session()->regenerate();
         $user = User::where('email', $credentials['email'])->first();
+        if ($user->role_id !== 1) {
+            $request->session()->regenerate();
+            $user = User::where('email', $credentials['email'])->first();
+            return redirect()->intended('dashboard-user')->with('sukses', 'Selamat datang ' . $user->nama);
+        }
+        $request->session()->regenerate();
         return redirect()->intended('dashboard')->with('sukses', 'Selamat datang ' . $user->nama);
     }
 

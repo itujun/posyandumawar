@@ -203,8 +203,22 @@ class DatasetController extends Controller
             $usia =  $data[$i]->usia;
             $bb =  $data[$i]->bb;
             $tb =  $data[$i]->tb;
-            $lk =  $data[$i]->lk;
-            $jenis_kelamin =  $data[$i]->jenis_kelamin;
+
+            $arrayJenisKelamin = ['L', 'P'];
+            $indeksJenisKelamin = array_rand($arrayJenisKelamin);
+            $jenis_kelamin = $arrayJenisKelamin[$indeksJenisKelamin];
+
+            if ($jenis_kelamin === 'L') {
+                $query = collect(DB::table('lk_u_laki')->where('usia', $usia)->first())->toArray();
+                $max = $query['85th'] + 1;
+                $min = $query['15th'] - 1;
+                $lk = rand($min, $max);
+            } else {
+                $query = collect(DB::table('lk_u_perempuan')->where('usia', $usia)->first())->toArray();
+                $max = $query['85th'] + 1;
+                $min = $query['15th'] - 1;
+                $lk = rand($min, $max);
+            }
 
             if ($usia <= 23) {
                 $pengukuran = 'Telentang';

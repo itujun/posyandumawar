@@ -21,10 +21,10 @@ class UkurBalitaController extends Controller
      */
     public function index()
     {
-        // dd(UkurBalita::with('balita')->get()[0]->balita->nama);
+        // dd(UkurBalita::with('balita')->orderBy('id_ukur', 'desc')->get());
         return view('ukurbalita.index', [
             'title' => 'Ukur Balita',
-            'namabalita' => UkurBalita::with('balita')->get()
+            'namabalita' => UkurBalita::with('balita')->orderBy('id_ukur', 'desc')->get()
         ]);
     }
 
@@ -112,9 +112,9 @@ class UkurBalitaController extends Controller
             'saranb' => $this->saranberat($data['sberat']),
             'sarant' => $this->sarantinggi($data['stinggi']),
             'sarang' => $this->sarangizi($data['sgizi']),
-            'berat' => $this->UBm->getJarakBerat($data['usia_ukur'], $data['bb_ukur'], $k),
+            'berat' => $this->UBm->getJarakBerat($data['usia_ukur'], $data['bb_ukur'], $k, $data['jenis_kelamin'], $data['pengukuran']),
             'tinggi' => $this->UBm->getJarakTinggi($data['usia_ukur'], $data['tb_ukur'], $k, $data['jenis_kelamin'], $data['pengukuran']),
-            'lk' => $this->UBm->getJarakLK($data['usia_ukur'], $data['lk_ukur'], $k),
+            'lk' => $this->UBm->getJarakLK($data['usia_ukur'], $data['lk_ukur'], $k, $data['jenis_kelamin'], $data['pengukuran']),
             'gizi' => $this->UBm->getJarakGizi($data['bb_ukur'], $data['tb_ukur'], $k, $data['jenis_kelamin'], $data['pengukuran']),
         ]);
     }
@@ -256,6 +256,17 @@ class UkurBalitaController extends Controller
         }
     }
 
+    public function cekUlang()
+    {
+        $this->klasifikasiUlang(1);
+        // $allDataUkurBalita = UkurBalita::all();
+        // $countDataUkurBalita = UkurBalita::count();
+        // for ($i = 0; $i < $countDataUkurBalita; $i++) {
+        //     $idCek = $allDataUkurBalita[$i]->id_ukur;
+        //     $this->klasifikasiUlang($idCek);
+        //     echo 'Sukses ' . $i + 1 . ' <br>';
+        // }
+    }
     private function klasifikasiUlang($id)
     {
         $dataDiubah = UkurBalita::where('id_ukur', $id)->first();
@@ -266,7 +277,8 @@ class UkurBalitaController extends Controller
         $pengukuran = $dataDiubah->pengukuran;
         $jenis_kelamin = $dataDiubah->jenis_kelamin;
 
-        $query = Dataset::all()->toArray();
+        $query = Dataset::where('usia', $udb)->where('jenis_kelamin', $jenis_kelamin)->where('pengukuran', $pengukuran)->get()->toArray();
+        $queryGizi = Dataset::where('jenis_kelamin', $jenis_kelamin)->where('pengukuran', $pengukuran)->get()->toArray();
 
         $jarakberat = [];
         $jaraktinggi = [];
@@ -276,10 +288,11 @@ class UkurBalitaController extends Controller
         foreach ($query as $key) {
             $jarakberat[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['bb'] - $bdb, 2));
             $jaraktinggi[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['tb'] - $tdb, 2));
-            $jarakgizi[$key['id']] = sqrt(pow($key['bb'] - $bdb, 2) + pow($key['tb'] - $tdb, 2));
             $jaraklk[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['lk'] - $lkdb, 2));
         }
-
+        foreach ($queryGizi as $key) {
+            $jarakgizi[$key['id']] = sqrt(pow($key['bb'] - $bdb, 2) + pow($key['tb'] - $tdb, 2));
+        }
         $k = 5;
 
         $knnberat = collect($jarakberat)->sort()->take($k);
@@ -296,7 +309,6 @@ class UkurBalitaController extends Controller
         $stinggi = collect($totalstatustinggi)->search(max($totalstatustinggi));
         $sgizi = collect($totalstatusgizi)->search(max($totalstatusgizi));
         $slkepala = collect($totalstatuslk)->search(max($totalstatuslk));
-
         UkurBalita::where('id_ukur', $id)->update([
             'sberat' => $sberat,
             'stinggi' => $stinggi,
@@ -317,7 +329,7 @@ class UkurBalitaController extends Controller
             'skepala' => $slkepala,
         ];
 
-        Dataset::create($datasetBaru);
+        // Dataset::create($datasetBaru);
     }
 
     private function customBgGizi($gizi)

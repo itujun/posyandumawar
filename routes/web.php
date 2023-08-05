@@ -4,9 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BalitaController;
 use App\Http\Controllers\DatasetController;
 use App\Http\Controllers\UkurBalitaController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KnnController;
-use App\Models\UkurBalita;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +23,14 @@ Route::get('/', [AuthController::class, 'index'])->middleware('guest')->name('lo
 Route::post('/masuk', [AuthController::class, 'masuk'])->middleware('guest');
 Route::post('/keluar', [AuthController::class, 'keluar'])->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware('isAdmin');
+Route::get('/dashboard-user', [UserController::class, 'index'])->middleware('auth');
 
-Route::resource('/balita', BalitaController::class)->middleware('auth');
-Route::resource('/dataset', DatasetController::class)->middleware('auth');
-Route::resource('/ukur-balita', UkurBalitaController::class)->middleware('auth');
+Route::resource('/balita', BalitaController::class)->middleware('isAdmin');
+Route::resource('/dataset', DatasetController::class)->middleware('isAdmin');
+Route::resource('/ukur-balita', UkurBalitaController::class)->middleware('isAdmin');
 
-Route::post('/hitungusia', [UkurBalitaController::class, 'hitungusia'])->name('hitungusia')->middleware('auth');
-Route::post('/getjk', [UkurBalitaController::class, 'getJenisKelamin'])->name('getjk')->middleware('auth');
+Route::post('/hitungusia', [UkurBalitaController::class, 'hitungusia'])->name('hitungusia')->middleware('isAdmin');
+Route::post('/getjk', [UkurBalitaController::class, 'getJenisKelamin'])->name('getjk')->middleware('isAdmin');
 Route::get('/cek-cuy', [DatasetController::class, 'cekUlang'])->middleware('auth');
+Route::get('/cekin', [UkurBalitaController::class, 'cekUlang'])->middleware('auth');
