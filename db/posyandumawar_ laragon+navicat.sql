@@ -3,40 +3,832 @@
 
  Source Server         : Laragon
  Source Server Type    : MySQL
- Source Server Version : 80030 (8.0.30)
+ Source Server Version : 100427 (10.4.27-MariaDB)
  Source Host           : localhost:3306
  Source Schema         : posyandumawar_
 
  Target Server Type    : MySQL
- Target Server Version : 80030 (8.0.30)
+ Target Server Version : 100427 (10.4.27-MariaDB)
  File Encoding         : 65001
 
- Date: 19/08/2023 21:00:44
+ Date: 04/09/2023 11:54:27
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Table structure for balitas
+-- ----------------------------
+DROP TABLE IF EXISTS `balitas`;
+CREATE TABLE `balitas`  (
+  `id_balita` int NOT NULL AUTO_INCREMENT,
+  `nik` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `nama` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `jenis_kelamin` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `nama_ibu` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `alamat` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `updated_at` timestamp NULL DEFAULT current_timestamp,
+  `created_at` timestamp NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`id_balita`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of balitas
+-- ----------------------------
+INSERT INTO `balitas` VALUES (28, '3578144812180002', 'ANANDA EFREN', 'P', '2018-08-12', 'EKA', 'BISMA 4/3', '2023-07-20 18:45:41', '2023-06-29 03:36:38');
+INSERT INTO `balitas` VALUES (29, '3578145704190001', 'ERLINA', 'P', '2019-04-17', 'KOTIMAH', 'BISMA 4/35', '2023-07-20 18:45:41', '2023-06-29 03:37:51');
+INSERT INTO `balitas` VALUES (30, '3578146112190001', 'KARTIKA', 'P', '2019-12-21', 'ALVI', 'BISMA 4/4', '2023-07-20 18:45:41', '2023-06-29 03:38:27');
+INSERT INTO `balitas` VALUES (31, '3527075804900002', 'SERLY', 'P', '2020-03-31', 'SIYAMAH', 'BISMA 5/7', '2023-07-20 18:45:41', '2023-06-29 03:39:05');
+INSERT INTO `balitas` VALUES (32, '3578141906210002', 'AHMAD MAULANA', 'L', '2021-06-19', 'FITRA', 'BISMA 4/34', '2023-07-20 18:45:41', '2023-06-29 03:39:59');
+INSERT INTO `balitas` VALUES (33, '357813150220005', 'DAVA', 'L', '2020-02-15', 'YUNITA', 'BISMA 5A/40', '2023-07-20 18:45:41', '2023-06-29 03:40:35');
+INSERT INTO `balitas` VALUES (34, '3578144111210006', 'TSABITSA AFSENA', 'P', '2021-01-11', 'CITRA', 'BISMA 4/10', '2023-07-20 18:45:41', '2023-06-29 03:41:18');
+INSERT INTO `balitas` VALUES (35, '3578140808210001', 'AKSA ALKAURISKI', 'L', '2021-08-08', 'MEILINDA', 'BISMA 4/1', '2023-07-20 18:45:41', '2023-06-29 03:42:16');
+INSERT INTO `balitas` VALUES (36, '3578145905200001', 'AISYAH', 'P', '2020-11-27', 'TUTIK', 'RAYA BIBIS NO.6', '2023-07-20 18:45:41', '2023-06-29 03:43:02');
+INSERT INTO `balitas` VALUES (37, '3578152711200001', 'MOCH. ELZIO', 'L', '2020-11-27', 'VITA', 'BISMA 4/12', '2023-07-20 18:45:41', '2023-06-29 03:43:35');
+INSERT INTO `balitas` VALUES (38, '3578141206210001', 'MOCH. FARIS. S', 'L', '2021-12-06', 'LUKI OVITASARI', 'BISMA 4/4', '2023-07-20 18:45:41', '2023-06-29 03:44:28');
+INSERT INTO `balitas` VALUES (40, '3578143001200002', 'ZAIRENO', 'L', '2020-01-30', 'DIANA', 'BISMA 4/8', '2023-07-20 18:45:41', '2023-06-30 10:56:15');
+INSERT INTO `balitas` VALUES (41, '3578144610200001', 'DALILAH', 'P', '2020-06-10', 'NASAUL HASANAH', 'BISMA 2/56', '2023-07-20 18:45:41', '2023-06-30 10:57:42');
+INSERT INTO `balitas` VALUES (42, '3578140911210002', 'FAHRIZAL', 'L', '2021-09-11', 'TRI HIDAYATIN', 'BISMA 2/72', '2023-07-20 18:45:41', '2023-06-30 10:58:42');
+INSERT INTO `balitas` VALUES (43, '3578143001210002', 'ALFAREZY KALANDRA', 'L', '2021-01-30', 'RENI', 'BISMA 3/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (44, '357813010210004', 'M. RASDAN', 'P', '2021-10-30', 'PUTRI', 'BISMA 4/11', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (45, '3502056807210001', 'ARUMI', 'P', '2021-07-28', 'ATIK', 'BISMA 2/43', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (46, '3578144903210001', 'ZIVARA ALNAMIRA', 'P', '2021-09-03', 'ULFA KURNIA', 'BISMA 3/19', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (47, '3578141007180001', 'EDELEO FAREL', 'L', '2018-10-07', 'RIRIN', 'BISMA 5A/62', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (48, '3578141608190002', 'GALIH', 'L', '2019-06-16', 'NUR AFIFAH', 'RAYA BIBIS NO13', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (49, '3578141704210003', 'RAMADHIKA GUIVANO', 'L', '2021-04-17', 'ANGELIKA JURIKE', 'RAYA BIBIS NO 6', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (50, '3578142602190002', 'M. REYHAN', 'L', '2019-02-26', 'RATNA', 'BISMA 2/39', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (51, '357814451021', 'ARSILA', 'P', '2021-10-05', 'ALM', 'BISMA 5', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (52, '3578146904190003', 'ALZHEA', 'P', '2019-04-28', 'VETTI', 'BISMA 5A/61', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (53, '3578142601220001', 'ADSKA', 'L', '2022-01-26', 'YUNNA', 'BISMA 5A/47', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (54, '3578144908910001', 'ALESHA', 'P', '2019-08-09', 'VETTI', 'BISMA 5A/61', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (55, '3578140109210001', 'REYHAN', 'L', '2021-01-09', 'TANTRI', 'BISMA 5A/71', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (56, '3578140207210003', 'AMR SA\'AD', 'L', '2021-02-07', 'LAILATUS', 'BISMA 5A/503', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (57, '3578142903210001', 'RAFKA', 'L', '2021-03-29', 'YUNIRO', 'BISMA 5A/67', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (58, '3578146212200001', 'MIYAKO', 'P', '2020-12-22', 'FERA', 'BISMA 5A/61A', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (59, '3510210905190004', 'RAFFA', 'L', '2019-09-05', 'LULU', 'BISMA 3/20', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (60, '3578141509180001', 'LANGGA', 'P', '2019-05-21', 'ULFA', 'BISMA 3A/4', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (61, '3578316105190001', 'AFIQAH', 'P', '2019-05-21', 'FAIZZA', 'BISMA NO 3', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (62, '3578140102200001', 'FEBRIAN', 'L', '2020-10-02', 'NABILA', 'BISMA 3A/9', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (63, '3578146002210001', 'SHERLYA KANIA', 'P', '2021-02-20', 'KUSWATI', 'BISMA 3A/16', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (64, '3526032102210001', 'MUHAMMAD RAFA', 'L', '2021-02-21', 'SYAMSIYAH', 'BISMA 3/32', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (65, '3578146812210002', 'JIHAN NINDY PITALOKA', 'P', '2021-12-28', 'LAILATUL', 'BISMA 3/14A', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (66, '3578145906180004', 'QIANA', 'P', '2018-06-19', 'FIRA', 'BISMA 3/2', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (67, '352704640921', 'TIARA UFAIRAH', 'P', '2021-09-24', 'ROHAYYAH', 'BISMA NO 4', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (68, '3578142308190001', 'GHAVINDRA', 'L', '2019-08-23', 'DESI', 'BISMA 3/4', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (69, '3578066002920006', 'SHELA', 'P', '2020-03-24', 'RENI', 'BISMA 3/9', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (70, '3578145301200001', 'ARVANI', 'P', '2020-01-13', 'AYU', 'BISMA 3/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (71, '3578146602200001', 'DANISHA', 'P', '2020-02-16', 'DWI', 'BISMA 3/21A', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (72, '3578141603200002', 'VICO', 'L', '2020-03-16', 'HAMAMI', 'BISMA 5/70', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (73, '3578146602200001', 'DELISHA', 'P', '2020-02-26', 'DWI', 'BISMA 3/21A', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (74, '3578140305200001', 'ALFARIZI', 'L', '2019-03-05', 'NUR', 'BISMA 3/14A', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (75, '3505114307930005', 'SIROJUDDIN', 'L', '2020-02-22', 'MAYA', 'BISMA 3/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (76, '3526155303800002', 'SYAMSUL', 'L', '2020-09-28', 'MASRUROH', 'BISMA 3/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (77, '3578142911170001', 'ZAMZAM', 'L', '2017-11-29', 'YUDHA', 'BISMA 3/4', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (78, '357814710200001', 'BILQIS', 'P', '2020-10-27', 'NUR', 'BISMA 3/9', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (79, '351617541121002', 'ALMEERA SABHIRA NAZEEFAH', 'P', '2021-11-14', 'YENI', 'BISMA 3A/11', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (80, '3578144910210001', 'ZAKIA DIRA CAHYONO', 'P', '2021-09-11', 'DESI', 'BISMA 3A/1B', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (81, '3517106810860001', 'AKSA GANDHI', 'L', '2021-08-27', 'NUR KHOLILAH', 'BISMA 3A/1B', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (82, '3524266402830003', 'ZASKIA ANNASYA FAYRA', 'P', '2021-12-26', 'KUSROTUL', 'BISMA 3/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (83, '3517063001210001', 'ARDAN ARDIANSYAH', 'L', '2021-01-30', 'SITI HORIROH', 'BISMA 3/20', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (84, '3578142408190001', 'ZAVIYAR MANNAF ABD', 'L', '2019-08-24', 'AIKA F.L', 'BISMA 5/26', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (85, '3578142003', 'AL FATIH HARZAN KURNIAWAN', 'L', '2022-03-20', 'ZAENAB', 'BISMA 5A/66', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (86, '3578141607220005', 'BINTANG DIRGANTARA', 'L', '2022-07-16', 'ARNETA', 'BISMA 5A/67', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (87, '3578140109220002', 'M. ZIDAN ALFATIH', 'L', '2022-09-01', 'RISKA', 'BISMA 2/43', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (88, '3578316606220001', 'CEISYA', 'P', '2022-06-26', 'FIKA', 'BISMA 5/35', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (89, '3578141701190002', 'ARKA', 'L', '2019-01-17', 'DEWI', 'BISMA 5/30', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (90, '3578146601210001', 'ALDERA', 'P', '2021-01-26', 'DEWI', 'BISMA 5/30', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (91, '3578145609200000', 'FIRZA', 'P', '2020-09-16', 'FITROTUL', 'BISMA 5A/57', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (92, '3508053103210002', 'HAIKAL VENANTA', 'L', '2021-03-31', 'KHUSNUL', 'BISMA 3/1', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (93, '3578164508190', 'AZIZAH', 'P', '2019-08-05', 'DWI LESTARI', 'BISMA 3/22', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (94, '3578140907220004', 'ALDRICK', 'L', '2022-07-09', 'I\'IN SOLIKAN', 'BISMA 5/17', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (95, '3578143012180001', 'M. FERDIANTO', 'L', '2018-12-30', 'ERNAWATI', 'BISMA 5A/71', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (96, '352225480722', 'SHAQILA', 'P', '2022-07-08', 'PUJI LESTARI', 'BISMA 2/35', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (97, '357814610822000', 'YVADNA MAULANA ZAYD', 'L', '2022-08-21', 'DEVI', 'BISMA 3/4', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (98, '5272025009180001', 'AYU SHIFANA', 'P', '2018-10-09', 'HAIRUNAS', 'BISMA 4/9', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (99, '3578141909180002', 'SEPTIAN', 'L', '2018-09-19', 'JASMI', 'BISMA 4/21', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (100, '3578140903180001', 'ZAKY', 'L', '2018-09-03', 'SUNARTI', 'BISMA 4/21', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (101, '3578146509180003', 'SHAFIA', 'P', '2018-09-25', 'PUTRI', 'BISMA 4/11', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (102, '3521052803180001', 'NASRIL', 'L', '2016-03-28', 'EKA W', 'BISMA 5/9', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (103, '3505160509180002', 'ALFREDO', 'L', '2018-05-09', 'NOVITA', 'BISMA 5/2', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (104, '3578084209180002', 'CLEMIRA', 'P', '2018-02-09', 'PUTRI', 'BISMA 4/10', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (105, '3578146611210001', 'AMIRA', 'P', '2021-11-26', 'IRMA', 'BISMA 3A/11', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (106, '3507062309190001', 'ABIZARD', 'L', '2019-09-23', 'LIVIA', 'BISMA 3/20', '2023-07-20 18:45:41', '2023-06-30 11:18:31');
+INSERT INTO `balitas` VALUES (116, '3578141234560001', 'VEAN', 'L', '2023-01-30', 'EKA', 'BISMA 4/3', '2023-07-20 18:45:41', '2023-07-06 18:47:53');
+
+-- ----------------------------
+-- Table structure for bb_tb_laki
+-- ----------------------------
+DROP TABLE IF EXISTS `bb_tb_laki`;
+CREATE TABLE `bb_tb_laki`  (
+  `id_bbtb_l` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `tb` decimal(10, 1) NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_bbtb_l`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 244 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of bb_tb_laki
+-- ----------------------------
+INSERT INTO `bb_tb_laki` VALUES (1, 1, 45.0, 1.9, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3);
+INSERT INTO `bb_tb_laki` VALUES (2, 1, 45.5, 1.9, 2.1, 2.3, 2.5, 2.8, 3.1, 3.4);
+INSERT INTO `bb_tb_laki` VALUES (3, 1, 46.0, 2.0, 2.2, 2.4, 2.6, 2.9, 3.1, 3.5);
+INSERT INTO `bb_tb_laki` VALUES (4, 1, 46.5, 2.1, 2.3, 2.5, 2.7, 3.0, 3.2, 3.6);
+INSERT INTO `bb_tb_laki` VALUES (5, 1, 47.0, 2.1, 2.3, 2.5, 2.8, 3.0, 3.3, 3.7);
+INSERT INTO `bb_tb_laki` VALUES (6, 1, 47.5, 2.2, 2.4, 2.6, 2.9, 3.1, 3.4, 3.8);
+INSERT INTO `bb_tb_laki` VALUES (7, 1, 48.0, 2.3, 2.5, 2.7, 2.9, 3.2, 3.6, 3.9);
+INSERT INTO `bb_tb_laki` VALUES (8, 1, 48.5, 2.3, 2.6, 2.8, 3.0, 3.3, 3.7, 4.0);
+INSERT INTO `bb_tb_laki` VALUES (9, 1, 49.0, 2.4, 2.6, 2.9, 3.1, 3.4, 3.8, 4.2);
+INSERT INTO `bb_tb_laki` VALUES (10, 1, 49.5, 2.5, 2.7, 3.0, 3.2, 3.5, 3.9, 4.3);
+INSERT INTO `bb_tb_laki` VALUES (11, 1, 50.0, 2.6, 2.8, 3.0, 3.3, 3.6, 4.0, 4.4);
+INSERT INTO `bb_tb_laki` VALUES (12, 1, 50.5, 2.7, 2.9, 3.1, 3.4, 3.8, 4.1, 4.5);
+INSERT INTO `bb_tb_laki` VALUES (13, 1, 51.0, 2.7, 3.0, 3.2, 3.5, 3.9, 4.2, 4.7);
+INSERT INTO `bb_tb_laki` VALUES (14, 1, 51.5, 2.8, 3.1, 3.3, 3.6, 4.0, 4.4, 4.8);
+INSERT INTO `bb_tb_laki` VALUES (15, 1, 52.0, 2.9, 3.2, 3.5, 3.8, 4.1, 4.5, 5.0);
+INSERT INTO `bb_tb_laki` VALUES (16, 1, 52.5, 3.0, 3.3, 3.6, 3.9, 4.2, 4.6, 5.1);
+INSERT INTO `bb_tb_laki` VALUES (17, 1, 53.0, 3.1, 3.4, 3.7, 4.0, 4.4, 4.8, 5.3);
+INSERT INTO `bb_tb_laki` VALUES (18, 1, 53.5, 3.2, 3.5, 3.8, 4.1, 4.5, 4.9, 5.4);
+INSERT INTO `bb_tb_laki` VALUES (19, 1, 54.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6);
+INSERT INTO `bb_tb_laki` VALUES (20, 1, 54.5, 3.4, 3.7, 4.0, 4.4, 4.8, 5.3, 5.8);
+INSERT INTO `bb_tb_laki` VALUES (21, 1, 55.0, 3.6, 3.8, 4.2, 4.5, 5.0, 5.4, 6.0);
+INSERT INTO `bb_tb_laki` VALUES (22, 1, 55.5, 3.7, 4.0, 4.3, 4.7, 5.1, 5.6, 6.1);
+INSERT INTO `bb_tb_laki` VALUES (23, 1, 56.0, 3.8, 4.1, 4.4, 4.8, 5.3, 5.8, 6.3);
+INSERT INTO `bb_tb_laki` VALUES (24, 1, 56.5, 3.9, 4.2, 4.6, 5.0, 5.4, 5.9, 6.5);
+INSERT INTO `bb_tb_laki` VALUES (25, 1, 57.0, 4.0, 4.3, 4.7, 5.1, 5.6, 6.1, 6.7);
+INSERT INTO `bb_tb_laki` VALUES (26, 1, 57.5, 4.1, 4.5, 4.9, 5.3, 5.7, 6.3, 6.9);
+INSERT INTO `bb_tb_laki` VALUES (27, 1, 58.0, 4.3, 4.6, 5.0, 5.4, 5.9, 6.4, 7.1);
+INSERT INTO `bb_tb_laki` VALUES (28, 1, 58.5, 4.4, 4.7, 5.1, 5.6, 6.1, 6.6, 7.2);
+INSERT INTO `bb_tb_laki` VALUES (29, 1, 59.0, 4.5, 4.8, 5.3, 5.7, 6.2, 6.8, 7.4);
+INSERT INTO `bb_tb_laki` VALUES (30, 1, 59.5, 4.6, 5.0, 5.4, 5.9, 6.4, 7.0, 7.6);
+INSERT INTO `bb_tb_laki` VALUES (31, 1, 60.0, 4.7, 5.1, 5.5, 6.0, 6.5, 7.1, 7.8);
+INSERT INTO `bb_tb_laki` VALUES (32, 1, 60.5, 4.8, 5.2, 5.6, 6.1, 6.7, 7.3, 8.0);
+INSERT INTO `bb_tb_laki` VALUES (33, 1, 61.0, 4.9, 5.3, 5.8, 6.3, 6.8, 7.4, 8.1);
+INSERT INTO `bb_tb_laki` VALUES (34, 1, 61.5, 5.0, 5.4, 5.9, 6.4, 7.0, 7.6, 8.3);
+INSERT INTO `bb_tb_laki` VALUES (35, 1, 62.0, 5.1, 5.6, 6.0, 6.5, 7.1, 7.7, 8.5);
+INSERT INTO `bb_tb_laki` VALUES (36, 1, 62.5, 5.2, 5.7, 6.1, 6.7, 7.2, 7.9, 8.6);
+INSERT INTO `bb_tb_laki` VALUES (37, 1, 63.0, 5.3, 5.8, 6.2, 6.8, 7.4, 8.0, 8.8);
+INSERT INTO `bb_tb_laki` VALUES (38, 1, 63.5, 5.4, 5.9, 6.4, 6.9, 7.5, 8.2, 8.9);
+INSERT INTO `bb_tb_laki` VALUES (39, 1, 64.0, 5.5, 6.0, 6.5, 7.0, 7.6, 8.3, 9.1);
+INSERT INTO `bb_tb_laki` VALUES (40, 1, 64.5, 5.6, 6.1, 6.6, 7.1, 7.8, 8.5, 9.3);
+INSERT INTO `bb_tb_laki` VALUES (41, 1, 65.0, 5.7, 6.2, 6.7, 7.3, 7.9, 8.6, 9.4);
+INSERT INTO `bb_tb_laki` VALUES (42, 1, 65.5, 5.8, 6.3, 6.8, 7.4, 8.0, 8.7, 9.6);
+INSERT INTO `bb_tb_laki` VALUES (43, 1, 66.0, 5.9, 6.4, 6.9, 7.5, 8.2, 8.9, 9.7);
+INSERT INTO `bb_tb_laki` VALUES (44, 1, 66.5, 6.0, 6.5, 7.0, 7.6, 8.3, 9.0, 9.9);
+INSERT INTO `bb_tb_laki` VALUES (45, 1, 67.0, 6.1, 6.6, 7.1, 7.7, 8.4, 9.2, 10.0);
+INSERT INTO `bb_tb_laki` VALUES (46, 1, 67.5, 6.2, 6.7, 7.2, 7.9, 8.5, 9.3, 10.2);
+INSERT INTO `bb_tb_laki` VALUES (47, 1, 68.0, 6.3, 6.8, 7.3, 8.0, 8.7, 9.4, 10.3);
+INSERT INTO `bb_tb_laki` VALUES (48, 1, 68.5, 6.4, 6.9, 7.5, 8.1, 8.8, 9.6, 10.5);
+INSERT INTO `bb_tb_laki` VALUES (49, 1, 69.0, 6.5, 7.0, 7.6, 8.2, 8.9, 9.7, 10.6);
+INSERT INTO `bb_tb_laki` VALUES (50, 1, 69.5, 6.6, 7.1, 7.7, 8.3, 9.0, 9.8, 10.8);
+INSERT INTO `bb_tb_laki` VALUES (51, 1, 70.0, 6.6, 7.2, 7.8, 8.4, 9.2, 10.0, 10.9);
+INSERT INTO `bb_tb_laki` VALUES (52, 1, 70.5, 6.7, 7.3, 7.9, 8.5, 9.3, 10.1, 11.1);
+INSERT INTO `bb_tb_laki` VALUES (53, 1, 71.0, 6.8, 7.4, 8.0, 8.6, 9.4, 10.2, 11.2);
+INSERT INTO `bb_tb_laki` VALUES (54, 1, 71.5, 6.9, 7.5, 8.1, 8.8, 9.5, 10.4, 11.3);
+INSERT INTO `bb_tb_laki` VALUES (55, 1, 72.0, 7.0, 7.6, 8.2, 8.9, 9.6, 10.5, 11.5);
+INSERT INTO `bb_tb_laki` VALUES (56, 1, 72.5, 7.1, 7.6, 8.3, 9.0, 9.8, 10.6, 11.6);
+INSERT INTO `bb_tb_laki` VALUES (57, 1, 73.0, 7.2, 7.7, 8.4, 9.1, 9.9, 10.8, 11.8);
+INSERT INTO `bb_tb_laki` VALUES (58, 1, 73.5, 7.2, 7.8, 8.5, 9.2, 10.0, 10.9, 11.9);
+INSERT INTO `bb_tb_laki` VALUES (59, 1, 74.0, 7.3, 7.9, 8.6, 9.3, 10.1, 11.0, 12.1);
+INSERT INTO `bb_tb_laki` VALUES (60, 1, 74.5, 7.4, 8.0, 8.7, 9.4, 10.2, 11.2, 12.2);
+INSERT INTO `bb_tb_laki` VALUES (61, 1, 75.0, 7.5, 8.1, 8.8, 9.5, 10.3, 11.3, 12.3);
+INSERT INTO `bb_tb_laki` VALUES (62, 1, 75.5, 7.6, 8.2, 8.8, 9.6, 10.4, 11.4, 12.5);
+INSERT INTO `bb_tb_laki` VALUES (63, 1, 76.0, 7.6, 8.3, 8.9, 9.7, 10.6, 11.5, 12.6);
+INSERT INTO `bb_tb_laki` VALUES (64, 1, 76.5, 7.7, 8.3, 9.0, 9.8, 10.7, 11.6, 12.7);
+INSERT INTO `bb_tb_laki` VALUES (65, 1, 77.0, 7.8, 8.4, 9.1, 9.9, 10.8, 11.7, 12.8);
+INSERT INTO `bb_tb_laki` VALUES (66, 1, 77.5, 7.9, 8.5, 9.2, 10.0, 10.9, 11.9, 13.0);
+INSERT INTO `bb_tb_laki` VALUES (67, 1, 78.0, 7.9, 8.6, 9.3, 10.1, 11.0, 12.0, 13.1);
+INSERT INTO `bb_tb_laki` VALUES (68, 1, 78.5, 8.0, 8.7, 9.4, 10.2, 11.1, 12.1, 13.2);
+INSERT INTO `bb_tb_laki` VALUES (69, 1, 79.0, 8.1, 8.7, 9.5, 10.3, 11.2, 12.2, 13.3);
+INSERT INTO `bb_tb_laki` VALUES (70, 1, 79.5, 8.2, 8.8, 9.5, 10.4, 11.3, 12.3, 13.4);
+INSERT INTO `bb_tb_laki` VALUES (71, 1, 80.0, 8.2, 8.9, 9.6, 10.4, 11.4, 12.4, 13.6);
+INSERT INTO `bb_tb_laki` VALUES (72, 1, 80.5, 8.3, 9.0, 9.7, 10.5, 11.5, 12.5, 13.7);
+INSERT INTO `bb_tb_laki` VALUES (73, 1, 81.0, 8.4, 9.1, 9.8, 10.6, 11.6, 12.6, 13.8);
+INSERT INTO `bb_tb_laki` VALUES (74, 1, 81.5, 8.5, 9.1, 9.9, 10.7, 11.7, 12.7, 13.9);
+INSERT INTO `bb_tb_laki` VALUES (75, 1, 82.0, 8.5, 9.2, 10.0, 10.8, 11.8, 12.8, 14.0);
+INSERT INTO `bb_tb_laki` VALUES (76, 1, 82.5, 8.6, 9.3, 10.1, 10.9, 11.9, 13.0, 14.2);
+INSERT INTO `bb_tb_laki` VALUES (77, 1, 83.0, 8.7, 9.4, 10.2, 11.0, 12.0, 13.1, 14.3);
+INSERT INTO `bb_tb_laki` VALUES (78, 1, 83.5, 8.8, 9.5, 10.3, 11.2, 12.1, 13.2, 14.4);
+INSERT INTO `bb_tb_laki` VALUES (79, 1, 84.0, 8.9, 9.6, 10.4, 11.3, 12.2, 13.3, 14.6);
+INSERT INTO `bb_tb_laki` VALUES (80, 1, 84.5, 9.0, 9.7, 10.5, 11.4, 12.4, 13.5, 14.7);
+INSERT INTO `bb_tb_laki` VALUES (81, 1, 85.0, 9.1, 9.8, 10.6, 11.5, 12.5, 13.6, 14.9);
+INSERT INTO `bb_tb_laki` VALUES (82, 1, 85.5, 9.2, 9.9, 10.7, 11.6, 12.6, 13.7, 15.0);
+INSERT INTO `bb_tb_laki` VALUES (83, 1, 86.0, 9.3, 10.0, 10.8, 11.7, 12.8, 13.9, 15.2);
+INSERT INTO `bb_tb_laki` VALUES (84, 1, 86.5, 9.4, 10.1, 11.0, 11.9, 12.9, 14.0, 15.3);
+INSERT INTO `bb_tb_laki` VALUES (85, 1, 87.0, 9.5, 10.2, 11.1, 12.0, 13.0, 14.2, 15.5);
+INSERT INTO `bb_tb_laki` VALUES (86, 1, 87.5, 9.6, 10.4, 11.2, 12.1, 13.2, 14.3, 15.6);
+INSERT INTO `bb_tb_laki` VALUES (87, 1, 88.0, 9.7, 10.5, 11.3, 12.2, 13.3, 14.5, 15.8);
+INSERT INTO `bb_tb_laki` VALUES (88, 1, 88.5, 9.8, 10.6, 11.4, 12.4, 13.4, 14.6, 15.9);
+INSERT INTO `bb_tb_laki` VALUES (89, 1, 89.0, 9.9, 10.7, 11.5, 12.5, 13.5, 14.7, 16.1);
+INSERT INTO `bb_tb_laki` VALUES (90, 1, 89.5, 10.0, 10.8, 11.6, 12.6, 13.7, 14.9, 16.2);
+INSERT INTO `bb_tb_laki` VALUES (91, 1, 90.0, 10.1, 10.9, 11.8, 12.7, 13.8, 15.0, 16.4);
+INSERT INTO `bb_tb_laki` VALUES (92, 1, 90.5, 10.2, 11.0, 11.9, 12.8, 13.9, 15.1, 16.5);
+INSERT INTO `bb_tb_laki` VALUES (93, 1, 91.0, 10.3, 11.1, 12.0, 13.0, 14.1, 15.3, 16.7);
+INSERT INTO `bb_tb_laki` VALUES (94, 1, 91.5, 10.4, 11.2, 12.1, 13.1, 14.2, 15.4, 16.8);
+INSERT INTO `bb_tb_laki` VALUES (95, 1, 92.0, 10.5, 11.3, 12.2, 13.2, 14.3, 15.6, 17.0);
+INSERT INTO `bb_tb_laki` VALUES (96, 1, 92.5, 10.6, 11.4, 12.3, 13.3, 14.4, 15.7, 17.1);
+INSERT INTO `bb_tb_laki` VALUES (97, 1, 93.0, 10.7, 11.5, 12.4, 13.4, 14.6, 15.8, 17.3);
+INSERT INTO `bb_tb_laki` VALUES (98, 1, 93.5, 10.7, 11.6, 12.5, 13.5, 14.7, 16.0, 17.4);
+INSERT INTO `bb_tb_laki` VALUES (99, 1, 94.0, 10.8, 11.7, 12.6, 13.7, 14.8, 16.1, 17.6);
+INSERT INTO `bb_tb_laki` VALUES (100, 1, 94.5, 10.9, 11.8, 12.7, 13.8, 14.9, 16.3, 17.7);
+INSERT INTO `bb_tb_laki` VALUES (101, 1, 95.0, 11.0, 11.9, 12.8, 13.9, 15.1, 16.4, 17.9);
+INSERT INTO `bb_tb_laki` VALUES (102, 1, 95.5, 11.1, 12.0, 12.9, 14.0, 15.2, 16.5, 18.0);
+INSERT INTO `bb_tb_laki` VALUES (103, 1, 96.0, 11.2, 12.1, 13.1, 14.1, 15.3, 16.7, 18.2);
+INSERT INTO `bb_tb_laki` VALUES (104, 1, 96.5, 11.3, 12.2, 13.2, 14.3, 15.5, 16.8, 18.4);
+INSERT INTO `bb_tb_laki` VALUES (105, 1, 97.0, 11.4, 12.3, 13.3, 14.4, 15.6, 17.0, 18.5);
+INSERT INTO `bb_tb_laki` VALUES (106, 1, 97.5, 11.5, 12.4, 13.4, 14.5, 15.7, 17.1, 18.7);
+INSERT INTO `bb_tb_laki` VALUES (107, 1, 98.0, 11.6, 12.5, 13.5, 14.6, 15.9, 17.3, 18.9);
+INSERT INTO `bb_tb_laki` VALUES (108, 1, 98.5, 11.7, 12.6, 13.6, 14.8, 16.0, 17.5, 19.1);
+INSERT INTO `bb_tb_laki` VALUES (109, 1, 99.0, 11.8, 12.7, 13.7, 14.9, 16.2, 17.6, 19.2);
+INSERT INTO `bb_tb_laki` VALUES (110, 1, 99.5, 11.9, 12.8, 13.9, 15.0, 16.3, 17.8, 19.4);
+INSERT INTO `bb_tb_laki` VALUES (111, 1, 100.0, 12.0, 12.9, 14.0, 15.2, 16.5, 18.0, 19.6);
+INSERT INTO `bb_tb_laki` VALUES (112, 1, 100.5, 12.1, 13.0, 14.1, 15.3, 16.6, 18.1, 19.8);
+INSERT INTO `bb_tb_laki` VALUES (113, 1, 101.0, 12.2, 13.2, 14.2, 15.4, 16.8, 18.3, 20.0);
+INSERT INTO `bb_tb_laki` VALUES (114, 1, 101.5, 12.3, 13.3, 14.4, 15.6, 16.9, 18.5, 20.2);
+INSERT INTO `bb_tb_laki` VALUES (115, 1, 102.0, 12.4, 13.4, 14.5, 15.7, 17.1, 18.7, 20.4);
+INSERT INTO `bb_tb_laki` VALUES (116, 1, 102.5, 12.5, 13.5, 14.6, 15.9, 17.3, 18.8, 20.6);
+INSERT INTO `bb_tb_laki` VALUES (117, 1, 103.0, 12.6, 13.6, 14.8, 16.0, 17.4, 19.0, 20.8);
+INSERT INTO `bb_tb_laki` VALUES (118, 1, 103.5, 12.7, 13.7, 14.9, 16.2, 17.6, 19.2, 21.0);
+INSERT INTO `bb_tb_laki` VALUES (119, 1, 104.0, 12.8, 13.9, 15.0, 16.3, 17.8, 19.4, 21.2);
+INSERT INTO `bb_tb_laki` VALUES (120, 1, 104.5, 12.9, 14.0, 15.2, 16.5, 17.9, 19.6, 21.5);
+INSERT INTO `bb_tb_laki` VALUES (121, 1, 105.0, 13.0, 14.1, 15.3, 16.6, 18.1, 19.8, 21.7);
+INSERT INTO `bb_tb_laki` VALUES (122, 1, 105.5, 13.2, 14.2, 15.4, 16.8, 18.3, 20.0, 21.9);
+INSERT INTO `bb_tb_laki` VALUES (123, 1, 106.0, 13.3, 14.4, 15.6, 16.9, 18.5, 20.2, 22.1);
+INSERT INTO `bb_tb_laki` VALUES (124, 1, 106.5, 13.4, 14.5, 15.7, 17.1, 18.6, 20.4, 22.4);
+INSERT INTO `bb_tb_laki` VALUES (125, 1, 107.0, 13.5, 14.6, 15.9, 17.3, 18.8, 20.6, 22.6);
+INSERT INTO `bb_tb_laki` VALUES (126, 1, 107.5, 13.6, 14.7, 16.0, 17.4, 19.0, 20.8, 22.8);
+INSERT INTO `bb_tb_laki` VALUES (127, 1, 108.0, 13.7, 14.9, 16.2, 17.6, 19.2, 21.0, 23.1);
+INSERT INTO `bb_tb_laki` VALUES (128, 1, 108.5, 13.8, 15.0, 16.3, 17.8, 19.4, 21.2, 23.3);
+INSERT INTO `bb_tb_laki` VALUES (129, 1, 109.0, 14.0, 15.1, 16.5, 17.9, 19.6, 21.4, 23.6);
+INSERT INTO `bb_tb_laki` VALUES (130, 1, 109.5, 14.1, 15.3, 16.6, 18.1, 19.8, 21.7, 23.8);
+INSERT INTO `bb_tb_laki` VALUES (131, 1, 110.0, 14.2, 15.4, 16.8, 18.3, 20.0, 21.9, 24.1);
+INSERT INTO `bb_tb_laki` VALUES (132, 2, 65.0, 5.9, 6.3, 6.9, 7.4, 8.1, 8.8, 9.6);
+INSERT INTO `bb_tb_laki` VALUES (133, 2, 65.5, 6.0, 6.4, 7.0, 7.6, 8.2, 8.9, 9.8);
+INSERT INTO `bb_tb_laki` VALUES (134, 2, 66.0, 6.1, 6.5, 7.1, 7.7, 8.3, 9.1, 9.9);
+INSERT INTO `bb_tb_laki` VALUES (135, 2, 66.5, 6.1, 6.6, 7.2, 7.8, 8.5, 9.2, 10.1);
+INSERT INTO `bb_tb_laki` VALUES (136, 2, 67.0, 6.2, 6.7, 7.3, 7.9, 8.6, 9.4, 10.2);
+INSERT INTO `bb_tb_laki` VALUES (137, 2, 67.5, 6.3, 6.8, 7.4, 8.0, 8.7, 9.5, 10.4);
+INSERT INTO `bb_tb_laki` VALUES (138, 2, 68.0, 6.4, 6.9, 7.5, 8.1, 8.8, 9.6, 10.5);
+INSERT INTO `bb_tb_laki` VALUES (139, 2, 68.5, 6.5, 7.0, 7.6, 8.2, 9.0, 9.8, 10.7);
+INSERT INTO `bb_tb_laki` VALUES (140, 2, 69.0, 6.6, 7.1, 7.7, 8.4, 9.1, 9.9, 10.8);
+INSERT INTO `bb_tb_laki` VALUES (141, 2, 69.5, 6.7, 7.2, 7.8, 8.5, 9.2, 10.0, 11.0);
+INSERT INTO `bb_tb_laki` VALUES (142, 2, 70.0, 6.8, 7.3, 7.9, 8.6, 9.3, 10.2, 11.1);
+INSERT INTO `bb_tb_laki` VALUES (143, 2, 70.5, 6.9, 7.4, 8.0, 8.7, 9.5, 10.3, 11.3);
+INSERT INTO `bb_tb_laki` VALUES (144, 2, 71.0, 6.9, 7.5, 8.1, 8.8, 9.6, 10.4, 11.4);
+INSERT INTO `bb_tb_laki` VALUES (145, 2, 71.5, 7.0, 7.6, 8.2, 8.9, 9.7, 10.6, 11.6);
+INSERT INTO `bb_tb_laki` VALUES (146, 2, 72.0, 7.1, 7.7, 8.3, 9.0, 9.8, 10.7, 11.7);
+INSERT INTO `bb_tb_laki` VALUES (147, 2, 72.5, 7.2, 7.8, 8.4, 9.1, 9.9, 10.8, 11.8);
+INSERT INTO `bb_tb_laki` VALUES (148, 2, 73.0, 7.3, 7.9, 8.5, 9.2, 10.0, 11.0, 12.0);
+INSERT INTO `bb_tb_laki` VALUES (149, 2, 73.5, 7.4, 7.9, 8.6, 9.3, 10.2, 11.1, 12.1);
+INSERT INTO `bb_tb_laki` VALUES (150, 2, 74.0, 7.4, 8.0, 8.7, 9.4, 10.3, 11.2, 12.2);
+INSERT INTO `bb_tb_laki` VALUES (151, 2, 74.5, 7.5, 8.1, 8.8, 9.5, 10.4, 11.3, 12.4);
+INSERT INTO `bb_tb_laki` VALUES (152, 2, 75.0, 7.6, 8.2, 8.9, 9.6, 10.5, 11.4, 12.5);
+INSERT INTO `bb_tb_laki` VALUES (153, 2, 75.5, 7.7, 8.3, 9.0, 9.7, 10.6, 11.6, 12.6);
+INSERT INTO `bb_tb_laki` VALUES (154, 2, 76.0, 7.7, 8.4, 9.1, 9.8, 10.7, 11.7, 12.8);
+INSERT INTO `bb_tb_laki` VALUES (155, 2, 76.5, 7.8, 8.5, 9.2, 9.9, 10.8, 11.8, 12.9);
+INSERT INTO `bb_tb_laki` VALUES (156, 2, 77.0, 7.9, 8.5, 9.2, 10.0, 10.9, 11.9, 13.0);
+INSERT INTO `bb_tb_laki` VALUES (157, 2, 77.5, 8.0, 8.6, 9.3, 10.1, 11.0, 12.0, 13.1);
+INSERT INTO `bb_tb_laki` VALUES (158, 2, 78.0, 8.0, 8.7, 9.4, 10.2, 11.1, 12.1, 13.3);
+INSERT INTO `bb_tb_laki` VALUES (159, 2, 78.5, 8.1, 8.8, 9.5, 10.3, 11.2, 12.2, 13.4);
+INSERT INTO `bb_tb_laki` VALUES (160, 2, 79.0, 8.2, 8.8, 9.6, 10.4, 11.3, 12.3, 13.5);
+INSERT INTO `bb_tb_laki` VALUES (161, 2, 79.5, 8.3, 8.9, 9.7, 10.5, 11.4, 12.4, 13.6);
+INSERT INTO `bb_tb_laki` VALUES (162, 2, 80.0, 8.3, 9.0, 9.7, 10.6, 11.5, 12.6, 13.7);
+INSERT INTO `bb_tb_laki` VALUES (163, 2, 80.5, 8.4, 9.1, 9.8, 10.7, 11.6, 12.7, 13.8);
+INSERT INTO `bb_tb_laki` VALUES (164, 2, 81.0, 8.5, 9.2, 9.9, 10.8, 11.7, 12.8, 14.0);
+INSERT INTO `bb_tb_laki` VALUES (165, 2, 81.5, 8.6, 9.3, 10.0, 10.9, 11.8, 12.9, 14.1);
+INSERT INTO `bb_tb_laki` VALUES (166, 2, 82.0, 8.7, 9.3, 10.1, 11.0, 11.9, 13.0, 14.2);
+INSERT INTO `bb_tb_laki` VALUES (167, 2, 82.5, 8.7, 9.4, 10.2, 11.1, 12.1, 13.1, 14.4);
+INSERT INTO `bb_tb_laki` VALUES (168, 2, 83.0, 8.8, 9.5, 10.3, 11.2, 12.2, 13.3, 14.5);
+INSERT INTO `bb_tb_laki` VALUES (169, 2, 83.5, 8.9, 9.6, 10.4, 11.3, 12.3, 13.4, 14.6);
+INSERT INTO `bb_tb_laki` VALUES (170, 2, 84.0, 9.0, 9.7, 10.5, 11.4, 12.4, 13.5, 14.8);
+INSERT INTO `bb_tb_laki` VALUES (171, 2, 84.5, 9.1, 9.9, 10.7, 11.5, 12.5, 13.7, 14.9);
+INSERT INTO `bb_tb_laki` VALUES (172, 2, 85.0, 9.2, 10.0, 10.8, 11.7, 12.7, 13.8, 15.1);
+INSERT INTO `bb_tb_laki` VALUES (173, 2, 85.5, 9.3, 10.1, 10.9, 11.8, 12.8, 13.9, 15.2);
+INSERT INTO `bb_tb_laki` VALUES (174, 2, 86.0, 9.4, 10.2, 11.0, 11.9, 12.9, 14.1, 15.4);
+INSERT INTO `bb_tb_laki` VALUES (175, 2, 86.5, 9.5, 10.3, 11.1, 12.0, 13.1, 14.2, 15.5);
+INSERT INTO `bb_tb_laki` VALUES (176, 2, 87.0, 9.6, 10.4, 11.2, 12.2, 13.2, 14.4, 15.7);
+INSERT INTO `bb_tb_laki` VALUES (177, 2, 87.5, 9.7, 10.5, 11.3, 12.3, 13.3, 14.5, 15.8);
+INSERT INTO `bb_tb_laki` VALUES (178, 2, 88.0, 9.8, 10.6, 11.5, 12.4, 13.5, 14.7, 16.0);
+INSERT INTO `bb_tb_laki` VALUES (179, 2, 88.5, 9.9, 10.7, 11.6, 12.5, 13.6, 14.8, 16.1);
+INSERT INTO `bb_tb_laki` VALUES (180, 2, 89.0, 10.0, 10.8, 11.7, 12.6, 13.7, 14.9, 16.3);
+INSERT INTO `bb_tb_laki` VALUES (181, 2, 89.5, 10.1, 10.9, 11.8, 12.8, 13.9, 15.1, 16.4);
+INSERT INTO `bb_tb_laki` VALUES (182, 2, 90.0, 10.2, 11.0, 11.9, 12.9, 14.0, 15.2, 16.6);
+INSERT INTO `bb_tb_laki` VALUES (183, 2, 90.5, 10.3, 11.1, 12.0, 13.0, 14.1, 15.3, 16.7);
+INSERT INTO `bb_tb_laki` VALUES (184, 2, 91.0, 10.4, 11.2, 12.1, 13.1, 14.2, 15.5, 16.9);
+INSERT INTO `bb_tb_laki` VALUES (185, 2, 91.5, 10.5, 11.3, 12.2, 13.2, 14.4, 15.6, 17.0);
+INSERT INTO `bb_tb_laki` VALUES (186, 2, 92.0, 10.6, 11.4, 12.3, 13.4, 14.5, 15.8, 17.2);
+INSERT INTO `bb_tb_laki` VALUES (187, 2, 92.5, 10.7, 11.5, 12.4, 13.5, 14.6, 15.9, 17.3);
+INSERT INTO `bb_tb_laki` VALUES (188, 2, 93.0, 10.8, 11.6, 12.6, 13.6, 14.7, 16.0, 17.5);
+INSERT INTO `bb_tb_laki` VALUES (189, 2, 93.5, 10.9, 11.7, 12.7, 13.7, 14.9, 16.2, 17.6);
+INSERT INTO `bb_tb_laki` VALUES (190, 2, 94.0, 11.0, 11.8, 12.8, 13.8, 15.0, 16.3, 17.8);
+INSERT INTO `bb_tb_laki` VALUES (191, 2, 94.5, 11.1, 11.9, 12.9, 13.9, 15.1, 16.5, 17.9);
+INSERT INTO `bb_tb_laki` VALUES (192, 2, 95.0, 11.1, 12.0, 13.0, 14.1, 15.3, 16.6, 18.1);
+INSERT INTO `bb_tb_laki` VALUES (193, 2, 95.5, 11.2, 12.1, 13.1, 14.2, 15.4, 16.7, 18.3);
+INSERT INTO `bb_tb_laki` VALUES (194, 2, 96.0, 11.3, 12.2, 13.2, 14.3, 15.5, 16.9, 18.4);
+INSERT INTO `bb_tb_laki` VALUES (195, 2, 96.5, 11.4, 12.3, 13.3, 14.4, 15.7, 17.0, 18.6);
+INSERT INTO `bb_tb_laki` VALUES (196, 2, 97.0, 11.5, 12.4, 13.4, 14.6, 15.8, 17.2, 18.8);
+INSERT INTO `bb_tb_laki` VALUES (197, 2, 97.5, 11.6, 12.5, 13.6, 14.7, 15.9, 17.4, 18.9);
+INSERT INTO `bb_tb_laki` VALUES (198, 2, 98.0, 11.7, 12.6, 13.7, 14.8, 16.1, 17.5, 19.1);
+INSERT INTO `bb_tb_laki` VALUES (199, 2, 98.5, 11.8, 12.8, 13.8, 14.9, 16.2, 17.7, 19.3);
+INSERT INTO `bb_tb_laki` VALUES (200, 2, 99.0, 11.9, 12.9, 13.9, 15.1, 16.4, 17.9, 19.5);
+INSERT INTO `bb_tb_laki` VALUES (201, 2, 99.5, 12.0, 13.0, 14.0, 15.2, 16.5, 18.0, 19.7);
+INSERT INTO `bb_tb_laki` VALUES (202, 2, 100.0, 12.1, 13.1, 14.2, 15.4, 16.7, 18.2, 19.9);
+INSERT INTO `bb_tb_laki` VALUES (203, 2, 100.5, 12.2, 13.2, 14.3, 15.5, 16.9, 18.4, 20.1);
+INSERT INTO `bb_tb_laki` VALUES (204, 2, 101.0, 12.3, 13.3, 14.4, 15.6, 17.0, 18.5, 20.3);
+INSERT INTO `bb_tb_laki` VALUES (205, 2, 101.5, 12.4, 13.4, 14.5, 15.8, 17.2, 18.7, 20.5);
+INSERT INTO `bb_tb_laki` VALUES (206, 2, 102.0, 12.5, 13.6, 14.7, 15.9, 17.3, 18.9, 20.7);
+INSERT INTO `bb_tb_laki` VALUES (207, 2, 102.5, 12.6, 13.7, 14.8, 16.1, 17.5, 19.1, 20.9);
+INSERT INTO `bb_tb_laki` VALUES (208, 2, 103.0, 12.8, 13.8, 14.9, 16.2, 17.7, 19.3, 21.1);
+INSERT INTO `bb_tb_laki` VALUES (209, 2, 103.5, 12.9, 13.9, 15.1, 16.4, 17.8, 19.5, 21.3);
+INSERT INTO `bb_tb_laki` VALUES (210, 2, 104.0, 13.0, 14.0, 15.2, 16.5, 18.0, 19.7, 21.6);
+INSERT INTO `bb_tb_laki` VALUES (211, 2, 104.5, 13.1, 14.2, 15.4, 16.7, 18.2, 19.9, 21.8);
+INSERT INTO `bb_tb_laki` VALUES (212, 2, 105.0, 13.2, 14.3, 15.5, 16.8, 18.4, 20.1, 22.0);
+INSERT INTO `bb_tb_laki` VALUES (213, 2, 105.5, 13.3, 14.4, 15.6, 17.0, 18.5, 20.3, 22.2);
+INSERT INTO `bb_tb_laki` VALUES (214, 2, 106.0, 13.4, 14.5, 15.8, 17.2, 18.7, 20.5, 22.5);
+INSERT INTO `bb_tb_laki` VALUES (215, 2, 106.5, 13.5, 14.7, 15.9, 17.3, 18.9, 20.7, 22.7);
+INSERT INTO `bb_tb_laki` VALUES (216, 2, 107.0, 13.7, 14.8, 16.1, 17.5, 19.1, 20.9, 22.9);
+INSERT INTO `bb_tb_laki` VALUES (217, 2, 107.5, 13.8, 14.9, 16.2, 17.7, 19.3, 21.1, 23.2);
+INSERT INTO `bb_tb_laki` VALUES (218, 2, 108.0, 13.9, 15.1, 16.4, 17.8, 19.5, 21.3, 23.4);
+INSERT INTO `bb_tb_laki` VALUES (219, 2, 108.5, 14.0, 15.2, 16.5, 18.0, 19.7, 21.5, 23.7);
+INSERT INTO `bb_tb_laki` VALUES (220, 2, 109.0, 14.1, 15.3, 16.7, 18.2, 19.8, 21.8, 23.9);
+INSERT INTO `bb_tb_laki` VALUES (221, 2, 109.5, 14.3, 15.5, 16.8, 18.3, 20.0, 22.0, 24.2);
+INSERT INTO `bb_tb_laki` VALUES (222, 2, 110.0, 14.4, 15.6, 17.0, 18.5, 20.2, 22.2, 24.4);
+INSERT INTO `bb_tb_laki` VALUES (223, 2, 110.5, 14.5, 15.8, 17.1, 18.7, 20.4, 22.4, 24.7);
+INSERT INTO `bb_tb_laki` VALUES (224, 2, 111.0, 14.6, 15.9, 17.3, 18.9, 20.7, 22.7, 25.0);
+INSERT INTO `bb_tb_laki` VALUES (225, 2, 111.5, 14.8, 16.0, 17.5, 19.1, 20.9, 22.9, 25.2);
+INSERT INTO `bb_tb_laki` VALUES (226, 2, 112.0, 14.9, 16.2, 17.6, 19.2, 21.1, 23.1, 25.5);
+INSERT INTO `bb_tb_laki` VALUES (227, 2, 112.5, 15.0, 16.3, 17.8, 19.4, 21.3, 23.4, 25.8);
+INSERT INTO `bb_tb_laki` VALUES (228, 2, 113.0, 15.2, 16.5, 18.0, 19.6, 21.5, 23.6, 26.0);
+INSERT INTO `bb_tb_laki` VALUES (229, 2, 113.5, 15.3, 16.6, 18.1, 19.8, 21.7, 23.9, 26.3);
+INSERT INTO `bb_tb_laki` VALUES (230, 2, 114.0, 15.4, 16.8, 18.3, 20.0, 21.9, 24.1, 26.6);
+INSERT INTO `bb_tb_laki` VALUES (231, 2, 114.5, 15.6, 16.9, 18.5, 20.2, 22.1, 24.4, 26.9);
+INSERT INTO `bb_tb_laki` VALUES (232, 2, 115.0, 15.7, 17.1, 18.6, 20.4, 22.4, 24.6, 27.2);
+INSERT INTO `bb_tb_laki` VALUES (233, 2, 115.5, 15.8, 17.2, 18.8, 20.6, 22.6, 24.9, 27.5);
+INSERT INTO `bb_tb_laki` VALUES (234, 2, 116.0, 16.0, 17.4, 19.0, 20.8, 22.8, 25.1, 27.8);
+INSERT INTO `bb_tb_laki` VALUES (235, 2, 116.5, 16.1, 17.5, 19.2, 21.0, 23.0, 25.4, 28.0);
+INSERT INTO `bb_tb_laki` VALUES (236, 2, 117.0, 16.2, 17.7, 19.3, 21.2, 23.3, 25.6, 28.3);
+INSERT INTO `bb_tb_laki` VALUES (237, 2, 117.5, 16.4, 17.9, 19.5, 21.4, 23.5, 25.9, 28.6);
+INSERT INTO `bb_tb_laki` VALUES (238, 2, 118.0, 16.5, 18.0, 19.7, 21.6, 23.7, 26.1, 28.9);
+INSERT INTO `bb_tb_laki` VALUES (239, 2, 118.5, 16.7, 18.2, 19.9, 21.8, 23.9, 26.4, 29.2);
+INSERT INTO `bb_tb_laki` VALUES (240, 2, 119.0, 16.8, 18.3, 20.0, 22.0, 24.1, 26.6, 29.5);
+INSERT INTO `bb_tb_laki` VALUES (241, 2, 119.5, 16.9, 18.5, 20.2, 22.2, 24.4, 26.9, 29.8);
+INSERT INTO `bb_tb_laki` VALUES (242, 2, 120.0, 17.1, 18.6, 20.4, 22.4, 24.6, 27.2, 30.1);
+
+-- ----------------------------
+-- Table structure for bb_tb_perempuan
+-- ----------------------------
+DROP TABLE IF EXISTS `bb_tb_perempuan`;
+CREATE TABLE `bb_tb_perempuan`  (
+  `id_bbtb_p` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `tb` decimal(10, 1) NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_bbtb_p`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 244 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of bb_tb_perempuan
+-- ----------------------------
+INSERT INTO `bb_tb_perempuan` VALUES (1, 1, 45.0, 1.9, 2.1, 2.3, 2.5, 2.7, 3.0, 3.3);
+INSERT INTO `bb_tb_perempuan` VALUES (2, 1, 45.5, 2.0, 2.1, 2.3, 2.5, 2.8, 3.1, 3.4);
+INSERT INTO `bb_tb_perempuan` VALUES (3, 1, 46.0, 2.0, 2.2, 2.4, 2.6, 2.9, 3.2, 3.5);
+INSERT INTO `bb_tb_perempuan` VALUES (4, 1, 46.5, 2.1, 2.3, 2.5, 2.7, 3.0, 3.3, 3.6);
+INSERT INTO `bb_tb_perempuan` VALUES (5, 1, 47.0, 2.2, 2.4, 2.6, 2.8, 3.1, 3.4, 3.7);
+INSERT INTO `bb_tb_perempuan` VALUES (6, 1, 47.5, 2.2, 2.4, 2.6, 2.9, 3.2, 3.5, 3.8);
+INSERT INTO `bb_tb_perempuan` VALUES (7, 1, 48.0, 2.3, 2.5, 2.7, 3.0, 3.3, 3.6, 4.0);
+INSERT INTO `bb_tb_perempuan` VALUES (8, 1, 48.5, 2.4, 2.6, 2.8, 3.1, 3.4, 3.7, 4.1);
+INSERT INTO `bb_tb_perempuan` VALUES (9, 1, 49.0, 2.4, 2.6, 2.9, 3.2, 3.5, 3.8, 4.2);
+INSERT INTO `bb_tb_perempuan` VALUES (10, 1, 49.5, 2.5, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3);
+INSERT INTO `bb_tb_perempuan` VALUES (11, 1, 50.0, 2.6, 2.8, 3.1, 3.4, 3.7, 4.0, 4.5);
+INSERT INTO `bb_tb_perempuan` VALUES (12, 1, 50.5, 2.7, 2.9, 3.2, 3.5, 3.8, 4.2, 4.6);
+INSERT INTO `bb_tb_perempuan` VALUES (13, 1, 51.0, 2.8, 3.0, 3.3, 3.6, 3.9, 4.3, 4.8);
+INSERT INTO `bb_tb_perempuan` VALUES (14, 1, 51.5, 2.8, 3.1, 3.4, 3.7, 4.0, 4.4, 4.9);
+INSERT INTO `bb_tb_perempuan` VALUES (15, 1, 52.0, 2.9, 3.2, 3.5, 3.8, 4.2, 4.6, 5.1);
+INSERT INTO `bb_tb_perempuan` VALUES (16, 1, 52.5, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.2);
+INSERT INTO `bb_tb_perempuan` VALUES (17, 1, 53.0, 3.1, 3.4, 3.7, 4.0, 4.4, 4.9, 5.4);
+INSERT INTO `bb_tb_perempuan` VALUES (18, 1, 53.5, 3.2, 3.5, 3.8, 4.2, 4.6, 5.0, 5.5);
+INSERT INTO `bb_tb_perempuan` VALUES (19, 1, 54.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.2, 5.7);
+INSERT INTO `bb_tb_perempuan` VALUES (20, 1, 54.5, 3.4, 3.7, 4.0, 4.4, 4.8, 5.3, 5.9);
+INSERT INTO `bb_tb_perempuan` VALUES (21, 1, 55.0, 3.5, 3.8, 4.2, 4.5, 5.0, 5.5, 6.1);
+INSERT INTO `bb_tb_perempuan` VALUES (22, 1, 55.5, 3.6, 3.9, 4.3, 4.7, 5.1, 5.7, 6.3);
+INSERT INTO `bb_tb_perempuan` VALUES (23, 1, 56.0, 3.7, 4.0, 4.4, 4.8, 5.3, 5.8, 6.4);
+INSERT INTO `bb_tb_perempuan` VALUES (24, 1, 56.5, 3.8, 4.1, 4.5, 5.0, 5.4, 6.0, 6.6);
+INSERT INTO `bb_tb_perempuan` VALUES (25, 1, 57.0, 3.9, 4.3, 4.7, 5.1, 5.6, 6.1, 6.8);
+INSERT INTO `bb_tb_perempuan` VALUES (26, 1, 57.5, 4.0, 4.4, 4.8, 5.2, 5.7, 6.3, 7.0);
+INSERT INTO `bb_tb_perempuan` VALUES (27, 1, 58.0, 4.1, 4.5, 4.9, 5.4, 5.9, 6.5, 7.1);
+INSERT INTO `bb_tb_perempuan` VALUES (28, 1, 58.5, 4.2, 4.6, 5.0, 5.5, 6.0, 6.6, 7.3);
+INSERT INTO `bb_tb_perempuan` VALUES (29, 1, 59.0, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5);
+INSERT INTO `bb_tb_perempuan` VALUES (30, 1, 59.5, 4.4, 4.8, 5.3, 5.7, 6.3, 6.9, 7.7);
+INSERT INTO `bb_tb_perempuan` VALUES (31, 1, 60.0, 4.5, 4.9, 5.4, 5.9, 6.4, 7.1, 7.8);
+INSERT INTO `bb_tb_perempuan` VALUES (32, 1, 60.5, 4.6, 5.0, 5.5, 6.0, 6.6, 7.3, 8.0);
+INSERT INTO `bb_tb_perempuan` VALUES (33, 1, 61.0, 4.7, 5.1, 5.6, 6.1, 6.7, 7.4, 8.2);
+INSERT INTO `bb_tb_perempuan` VALUES (34, 1, 61.5, 4.8, 5.2, 5.7, 6.3, 6.9, 7.6, 8.4);
+INSERT INTO `bb_tb_perempuan` VALUES (35, 1, 62.0, 4.9, 5.3, 5.8, 6.4, 7.0, 7.7, 8.5);
+INSERT INTO `bb_tb_perempuan` VALUES (36, 1, 62.5, 5.0, 5.4, 5.9, 6.5, 7.1, 7.8, 8.7);
+INSERT INTO `bb_tb_perempuan` VALUES (37, 1, 63.0, 5.1, 5.5, 6.0, 6.6, 7.3, 8.0, 8.8);
+INSERT INTO `bb_tb_perempuan` VALUES (38, 1, 63.5, 5.2, 5.6, 6.2, 6.7, 7.4, 8.1, 9.0);
+INSERT INTO `bb_tb_perempuan` VALUES (39, 1, 64.0, 5.3, 5.7, 6.3, 6.9, 7.5, 8.3, 9.1);
+INSERT INTO `bb_tb_perempuan` VALUES (40, 1, 64.5, 5.4, 5.8, 6.4, 7.0, 7.6, 8.4, 9.3);
+INSERT INTO `bb_tb_perempuan` VALUES (41, 1, 65.0, 5.5, 5.9, 6.5, 7.1, 7.8, 8.6, 9.5);
+INSERT INTO `bb_tb_perempuan` VALUES (42, 1, 65.5, 5.5, 6.0, 6.6, 7.2, 7.9, 8.7, 9.6);
+INSERT INTO `bb_tb_perempuan` VALUES (43, 1, 66.0, 5.6, 6.1, 6.7, 7.3, 8.0, 8.8, 9.8);
+INSERT INTO `bb_tb_perempuan` VALUES (44, 1, 66.5, 5.7, 6.2, 6.8, 7.4, 8.1, 9.0, 9.9);
+INSERT INTO `bb_tb_perempuan` VALUES (45, 1, 67.0, 5.8, 6.3, 6.9, 7.5, 8.3, 9.1, 10.0);
+INSERT INTO `bb_tb_perempuan` VALUES (46, 1, 67.5, 5.9, 6.4, 7.0, 7.6, 8.4, 9.2, 10.2);
+INSERT INTO `bb_tb_perempuan` VALUES (47, 1, 68.0, 6.0, 6.5, 7.1, 7.7, 8.5, 9.4, 10.3);
+INSERT INTO `bb_tb_perempuan` VALUES (48, 1, 68.5, 6.1, 6.6, 7.2, 7.9, 8.6, 9.5, 10.5);
+INSERT INTO `bb_tb_perempuan` VALUES (49, 1, 69.0, 6.1, 6.7, 7.3, 8.0, 8.7, 9.6, 10.6);
+INSERT INTO `bb_tb_perempuan` VALUES (50, 1, 69.5, 6.2, 6.8, 7.4, 8.1, 8.8, 9.7, 10.7);
+INSERT INTO `bb_tb_perempuan` VALUES (51, 1, 70.0, 6.3, 6.9, 7.5, 8.2, 9.0, 9.9, 10.9);
+INSERT INTO `bb_tb_perempuan` VALUES (52, 1, 70.5, 6.4, 6.9, 7.6, 8.3, 9.1, 10.0, 11.0);
+INSERT INTO `bb_tb_perempuan` VALUES (53, 1, 71.0, 6.5, 7.0, 7.7, 8.4, 9.2, 10.1, 11.1);
+INSERT INTO `bb_tb_perempuan` VALUES (54, 1, 71.5, 6.5, 7.1, 7.7, 8.5, 9.3, 10.2, 11.3);
+INSERT INTO `bb_tb_perempuan` VALUES (55, 1, 72.0, 6.6, 7.2, 7.8, 8.6, 9.4, 10.3, 11.4);
+INSERT INTO `bb_tb_perempuan` VALUES (56, 1, 72.5, 6.7, 7.3, 7.9, 8.7, 9.5, 10.5, 11.5);
+INSERT INTO `bb_tb_perempuan` VALUES (57, 1, 73.0, 6.8, 7.4, 8.0, 8.8, 9.6, 10.6, 11.7);
+INSERT INTO `bb_tb_perempuan` VALUES (58, 1, 73.5, 6.9, 7.4, 8.1, 8.9, 9.7, 10.7, 11.8);
+INSERT INTO `bb_tb_perempuan` VALUES (59, 1, 74.0, 6.9, 7.5, 8.2, 9.0, 9.8, 10.8, 11.9);
+INSERT INTO `bb_tb_perempuan` VALUES (60, 1, 74.5, 7.0, 7.6, 8.3, 9.1, 9.9, 10.9, 12.0);
+INSERT INTO `bb_tb_perempuan` VALUES (61, 1, 75.0, 7.1, 7.7, 8.4, 9.1, 10.0, 11.0, 12.2);
+INSERT INTO `bb_tb_perempuan` VALUES (62, 1, 75.5, 7.1, 7.8, 8.5, 9.2, 10.1, 11.1, 12.3);
+INSERT INTO `bb_tb_perempuan` VALUES (63, 1, 76.0, 7.2, 7.8, 8.5, 9.3, 10.2, 11.2, 12.4);
+INSERT INTO `bb_tb_perempuan` VALUES (64, 1, 76.5, 7.3, 7.9, 8.6, 9.4, 10.3, 11.4, 12.5);
+INSERT INTO `bb_tb_perempuan` VALUES (65, 1, 77.0, 7.4, 8.0, 8.7, 9.5, 10.4, 11.5, 12.6);
+INSERT INTO `bb_tb_perempuan` VALUES (66, 1, 77.5, 7.4, 8.1, 8.8, 9.6, 10.5, 11.6, 12.8);
+INSERT INTO `bb_tb_perempuan` VALUES (67, 1, 78.0, 7.5, 8.2, 8.9, 9.7, 10.6, 11.7, 12.9);
+INSERT INTO `bb_tb_perempuan` VALUES (68, 1, 78.5, 7.6, 8.2, 9.0, 9.8, 10.7, 11.8, 13.0);
+INSERT INTO `bb_tb_perempuan` VALUES (69, 1, 79.0, 7.7, 8.3, 9.1, 9.9, 10.8, 11.9, 13.1);
+INSERT INTO `bb_tb_perempuan` VALUES (70, 1, 79.5, 7.7, 8.4, 9.1, 10.0, 10.9, 12.0, 13.3);
+INSERT INTO `bb_tb_perempuan` VALUES (71, 1, 80.0, 7.8, 8.5, 9.2, 10.1, 11.0, 12.1, 13.4);
+INSERT INTO `bb_tb_perempuan` VALUES (72, 1, 80.5, 7.9, 8.6, 9.3, 10.2, 11.2, 12.3, 13.5);
+INSERT INTO `bb_tb_perempuan` VALUES (73, 1, 81.0, 8.0, 8.7, 9.4, 10.3, 11.3, 12.4, 13.7);
+INSERT INTO `bb_tb_perempuan` VALUES (74, 1, 81.5, 8.1, 8.8, 9.5, 10.4, 11.4, 12.5, 13.8);
+INSERT INTO `bb_tb_perempuan` VALUES (75, 1, 82.0, 8.1, 8.8, 9.6, 10.5, 11.5, 12.6, 13.9);
+INSERT INTO `bb_tb_perempuan` VALUES (76, 1, 82.5, 8.2, 8.9, 9.7, 10.6, 11.6, 12.8, 14.1);
+INSERT INTO `bb_tb_perempuan` VALUES (77, 1, 83.0, 8.3, 9.0, 9.8, 10.7, 11.8, 12.9, 14.2);
+INSERT INTO `bb_tb_perempuan` VALUES (78, 1, 83.5, 8.4, 9.1, 9.9, 10.9, 11.9, 13.1, 14.4);
+INSERT INTO `bb_tb_perempuan` VALUES (79, 1, 84.0, 8.5, 9.2, 10.1, 11.0, 12.0, 13.2, 14.5);
+INSERT INTO `bb_tb_perempuan` VALUES (80, 1, 84.5, 8.6, 9.3, 10.2, 11.1, 12.1, 13.3, 14.7);
+INSERT INTO `bb_tb_perempuan` VALUES (81, 1, 85.0, 8.7, 9.4, 10.3, 11.2, 12.3, 13.5, 14.9);
+INSERT INTO `bb_tb_perempuan` VALUES (82, 1, 85.5, 8.8, 9.5, 10.4, 11.3, 12.4, 13.6, 15.0);
+INSERT INTO `bb_tb_perempuan` VALUES (83, 1, 86.0, 8.9, 9.7, 10.5, 11.5, 12.6, 13.8, 15.2);
+INSERT INTO `bb_tb_perempuan` VALUES (84, 1, 86.5, 9.0, 9.8, 10.6, 11.6, 12.7, 13.9, 15.4);
+INSERT INTO `bb_tb_perempuan` VALUES (85, 1, 87.0, 9.1, 9.9, 10.7, 11.7, 12.8, 14.1, 15.5);
+INSERT INTO `bb_tb_perempuan` VALUES (86, 1, 87.5, 9.2, 10.0, 10.9, 11.8, 13.0, 14.2, 15.7);
+INSERT INTO `bb_tb_perempuan` VALUES (87, 1, 88.0, 9.3, 10.1, 11.0, 12.0, 13.1, 14.4, 15.9);
+INSERT INTO `bb_tb_perempuan` VALUES (88, 1, 88.5, 9.4, 10.2, 11.1, 12.1, 13.2, 14.5, 16.0);
+INSERT INTO `bb_tb_perempuan` VALUES (89, 1, 89.0, 9.5, 10.3, 11.2, 12.2, 13.4, 14.7, 16.2);
+INSERT INTO `bb_tb_perempuan` VALUES (90, 1, 89.5, 9.6, 10.4, 11.3, 12.3, 13.5, 14.8, 16.4);
+INSERT INTO `bb_tb_perempuan` VALUES (91, 1, 90.0, 9.7, 10.5, 11.4, 12.5, 13.7, 15.0, 16.5);
+INSERT INTO `bb_tb_perempuan` VALUES (92, 1, 90.5, 9.8, 10.6, 11.5, 12.6, 13.8, 15.1, 16.7);
+INSERT INTO `bb_tb_perempuan` VALUES (93, 1, 91.0, 9.9, 10.7, 11.7, 12.7, 13.9, 15.3, 16.9);
+INSERT INTO `bb_tb_perempuan` VALUES (94, 1, 91.5, 10.0, 10.8, 11.8, 12.8, 14.1, 15.5, 17.0);
+INSERT INTO `bb_tb_perempuan` VALUES (95, 1, 92.0, 10.1, 10.9, 11.9, 13.0, 14.2, 15.6, 17.2);
+INSERT INTO `bb_tb_perempuan` VALUES (96, 1, 92.5, 10.1, 11.0, 12.0, 13.1, 14.3, 15.8, 17.4);
+INSERT INTO `bb_tb_perempuan` VALUES (97, 1, 93.0, 10.2, 11.1, 12.1, 13.2, 14.5, 15.9, 17.5);
+INSERT INTO `bb_tb_perempuan` VALUES (98, 1, 93.5, 10.3, 11.2, 12.2, 13.3, 14.6, 16.1, 17.7);
+INSERT INTO `bb_tb_perempuan` VALUES (99, 1, 94.0, 10.4, 11.3, 12.3, 13.5, 14.7, 16.2, 17.9);
+INSERT INTO `bb_tb_perempuan` VALUES (100, 1, 94.5, 10.5, 11.4, 12.4, 13.6, 14.9, 16.4, 18.0);
+INSERT INTO `bb_tb_perempuan` VALUES (101, 1, 95.0, 10.6, 11.5, 12.6, 13.7, 15.0, 16.5, 18.2);
+INSERT INTO `bb_tb_perempuan` VALUES (102, 1, 95.5, 10.7, 11.6, 12.7, 13.8, 15.2, 16.7, 18.4);
+INSERT INTO `bb_tb_perempuan` VALUES (103, 1, 96.0, 10.8, 11.7, 12.8, 14.0, 15.3, 16.8, 18.6);
+INSERT INTO `bb_tb_perempuan` VALUES (104, 1, 96.5, 10.9, 11.8, 12.9, 14.1, 15.4, 17.0, 18.7);
+INSERT INTO `bb_tb_perempuan` VALUES (105, 1, 97.0, 11.0, 12.0, 13.0, 14.2, 15.6, 17.1, 18.9);
+INSERT INTO `bb_tb_perempuan` VALUES (106, 1, 97.5, 11.1, 12.1, 13.1, 14.4, 15.7, 17.3, 19.1);
+INSERT INTO `bb_tb_perempuan` VALUES (107, 1, 98.0, 11.2, 12.2, 13.3, 14.5, 15.9, 17.5, 19.3);
+INSERT INTO `bb_tb_perempuan` VALUES (108, 1, 98.5, 11.3, 12.3, 13.4, 14.6, 16.0, 17.6, 19.5);
+INSERT INTO `bb_tb_perempuan` VALUES (109, 1, 99.0, 11.4, 12.4, 13.5, 14.8, 16.2, 17.8, 19.6);
+INSERT INTO `bb_tb_perempuan` VALUES (110, 1, 99.5, 11.5, 12.5, 13.6, 14.9, 16.3, 18.0, 19.8);
+INSERT INTO `bb_tb_perempuan` VALUES (111, 1, 100.0, 11.6, 12.6, 13.7, 15.0, 16.5, 18.1, 20.0);
+INSERT INTO `bb_tb_perempuan` VALUES (112, 1, 100.5, 11.7, 12.7, 13.9, 15.2, 16.6, 18.3, 20.2);
+INSERT INTO `bb_tb_perempuan` VALUES (113, 1, 101.0, 11.8, 12.8, 14.0, 15.3, 16.8, 18.5, 20.4);
+INSERT INTO `bb_tb_perempuan` VALUES (114, 1, 101.5, 11.9, 13.0, 14.1, 15.5, 17.0, 18.7, 20.6);
+INSERT INTO `bb_tb_perempuan` VALUES (115, 1, 102.0, 12.0, 13.1, 14.3, 15.6, 17.1, 18.9, 20.8);
+INSERT INTO `bb_tb_perempuan` VALUES (116, 1, 102.5, 12.1, 13.2, 14.4, 15.8, 17.3, 19.0, 21.0);
+INSERT INTO `bb_tb_perempuan` VALUES (117, 1, 103.0, 12.3, 13.3, 14.5, 15.9, 17.5, 19.2, 21.3);
+INSERT INTO `bb_tb_perempuan` VALUES (118, 1, 103.5, 12.4, 13.5, 14.7, 16.1, 17.6, 19.4, 21.5);
+INSERT INTO `bb_tb_perempuan` VALUES (119, 1, 104.0, 12.5, 13.6, 14.8, 16.2, 17.8, 19.6, 21.7);
+INSERT INTO `bb_tb_perempuan` VALUES (120, 1, 104.5, 12.6, 13.7, 15.0, 16.4, 18.0, 19.8, 21.9);
+INSERT INTO `bb_tb_perempuan` VALUES (121, 1, 105.0, 12.7, 13.8, 15.1, 16.5, 18.2, 20.0, 22.2);
+INSERT INTO `bb_tb_perempuan` VALUES (122, 1, 105.5, 12.8, 14.0, 15.3, 16.7, 18.4, 20.2, 22.4);
+INSERT INTO `bb_tb_perempuan` VALUES (123, 1, 106.0, 13.0, 14.1, 15.4, 16.9, 18.5, 20.5, 22.6);
+INSERT INTO `bb_tb_perempuan` VALUES (124, 1, 106.5, 13.1, 14.3, 15.6, 17.1, 18.7, 20.7, 22.9);
+INSERT INTO `bb_tb_perempuan` VALUES (125, 1, 107.0, 13.2, 14.4, 15.7, 17.2, 18.9, 20.9, 23.1);
+INSERT INTO `bb_tb_perempuan` VALUES (126, 1, 107.5, 13.3, 14.5, 15.9, 17.4, 19.1, 21.1, 23.4);
+INSERT INTO `bb_tb_perempuan` VALUES (127, 1, 108.0, 13.5, 14.7, 16.0, 17.6, 19.3, 21.3, 23.6);
+INSERT INTO `bb_tb_perempuan` VALUES (128, 1, 108.5, 13.6, 14.8, 16.2, 17.8, 19.5, 21.6, 23.9);
+INSERT INTO `bb_tb_perempuan` VALUES (129, 1, 109.0, 13.7, 15.0, 16.4, 18.0, 19.7, 21.8, 24.2);
+INSERT INTO `bb_tb_perempuan` VALUES (130, 1, 109.5, 13.9, 15.1, 16.5, 18.1, 20.0, 22.0, 24.4);
+INSERT INTO `bb_tb_perempuan` VALUES (131, 1, 110.0, 14.0, 15.3, 16.7, 18.3, 20.2, 22.3, 24.7);
+INSERT INTO `bb_tb_perempuan` VALUES (132, 2, 65.0, 5.6, 6.1, 6.6, 7.2, 7.9, 8.7, 9.7);
+INSERT INTO `bb_tb_perempuan` VALUES (133, 2, 65.5, 5.7, 6.2, 6.7, 7.4, 8.1, 8.9, 9.8);
+INSERT INTO `bb_tb_perempuan` VALUES (134, 2, 66.0, 5.8, 6.3, 6.8, 7.5, 8.2, 9.0, 10.0);
+INSERT INTO `bb_tb_perempuan` VALUES (135, 2, 66.5, 5.8, 6.4, 6.9, 7.6, 8.3, 9.1, 10.1);
+INSERT INTO `bb_tb_perempuan` VALUES (136, 2, 67.0, 5.9, 6.4, 7.0, 7.7, 8.4, 9.3, 10.2);
+INSERT INTO `bb_tb_perempuan` VALUES (137, 2, 67.5, 6.0, 6.5, 7.1, 7.8, 8.5, 9.4, 10.4);
+INSERT INTO `bb_tb_perempuan` VALUES (138, 2, 68.0, 6.1, 6.6, 7.2, 7.9, 8.7, 9.5, 10.5);
+INSERT INTO `bb_tb_perempuan` VALUES (139, 2, 68.5, 6.2, 6.7, 7.3, 8.0, 8.8, 9.7, 10.7);
+INSERT INTO `bb_tb_perempuan` VALUES (140, 2, 69.0, 6.3, 6.8, 7.4, 8.1, 8.9, 9.8, 10.8);
+INSERT INTO `bb_tb_perempuan` VALUES (141, 2, 69.5, 6.3, 6.9, 7.5, 8.2, 9.0, 9.9, 10.9);
+INSERT INTO `bb_tb_perempuan` VALUES (142, 2, 70.0, 6.4, 7.0, 7.6, 8.3, 9.1, 10.0, 11.1);
+INSERT INTO `bb_tb_perempuan` VALUES (143, 2, 70.5, 6.5, 7.1, 7.7, 8.4, 9.2, 10.1, 11.2);
+INSERT INTO `bb_tb_perempuan` VALUES (144, 2, 71.0, 6.6, 7.1, 7.8, 8.5, 9.3, 10.3, 11.3);
+INSERT INTO `bb_tb_perempuan` VALUES (145, 2, 71.5, 6.7, 7.2, 7.9, 8.6, 9.4, 10.4, 11.5);
+INSERT INTO `bb_tb_perempuan` VALUES (146, 2, 72.0, 6.7, 7.3, 8.0, 8.7, 9.5, 10.5, 11.6);
+INSERT INTO `bb_tb_perempuan` VALUES (147, 2, 72.5, 6.8, 7.4, 8.1, 8.8, 9.7, 10.6, 11.7);
+INSERT INTO `bb_tb_perempuan` VALUES (148, 2, 73.0, 6.9, 7.5, 8.1, 8.9, 9.8, 10.7, 11.8);
+INSERT INTO `bb_tb_perempuan` VALUES (149, 2, 73.5, 7.0, 7.6, 8.2, 9.0, 9.9, 10.8, 12.0);
+INSERT INTO `bb_tb_perempuan` VALUES (150, 2, 74.0, 7.0, 7.6, 8.3, 9.1, 10.0, 11.0, 12.1);
+INSERT INTO `bb_tb_perempuan` VALUES (151, 2, 74.5, 7.1, 7.7, 8.4, 9.2, 10.1, 11.1, 12.2);
+INSERT INTO `bb_tb_perempuan` VALUES (152, 2, 75.0, 7.2, 7.8, 8.5, 9.3, 10.2, 11.2, 12.3);
+INSERT INTO `bb_tb_perempuan` VALUES (153, 2, 75.5, 7.2, 7.9, 8.6, 9.4, 10.3, 11.3, 12.5);
+INSERT INTO `bb_tb_perempuan` VALUES (154, 2, 76.0, 7.3, 8.0, 8.7, 9.5, 10.4, 11.4, 12.6);
+INSERT INTO `bb_tb_perempuan` VALUES (155, 2, 76.5, 7.4, 8.0, 8.7, 9.6, 10.5, 11.5, 12.7);
+INSERT INTO `bb_tb_perempuan` VALUES (156, 2, 77.0, 7.5, 8.1, 8.8, 9.6, 10.6, 11.6, 12.8);
+INSERT INTO `bb_tb_perempuan` VALUES (157, 2, 77.5, 7.5, 8.2, 8.9, 9.7, 10.7, 11.7, 12.9);
+INSERT INTO `bb_tb_perempuan` VALUES (158, 2, 78.0, 7.6, 8.3, 9.0, 9.8, 10.8, 11.8, 13.1);
+INSERT INTO `bb_tb_perempuan` VALUES (159, 2, 78.5, 7.7, 8.4, 9.1, 9.9, 10.9, 12.0, 13.2);
+INSERT INTO `bb_tb_perempuan` VALUES (160, 2, 79.0, 7.8, 8.4, 9.2, 10.0, 11.0, 12.1, 13.3);
+INSERT INTO `bb_tb_perempuan` VALUES (161, 2, 79.5, 7.8, 8.5, 9.3, 10.1, 11.1, 12.2, 13.4);
+INSERT INTO `bb_tb_perempuan` VALUES (162, 2, 80.0, 7.9, 8.6, 9.4, 10.2, 11.2, 12.3, 13.6);
+INSERT INTO `bb_tb_perempuan` VALUES (163, 2, 80.5, 8.0, 8.7, 9.5, 10.3, 11.3, 12.4, 13.7);
+INSERT INTO `bb_tb_perempuan` VALUES (164, 2, 81.0, 8.1, 8.8, 9.6, 10.4, 11.4, 12.6, 13.9);
+INSERT INTO `bb_tb_perempuan` VALUES (165, 2, 81.5, 8.2, 8.9, 9.7, 10.6, 11.6, 12.7, 14.0);
+INSERT INTO `bb_tb_perempuan` VALUES (166, 2, 82.0, 8.3, 9.0, 9.8, 10.7, 11.7, 12.8, 14.1);
+INSERT INTO `bb_tb_perempuan` VALUES (167, 2, 82.5, 8.4, 9.1, 9.9, 10.8, 11.8, 13.0, 14.3);
+INSERT INTO `bb_tb_perempuan` VALUES (168, 2, 83.0, 8.5, 9.2, 10.0, 10.9, 11.9, 13.1, 14.5);
+INSERT INTO `bb_tb_perempuan` VALUES (169, 2, 83.5, 8.5, 9.3, 10.1, 11.0, 12.1, 13.3, 14.6);
+INSERT INTO `bb_tb_perempuan` VALUES (170, 2, 84.0, 8.6, 9.4, 10.2, 11.1, 12.2, 13.4, 14.8);
+INSERT INTO `bb_tb_perempuan` VALUES (171, 2, 84.5, 8.7, 9.5, 10.3, 11.3, 12.3, 13.5, 14.9);
+INSERT INTO `bb_tb_perempuan` VALUES (172, 2, 85.0, 8.8, 9.6, 10.4, 11.4, 12.5, 13.7, 15.1);
+INSERT INTO `bb_tb_perempuan` VALUES (173, 2, 85.5, 8.9, 9.7, 10.6, 11.5, 12.6, 13.8, 15.3);
+INSERT INTO `bb_tb_perempuan` VALUES (174, 2, 86.0, 9.0, 9.8, 10.7, 11.6, 12.7, 14.0, 15.4);
+INSERT INTO `bb_tb_perempuan` VALUES (175, 2, 86.5, 9.1, 9.9, 10.8, 11.8, 12.9, 14.2, 15.6);
+INSERT INTO `bb_tb_perempuan` VALUES (176, 2, 87.0, 9.2, 10.0, 10.9, 11.9, 13.0, 14.3, 15.8);
+INSERT INTO `bb_tb_perempuan` VALUES (177, 2, 87.5, 9.3, 10.1, 11.0, 12.0, 13.2, 14.5, 15.9);
+INSERT INTO `bb_tb_perempuan` VALUES (178, 2, 88.0, 9.4, 10.2, 11.1, 12.1, 13.3, 14.6, 16.1);
+INSERT INTO `bb_tb_perempuan` VALUES (179, 2, 88.5, 9.5, 10.3, 11.2, 12.3, 13.4, 14.8, 16.3);
+INSERT INTO `bb_tb_perempuan` VALUES (180, 2, 89.0, 9.6, 10.4, 11.4, 12.4, 13.6, 14.9, 16.4);
+INSERT INTO `bb_tb_perempuan` VALUES (181, 2, 89.5, 9.7, 10.5, 11.5, 12.5, 13.7, 15.1, 16.6);
+INSERT INTO `bb_tb_perempuan` VALUES (182, 2, 90.0, 9.8, 10.6, 11.6, 12.6, 13.8, 15.2, 16.8);
+INSERT INTO `bb_tb_perempuan` VALUES (183, 2, 90.5, 9.9, 10.7, 11.7, 12.8, 14.0, 15.4, 16.9);
+INSERT INTO `bb_tb_perempuan` VALUES (184, 2, 91.0, 10.0, 10.9, 11.8, 12.9, 14.1, 15.5, 17.1);
+INSERT INTO `bb_tb_perempuan` VALUES (185, 2, 91.5, 10.1, 11.0, 11.9, 13.0, 14.3, 15.7, 17.3);
+INSERT INTO `bb_tb_perempuan` VALUES (186, 2, 92.0, 10.2, 11.1, 12.0, 13.1, 14.4, 15.8, 17.4);
+INSERT INTO `bb_tb_perempuan` VALUES (187, 2, 92.5, 10.3, 11.2, 12.1, 13.3, 14.5, 16.0, 17.6);
+INSERT INTO `bb_tb_perempuan` VALUES (188, 2, 93.0, 10.4, 11.3, 12.3, 13.4, 14.7, 16.1, 17.8);
+INSERT INTO `bb_tb_perempuan` VALUES (189, 2, 93.5, 10.5, 11.4, 12.4, 13.5, 14.8, 16.3, 17.9);
+INSERT INTO `bb_tb_perempuan` VALUES (190, 2, 94.0, 10.6, 11.5, 12.5, 13.6, 14.9, 16.4, 18.1);
+INSERT INTO `bb_tb_perempuan` VALUES (191, 2, 94.5, 10.7, 11.6, 12.6, 13.8, 15.1, 16.6, 18.3);
+INSERT INTO `bb_tb_perempuan` VALUES (192, 2, 95.0, 10.8, 11.7, 12.7, 13.9, 15.2, 16.7, 18.5);
+INSERT INTO `bb_tb_perempuan` VALUES (193, 2, 95.5, 10.8, 11.8, 12.8, 14.0, 15.4, 16.9, 18.6);
+INSERT INTO `bb_tb_perempuan` VALUES (194, 2, 96.0, 10.9, 11.9, 12.9, 14.1, 15.5, 17.0, 18.8);
+INSERT INTO `bb_tb_perempuan` VALUES (195, 2, 96.5, 11.0, 12.0, 13.1, 14.3, 15.6, 17.2, 19.0);
+INSERT INTO `bb_tb_perempuan` VALUES (196, 2, 97.0, 11.1, 12.1, 13.2, 14.4, 15.8, 17.4, 19.2);
+INSERT INTO `bb_tb_perempuan` VALUES (197, 2, 97.5, 11.2, 12.2, 13.3, 14.5, 15.9, 17.5, 19.3);
+INSERT INTO `bb_tb_perempuan` VALUES (198, 2, 98.0, 11.3, 12.3, 13.4, 14.7, 16.1, 17.7, 19.5);
+INSERT INTO `bb_tb_perempuan` VALUES (199, 2, 98.5, 11.4, 12.4, 13.5, 14.8, 16.2, 17.9, 19.7);
+INSERT INTO `bb_tb_perempuan` VALUES (200, 2, 99.0, 11.5, 12.5, 13.7, 14.9, 16.4, 18.0, 19.9);
+INSERT INTO `bb_tb_perempuan` VALUES (201, 2, 99.5, 11.6, 12.7, 13.8, 15.1, 16.5, 18.2, 20.1);
+INSERT INTO `bb_tb_perempuan` VALUES (202, 2, 100.0, 11.7, 12.8, 13.9, 15.2, 16.7, 18.4, 20.3);
+INSERT INTO `bb_tb_perempuan` VALUES (203, 2, 100.5, 11.9, 12.9, 14.1, 15.4, 16.9, 18.6, 20.5);
+INSERT INTO `bb_tb_perempuan` VALUES (204, 2, 101.0, 12.0, 13.0, 14.2, 15.5, 17.0, 18.7, 20.7);
+INSERT INTO `bb_tb_perempuan` VALUES (205, 2, 101.5, 12.1, 13.1, 14.3, 15.7, 17.2, 18.9, 20.9);
+INSERT INTO `bb_tb_perempuan` VALUES (206, 2, 102.0, 12.2, 13.3, 14.5, 15.8, 17.4, 19.1, 21.1);
+INSERT INTO `bb_tb_perempuan` VALUES (207, 2, 102.5, 12.3, 13.4, 14.6, 16.0, 17.5, 19.3, 21.4);
+INSERT INTO `bb_tb_perempuan` VALUES (208, 2, 103.0, 12.4, 13.5, 14.7, 16.1, 17.7, 19.5, 21.6);
+INSERT INTO `bb_tb_perempuan` VALUES (209, 2, 103.5, 12.5, 13.6, 14.9, 16.3, 17.9, 19.7, 21.8);
+INSERT INTO `bb_tb_perempuan` VALUES (210, 2, 104.0, 12.6, 13.8, 15.0, 16.4, 18.1, 19.9, 22.0);
+INSERT INTO `bb_tb_perempuan` VALUES (211, 2, 104.5, 12.8, 13.9, 15.2, 16.6, 18.2, 20.1, 22.3);
+INSERT INTO `bb_tb_perempuan` VALUES (212, 2, 105.0, 12.9, 14.0, 15.3, 16.8, 18.4, 20.3, 22.5);
+INSERT INTO `bb_tb_perempuan` VALUES (213, 2, 105.5, 13.0, 14.2, 15.5, 16.9, 18.6, 20.5, 22.7);
+INSERT INTO `bb_tb_perempuan` VALUES (214, 2, 106.0, 13.1, 14.3, 15.6, 17.1, 18.8, 20.8, 23.0);
+INSERT INTO `bb_tb_perempuan` VALUES (215, 2, 106.5, 13.3, 14.5, 15.8, 17.3, 19.0, 21.0, 23.2);
+INSERT INTO `bb_tb_perempuan` VALUES (216, 2, 107.0, 13.4, 14.6, 15.9, 17.5, 19.2, 21.2, 23.5);
+INSERT INTO `bb_tb_perempuan` VALUES (217, 2, 107.5, 13.5, 14.7, 16.1, 17.7, 19.4, 21.4, 23.7);
+INSERT INTO `bb_tb_perempuan` VALUES (218, 2, 108.0, 13.7, 14.9, 16.3, 17.8, 19.6, 21.7, 24.0);
+INSERT INTO `bb_tb_perempuan` VALUES (219, 2, 108.5, 13.8, 15.0, 16.4, 18.0, 19.8, 21.9, 24.3);
+INSERT INTO `bb_tb_perempuan` VALUES (220, 2, 109.0, 13.9, 15.2, 16.6, 18.2, 20.0, 22.1, 24.5);
+INSERT INTO `bb_tb_perempuan` VALUES (221, 2, 109.5, 14.1, 15.4, 16.8, 18.4, 20.3, 22.4, 24.8);
+INSERT INTO `bb_tb_perempuan` VALUES (222, 2, 110.0, 14.2, 15.5, 17.0, 18.6, 20.5, 22.6, 25.1);
+INSERT INTO `bb_tb_perempuan` VALUES (223, 2, 110.5, 14.4, 15.7, 17.1, 18.8, 0.7, 22.9, 25.4);
+INSERT INTO `bb_tb_perempuan` VALUES (224, 2, 111.0, 14.5, 15.8, 17.3, 19.0, 20.9, 23.1, 25.7);
+INSERT INTO `bb_tb_perempuan` VALUES (225, 2, 111.5, 14.7, 16.0, 17.5, 19.2, 21.2, 23.4, 26.0);
+INSERT INTO `bb_tb_perempuan` VALUES (226, 2, 112.0, 14.8, 16.2, 17.7, 19.4, 21.4, 23.6, 26.2);
+INSERT INTO `bb_tb_perempuan` VALUES (227, 2, 112.5, 15.0, 16.3, 17.9, 19.6, 21.6, 23.9, 26.5);
+INSERT INTO `bb_tb_perempuan` VALUES (228, 2, 113.0, 15.1, 16.5, 18.0, 19.8, 21.8, 24.2, 26.8);
+INSERT INTO `bb_tb_perempuan` VALUES (229, 2, 113.5, 15.3, 16.7, 18.2, 20.0, 22.1, 24.4, 27.1);
+INSERT INTO `bb_tb_perempuan` VALUES (230, 2, 114.0, 15.4, 16.8, 18.4, 20.2, 22.3, 24.7, 27.4);
+INSERT INTO `bb_tb_perempuan` VALUES (231, 2, 114.5, 15.6, 17.0, 18.6, 20.5, 22.6, 25.0, 27.8);
+INSERT INTO `bb_tb_perempuan` VALUES (232, 2, 115.0, 15.7, 17.2, 18.8, 20.7, 22.8, 25.2, 28.1);
+INSERT INTO `bb_tb_perempuan` VALUES (233, 2, 115.5, 15.9, 17.3, 19.0, 20.9, 23.0, 25.5, 28.4);
+INSERT INTO `bb_tb_perempuan` VALUES (234, 2, 116.0, 16.0, 17.5, 19.2, 21.1, 23.3, 25.8, 28.7);
+INSERT INTO `bb_tb_perempuan` VALUES (235, 2, 116.5, 16.2, 17.7, 19.4, 21.3, 23.5, 26.1, 29.0);
+INSERT INTO `bb_tb_perempuan` VALUES (236, 2, 117.0, 16.3, 17.8, 19.6, 21.5, 23.8, 26.3, 29.3);
+INSERT INTO `bb_tb_perempuan` VALUES (237, 2, 117.5, 16.5, 18.0, 19.8, 21.7, 24.0, 26.6, 29.6);
+INSERT INTO `bb_tb_perempuan` VALUES (238, 2, 118.0, 16.6, 18.2, 19.9, 22.0, 24.2, 26.9, 29.9);
+INSERT INTO `bb_tb_perempuan` VALUES (239, 2, 118.5, 16.8, 18.4, 20.1, 22.2, 24.5, 27.2, 30.3);
+INSERT INTO `bb_tb_perempuan` VALUES (240, 2, 119.0, 16.9, 18.5, 20.3, 22.4, 24.7, 27.4, 30.6);
+INSERT INTO `bb_tb_perempuan` VALUES (241, 2, 119.5, 17.1, 18.7, 20.5, 22.6, 25.0, 27.7, 30.9);
+INSERT INTO `bb_tb_perempuan` VALUES (242, 2, 120.0, 17.3, 18.9, 20.7, 22.8, 25.2, 28.0, 31.2);
+
+-- ----------------------------
+-- Table structure for bb_u_laki
+-- ----------------------------
+DROP TABLE IF EXISTS `bb_u_laki`;
+CREATE TABLE `bb_u_laki`  (
+  `id_bbu_l` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_bbu_l`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of bb_u_laki
+-- ----------------------------
+INSERT INTO `bb_u_laki` VALUES (1, 0, 2.1, 2.5, 2.9, 3.3, 3.9, 4.4, 5.0);
+INSERT INTO `bb_u_laki` VALUES (2, 1, 2.9, 3.4, 3.9, 4.5, 5.1, 5.8, 6.6);
+INSERT INTO `bb_u_laki` VALUES (3, 2, 3.8, 4.3, 4.9, 5.6, 6.3, 7.1, 8.0);
+INSERT INTO `bb_u_laki` VALUES (4, 3, 4.4, 5.0, 5.7, 6.4, 7.2, 8.0, 9.0);
+INSERT INTO `bb_u_laki` VALUES (5, 4, 4.9, 5.6, 6.2, 7.0, 7.8, 8.7, 9.7);
+INSERT INTO `bb_u_laki` VALUES (6, 5, 5.3, 6.0, 6.7, 7.5, 8.4, 9.3, 10.4);
+INSERT INTO `bb_u_laki` VALUES (7, 6, 5.7, 6.4, 7.1, 7.9, 8.8, 9.8, 10.9);
+INSERT INTO `bb_u_laki` VALUES (8, 7, 5.9, 6.7, 7.4, 8.3, 9.2, 10.3, 11.4);
+INSERT INTO `bb_u_laki` VALUES (9, 8, 6.2, 6.9, 7.7, 8.6, 9.6, 10.7, 11.9);
+INSERT INTO `bb_u_laki` VALUES (10, 9, 6.4, 7.1, 8.0, 8.9, 9.9, 11.0, 12.3);
+INSERT INTO `bb_u_laki` VALUES (11, 10, 6.6, 7.4, 8.2, 9.2, 10.2, 11.4, 12.7);
+INSERT INTO `bb_u_laki` VALUES (12, 11, 6.8, 7.6, 8.4, 9.4, 10.5, 11.7, 13.0);
+INSERT INTO `bb_u_laki` VALUES (13, 12, 6.9, 7.7, 8.6, 9.6, 10.8, 12.0, 13.3);
+INSERT INTO `bb_u_laki` VALUES (14, 13, 7.1, 7.9, 8.8, 9.9, 11.0, 12.3, 13.7);
+INSERT INTO `bb_u_laki` VALUES (15, 14, 7.2, 8.1, 9.0, 10.1, 11.3, 12.6, 14.0);
+INSERT INTO `bb_u_laki` VALUES (16, 15, 7.4, 8.3, 9.2, 10.3, 11.5, 12.8, 14.3);
+INSERT INTO `bb_u_laki` VALUES (17, 16, 7.5, 8.4, 9.4, 10.5, 11.7, 13.1, 14.6);
+INSERT INTO `bb_u_laki` VALUES (18, 17, 7.7, 8.6, 9.6, 10.7, 12.0, 13.4, 14.9);
+INSERT INTO `bb_u_laki` VALUES (19, 18, 7.8, 8.8, 9.8, 10.9, 12.2, 13.7, 15.3);
+INSERT INTO `bb_u_laki` VALUES (20, 19, 8.0, 8.9, 10.0, 11.1, 12.5, 13.9, 15.6);
+INSERT INTO `bb_u_laki` VALUES (21, 20, 8.1, 9.1, 10.1, 11.3, 12.7, 14.2, 15.9);
+INSERT INTO `bb_u_laki` VALUES (22, 21, 8.2, 9.2, 10.3, 11.5, 12.9, 14.5, 16.2);
+INSERT INTO `bb_u_laki` VALUES (23, 22, 8.4, 9.4, 10.5, 11.8, 13.2, 14.7, 16.5);
+INSERT INTO `bb_u_laki` VALUES (24, 23, 8.5, 9.5, 10.7, 12.0, 13.4, 15.0, 16.8);
+INSERT INTO `bb_u_laki` VALUES (25, 24, 8.6, 9.7, 10.8, 12.2, 13.6, 15.3, 17.1);
+INSERT INTO `bb_u_laki` VALUES (26, 25, 8.8, 9.8, 11.0, 12.4, 13.9, 15.5, 17.5);
+INSERT INTO `bb_u_laki` VALUES (27, 26, 8.9, 10.0, 11.2, 12.5, 14.1, 15.8, 17.8);
+INSERT INTO `bb_u_laki` VALUES (28, 27, 9.0, 10.1, 11.3, 12.7, 14.3, 16.1, 18.1);
+INSERT INTO `bb_u_laki` VALUES (29, 28, 9.1, 10.2, 11.5, 12.9, 14.5, 16.3, 18.4);
+INSERT INTO `bb_u_laki` VALUES (30, 29, 9.2, 10.4, 11.7, 13.1, 14.8, 16.6, 18.7);
+INSERT INTO `bb_u_laki` VALUES (31, 30, 9.4, 10.5, 11.8, 13.3, 15.0, 16.9, 19.0);
+INSERT INTO `bb_u_laki` VALUES (32, 31, 9.5, 10.7, 12.0, 13.5, 15.2, 17.1, 19.3);
+INSERT INTO `bb_u_laki` VALUES (33, 32, 9.6, 10.8, 12.1, 13.7, 15.4, 17.4, 19.6);
+INSERT INTO `bb_u_laki` VALUES (34, 33, 9.7, 10.9, 12.3, 13.8, 15.6, 17.6, 19.9);
+INSERT INTO `bb_u_laki` VALUES (35, 34, 9.8, 11.0, 12.4, 14.0, 15.8, 17.8, 20.2);
+INSERT INTO `bb_u_laki` VALUES (36, 35, 9.9, 11.2, 12.6, 14.2, 16.0, 18.1, 20.4);
+INSERT INTO `bb_u_laki` VALUES (37, 36, 10.0, 11.3, 12.7, 14.3, 16.2, 18.3, 20.7);
+INSERT INTO `bb_u_laki` VALUES (38, 37, 10.1, 11.4, 12.9, 14.5, 16.4, 18.6, 21.0);
+INSERT INTO `bb_u_laki` VALUES (39, 38, 10.2, 11.5, 13.0, 14.7, 16.6, 18.8, 21.3);
+INSERT INTO `bb_u_laki` VALUES (40, 39, 10.3, 11.6, 13.1, 14.8, 16.8, 19.0, 21.6);
+INSERT INTO `bb_u_laki` VALUES (41, 40, 10.4, 11.8, 13.3, 15.0, 17.0, 19.3, 21.9);
+INSERT INTO `bb_u_laki` VALUES (42, 41, 10.5, 11.9, 13.4, 15.2, 17.2, 19.5, 22.1);
+INSERT INTO `bb_u_laki` VALUES (43, 42, 10.6, 12.0, 13.6, 15.3, 17.4, 19.7, 22.4);
+INSERT INTO `bb_u_laki` VALUES (44, 43, 10.7, 12.1, 13.7, 15.5, 17.6, 20.0, 22.7);
+INSERT INTO `bb_u_laki` VALUES (45, 44, 10.8, 12.2, 13.8, 15.7, 17.8, 20.2, 23.0);
+INSERT INTO `bb_u_laki` VALUES (46, 45, 10.9, 12.4, 14.0, 15.8, 18.0, 20.5, 23.3);
+INSERT INTO `bb_u_laki` VALUES (47, 46, 11.0, 12.5, 14.1, 16.0, 18.2, 20.7, 23.6);
+INSERT INTO `bb_u_laki` VALUES (48, 47, 11.1, 12.6, 14.3, 16.2, 18.4, 20.9, 23.9);
+INSERT INTO `bb_u_laki` VALUES (49, 48, 11.2, 12.7, 14.4, 16.3, 18.6, 21.2, 24.2);
+INSERT INTO `bb_u_laki` VALUES (50, 49, 11.3, 12.8, 14.5, 16.5, 18.8, 21.4, 24.5);
+INSERT INTO `bb_u_laki` VALUES (51, 50, 11.4, 12.9, 14.7, 16.7, 19.0, 21.7, 24.8);
+INSERT INTO `bb_u_laki` VALUES (52, 51, 11.5, 13.1, 14.8, 16.8, 19.2, 21.9, 25.1);
+INSERT INTO `bb_u_laki` VALUES (53, 52, 11.6, 13.2, 15.0, 17.0, 19.4, 22.2, 25.4);
+INSERT INTO `bb_u_laki` VALUES (54, 53, 11.7, 13.3, 15.1, 17.2, 19.6, 22.4, 25.7);
+INSERT INTO `bb_u_laki` VALUES (55, 54, 11.8, 13.4, 15.2, 17.3, 19.8, 22.7, 26.0);
+INSERT INTO `bb_u_laki` VALUES (56, 55, 11.9, 13.5, 15.4, 17.5, 20.0, 22.9, 26.3);
+INSERT INTO `bb_u_laki` VALUES (57, 56, 12.0, 13.6, 15.5, 17.7, 20.2, 23.2, 26.6);
+INSERT INTO `bb_u_laki` VALUES (58, 57, 12.1, 13.7, 15.6, 17.8, 20.4, 23.4, 26.9);
+INSERT INTO `bb_u_laki` VALUES (59, 58, 12.2, 13.8, 15.8, 18.0, 20.6, 23.7, 27.2);
+INSERT INTO `bb_u_laki` VALUES (60, 59, 12.3, 14.0, 15.9, 18.2, 20.8, 23.9, 27.6);
+INSERT INTO `bb_u_laki` VALUES (61, 60, 12.4, 14.1, 16.0, 18.3, 21.0, 24.2, 27.9);
+
+-- ----------------------------
+-- Table structure for bb_u_perempuan
+-- ----------------------------
+DROP TABLE IF EXISTS `bb_u_perempuan`;
+CREATE TABLE `bb_u_perempuan`  (
+  `id_bbu_p` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_bbu_p`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of bb_u_perempuan
+-- ----------------------------
+INSERT INTO `bb_u_perempuan` VALUES (1, 0, 2.6, 2.4, 2.8, 3.2, 3.7, 4.2, 4.8);
+INSERT INTO `bb_u_perempuan` VALUES (2, 1, 2.7, 3.2, 3.6, 4.2, 4.8, 5.5, 6.2);
+INSERT INTO `bb_u_perempuan` VALUES (3, 2, 3.4, 3.9, 4.5, 5.1, 5.8, 6.6, 7.5);
+INSERT INTO `bb_u_perempuan` VALUES (4, 3, 4.0, 4.5, 5.2, 5.8, 6.6, 7.5, 8.5);
+INSERT INTO `bb_u_perempuan` VALUES (5, 4, 4.4, 5.0, 5.7, 6.4, 7.3, 8.2, 9.3);
+INSERT INTO `bb_u_perempuan` VALUES (6, 5, 4.8, 5.4, 6.1, 6.9, 7.8, 8.8, 10.0);
+INSERT INTO `bb_u_perempuan` VALUES (7, 6, 5.1, 5.7, 6.5, 7.3, 8.2, 9.3, 10.6);
+INSERT INTO `bb_u_perempuan` VALUES (8, 7, 5.3, 6.0, 6.8, 7.6, 8.6, 9.8, 11.1);
+INSERT INTO `bb_u_perempuan` VALUES (9, 8, 5.6, 6.3, 7.0, 7.9, 9.0, 10.2, 11.6);
+INSERT INTO `bb_u_perempuan` VALUES (10, 9, 5.8, 6.5, 7.3, 8.2, 9.3, 10.5, 152.0);
+INSERT INTO `bb_u_perempuan` VALUES (11, 10, 5.9, 6.7, 7.5, 8.5, 9.6, 10.9, 12.4);
+INSERT INTO `bb_u_perempuan` VALUES (12, 11, 6.1, 6.9, 7.7, 8.7, 9.9, 11.2, 12.8);
+INSERT INTO `bb_u_perempuan` VALUES (13, 12, 6.3, 7.0, 7.9, 8.9, 10.1, 11.5, 13.1);
+INSERT INTO `bb_u_perempuan` VALUES (14, 13, 6.4, 7.2, 8.1, 9.2, 10.4, 11.8, 13.5);
+INSERT INTO `bb_u_perempuan` VALUES (15, 14, 6.6, 7.4, 8.3, 9.4, 10.6, 12.1, 13.8);
+INSERT INTO `bb_u_perempuan` VALUES (16, 15, 6.7, 7.6, 8.5, 9.6, 10.9, 12.4, 14.1);
+INSERT INTO `bb_u_perempuan` VALUES (17, 16, 6.9, 7.7, 8.7, 9.8, 11.1, 12.6, 14.5);
+INSERT INTO `bb_u_perempuan` VALUES (18, 17, 7.0, 7.9, 8.9, 10.0, 11.4, 12.9, 14.8);
+INSERT INTO `bb_u_perempuan` VALUES (19, 18, 7.2, 8.1, 9.1, 10.2, 11.6, 13.2, 15.1);
+INSERT INTO `bb_u_perempuan` VALUES (20, 19, 7.3, 8.2, 9.2, 10.4, 11.8, 13.5, 15.4);
+INSERT INTO `bb_u_perempuan` VALUES (21, 20, 7.5, 8.4, 9.4, 10.6, 12.1, 13.7, 15.7);
+INSERT INTO `bb_u_perempuan` VALUES (22, 21, 7.6, 8.6, 9.6, 10.9, 12.3, 14.0, 16.0);
+INSERT INTO `bb_u_perempuan` VALUES (23, 22, 7.8, 8.7, 9.8, 11.1, 12.5, 14.3, 16.4);
+INSERT INTO `bb_u_perempuan` VALUES (24, 23, 7.9, 8.9, 10.0, 11.3, 12.8, 14.6, 16.7);
+INSERT INTO `bb_u_perempuan` VALUES (25, 24, 8.1, 9.0, 10.2, 11.5, 13.0, 14.8, 17.0);
+INSERT INTO `bb_u_perempuan` VALUES (26, 25, 8.2, 9.2, 10.3, 11.7, 13.3, 15.1, 17.3);
+INSERT INTO `bb_u_perempuan` VALUES (27, 26, 8.4, 9.4, 10.5, 11.9, 13.5, 15.4, 17.7);
+INSERT INTO `bb_u_perempuan` VALUES (28, 27, 8.5, 9.5, 10.7, 12.1, 13.7, 15.7, 18.0);
+INSERT INTO `bb_u_perempuan` VALUES (29, 28, 8.6, 9.7, 10.9, 12.3, 14.0, 16.0, 18.3);
+INSERT INTO `bb_u_perempuan` VALUES (30, 29, 8.8, 9.8, 11.1, 12.5, 14.2, 16.2, 18.7);
+INSERT INTO `bb_u_perempuan` VALUES (31, 30, 8.9, 10.0, 11.2, 12.7, 14.4, 16.5, 19.0);
+INSERT INTO `bb_u_perempuan` VALUES (32, 31, 9.0, 10.1, 11.4, 12.9, 14.7, 16.8, 19.3);
+INSERT INTO `bb_u_perempuan` VALUES (33, 32, 9.1, 10.3, 11.6, 13.1, 14.9, 17.1, 19.6);
+INSERT INTO `bb_u_perempuan` VALUES (34, 33, 9.3, 10.4, 11.7, 13.3, 15.1, 17.3, 20.0);
+INSERT INTO `bb_u_perempuan` VALUES (35, 34, 9.4, 10.5, 11.9, 13.5, 15.4, 17.6, 20.3);
+INSERT INTO `bb_u_perempuan` VALUES (36, 35, 9.5, 10.7, 12.0, 13.7, 15.6, 17.9, 20.6);
+INSERT INTO `bb_u_perempuan` VALUES (37, 36, 9.6, 10.8, 12.2, 13.9, 15.8, 18.1, 20.9);
+INSERT INTO `bb_u_perempuan` VALUES (38, 37, 9.7, 10.9, 12.4, 14.0, 16.0, 18.4, 21.3);
+INSERT INTO `bb_u_perempuan` VALUES (39, 38, 9.8, 11.1, 12.5, 14.2, 16.3, 18.7, 21.6);
+INSERT INTO `bb_u_perempuan` VALUES (40, 39, 9.9, 11.2, 12.7, 14.4, 16.5, 19.0, 22.0);
+INSERT INTO `bb_u_perempuan` VALUES (41, 40, 10.1, 11.3, 12.8, 14.6, 16.7, 19.2, 22.3);
+INSERT INTO `bb_u_perempuan` VALUES (42, 41, 10.2, 11.5, 13.0, 14.8, 16.9, 19.5, 22.7);
+INSERT INTO `bb_u_perempuan` VALUES (43, 42, 10.3, 11.6, 13.1, 15.0, 17.2, 19.8, 23.0);
+INSERT INTO `bb_u_perempuan` VALUES (44, 43, 10.4, 11.7, 13.3, 15.2, 17.4, 20.1, 23.4);
+INSERT INTO `bb_u_perempuan` VALUES (45, 44, 10.5, 11.8, 13.4, 15.3, 17.6, 20.4, 23.7);
+INSERT INTO `bb_u_perempuan` VALUES (46, 45, 10.6, 12.0, 13.6, 15.5, 17.8, 20.7, 24.1);
+INSERT INTO `bb_u_perempuan` VALUES (47, 46, 10.7, 12.1, 13.7, 15.7, 18.1, 20.9, 24.5);
+INSERT INTO `bb_u_perempuan` VALUES (48, 47, 10.8, 12.2, 13.9, 15.9, 189.3, 21.2, 24.8);
+INSERT INTO `bb_u_perempuan` VALUES (49, 48, 10.9, 12.3, 14.0, 16.1, 18.5, 21.5, 25.2);
+INSERT INTO `bb_u_perempuan` VALUES (50, 49, 11.0, 12.4, 14.2, 16.3, 18.8, 21.8, 25.5);
+INSERT INTO `bb_u_perempuan` VALUES (51, 50, 11.1, 12.6, 14.3, 16.4, 19.0, 22.1, 25.9);
+INSERT INTO `bb_u_perempuan` VALUES (52, 51, 11.2, 12.7, 14.5, 16.6, 19.2, 22.4, 26.3);
+INSERT INTO `bb_u_perempuan` VALUES (53, 52, 11.3, 12.8, 14.6, 16.8, 19.4, 22.6, 26.6);
+INSERT INTO `bb_u_perempuan` VALUES (54, 53, 11.4, 12.9, 14.8, 17.0, 19.7, 22.9, 27.0);
+INSERT INTO `bb_u_perempuan` VALUES (55, 54, 11.5, 13.0, 14.9, 17.2, 19.9, 23.2, 27.4);
+INSERT INTO `bb_u_perempuan` VALUES (56, 55, 11.6, 13.2, 15.1, 17.3, 20.1, 23.5, 27.7);
+INSERT INTO `bb_u_perempuan` VALUES (57, 56, 11.7, 13.3, 15.2, 17.5, 20.3, 23.8, 28.1);
+INSERT INTO `bb_u_perempuan` VALUES (58, 57, 11.8, 13.4, 15.3, 17.7, 20.6, 24.1, 28.5);
+INSERT INTO `bb_u_perempuan` VALUES (59, 58, 11.9, 13.5, 15.5, 17.9, 20.8, 24.4, 28.8);
+INSERT INTO `bb_u_perempuan` VALUES (60, 59, 12.0, 13.6, 15.6, 18.0, 21.0, 24.6, 29.2);
+INSERT INTO `bb_u_perempuan` VALUES (61, 60, 12.1, 13.7, 15.8, 18.2, 21.2, 24.9, 29.5);
+
+-- ----------------------------
 -- Table structure for datasets
 -- ----------------------------
 DROP TABLE IF EXISTS `datasets`;
 CREATE TABLE `datasets`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id_dataset` int NOT NULL AUTO_INCREMENT,
   `usia` int NOT NULL,
   `bb` decimal(20, 1) NOT NULL,
   `tb` decimal(20, 1) NOT NULL,
   `lk` decimal(20, 1) NOT NULL,
-  `pengukuran` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `jenis_kelamin` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `sberat` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `stinggi` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `skepala` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `sgizi` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `pengukuran` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `jenis_kelamin` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sberat` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `stinggi` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `skepala` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sgizi` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3564 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id_dataset`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3574 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of datasets
@@ -3603,5 +4395,438 @@ INSERT INTO `datasets` VALUES (3559, 60, 21.6, 104.8, 50.0, 'Berdiri', 'P', 'Ris
 INSERT INTO `datasets` VALUES (3560, 60, 21.2, 101.0, 51.0, 'Berdiri', 'L', 'Risiko BB lebih', 'Normal', 'Normal', 'Obesitas', '2023-06-27 10:06:16', '2023-08-04 05:44:25');
 INSERT INTO `datasets` VALUES (3561, 60, 21.2, 102.0, 52.0, 'Berdiri', 'L', 'Risiko BB lebih', 'Normal', 'Normal', 'Obesitas', '2023-06-27 10:08:12', '2023-08-04 05:44:25');
 INSERT INTO `datasets` VALUES (3563, 60, 7.0, 50.0, 41.0, 'Berdiri', 'P', 'Kurang', 'Sangat pendek', 'Terlalu kecil', 'Gizi baik', '2023-08-19 13:55:22', '2023-08-19 13:55:22');
+INSERT INTO `datasets` VALUES (3566, 8, 12.0, 90.0, 47.5, 'Telentang', 'L', 'Risiko BB lebih', 'Tinggi', 'Terlalu besar', 'Gizi baik', '2023-09-04 03:59:07', '2023-09-04 03:59:07');
+
+-- ----------------------------
+-- Table structure for lk_u_laki
+-- ----------------------------
+DROP TABLE IF EXISTS `lk_u_laki`;
+CREATE TABLE `lk_u_laki`  (
+  `id_lku_l` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `3rd` decimal(10, 1) NOT NULL,
+  `15th` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `85th` decimal(10, 1) NOT NULL,
+  `97th` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_lku_l`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of lk_u_laki
+-- ----------------------------
+INSERT INTO `lk_u_laki` VALUES (1, 0, 32.1, 33.1, 34.5, 35.8, 36.9);
+INSERT INTO `lk_u_laki` VALUES (2, 1, 35.1, 36.1, 37.3, 38.5, 39.5);
+INSERT INTO `lk_u_laki` VALUES (3, 2, 36.9, 37.9, 39.1, 40.3, 41.3);
+INSERT INTO `lk_u_laki` VALUES (4, 3, 38.3, 39.3, 40.5, 41.7, 42.7);
+INSERT INTO `lk_u_laki` VALUES (5, 4, 39.4, 40.4, 41.6, 42.9, 43.9);
+INSERT INTO `lk_u_laki` VALUES (6, 5, 40.3, 41.3, 42.6, 43.8, 44.8);
+INSERT INTO `lk_u_laki` VALUES (7, 6, 41.0, 42.1, 43.3, 44.6, 45.6);
+INSERT INTO `lk_u_laki` VALUES (8, 7, 41.7, 42.7, 44.0, 45.3, 46.3);
+INSERT INTO `lk_u_laki` VALUES (9, 8, 42.2, 43.2, 44.5, 45.8, 46.9);
+INSERT INTO `lk_u_laki` VALUES (10, 9, 42.6, 43.7, 45.0, 46.3, 47.4);
+INSERT INTO `lk_u_laki` VALUES (11, 10, 43.0, 44.1, 45.4, 46.7, 47.8);
+INSERT INTO `lk_u_laki` VALUES (12, 11, 43.4, 44.4, 45.8, 47.1, 48.2);
+INSERT INTO `lk_u_laki` VALUES (13, 12, 43.6, 44.7, 46.1, 47.4, 48.5);
+INSERT INTO `lk_u_laki` VALUES (14, 13, 43.9, 45.0, 46.3, 47.7, 48.8);
+INSERT INTO `lk_u_laki` VALUES (15, 14, 44.1, 45.2, 46.6, 47.9, 49.0);
+INSERT INTO `lk_u_laki` VALUES (16, 15, 44.3, 45.5, 46.8, 48.2, 49.3);
+INSERT INTO `lk_u_laki` VALUES (17, 16, 44.5, 45.6, 47.0, 48.4, 49.5);
+INSERT INTO `lk_u_laki` VALUES (18, 17, 44.7, 45.8, 47.2, 48.6, 49.7);
+INSERT INTO `lk_u_laki` VALUES (19, 18, 44.9, 46.0, 47.4, 48.7, 49.9);
+INSERT INTO `lk_u_laki` VALUES (20, 19, 45.0, 46.2, 47.5, 48.9, 50.0);
+INSERT INTO `lk_u_laki` VALUES (21, 20, 45.2, 46.3, 47.7, 49.1, 50.2);
+INSERT INTO `lk_u_laki` VALUES (22, 21, 45.3, 46.4, 47.8, 49.2, 50.4);
+INSERT INTO `lk_u_laki` VALUES (23, 22, 45.4, 46.6, 48.0, 49.4, 50.5);
+INSERT INTO `lk_u_laki` VALUES (24, 23, 45.6, 46.7, 48.1, 49.5, 50.7);
+INSERT INTO `lk_u_laki` VALUES (25, 24, 45.7, 46.8, 48.3, 49.7, 50.8);
+INSERT INTO `lk_u_laki` VALUES (26, 25, 45.8, 47.0, 48.4, 49.8, 50.9);
+INSERT INTO `lk_u_laki` VALUES (27, 26, 45.9, 47.1, 48.5, 49.9, 51.1);
+INSERT INTO `lk_u_laki` VALUES (28, 27, 46.0, 47.2, 48.6, 50.0, 51.2);
+INSERT INTO `lk_u_laki` VALUES (29, 28, 46.1, 47.3, 48.7, 50.2, 51.3);
+INSERT INTO `lk_u_laki` VALUES (30, 29, 46.2, 47.4, 48.8, 50.3, 51.4);
+INSERT INTO `lk_u_laki` VALUES (31, 30, 46.3, 47.5, 48.9, 50.4, 51.6);
+INSERT INTO `lk_u_laki` VALUES (32, 31, 46.4, 47.6, 49.0, 50.5, 51.7);
+INSERT INTO `lk_u_laki` VALUES (33, 32, 46.5, 47.7, 49.1, 50.6, 51.8);
+INSERT INTO `lk_u_laki` VALUES (34, 33, 46.6, 47.8, 49.2, 50.7, 51.9);
+INSERT INTO `lk_u_laki` VALUES (35, 34, 46.6, 47.8, 49.3, 50.8, 52.0);
+INSERT INTO `lk_u_laki` VALUES (36, 35, 46.7, 47.9, 49.4, 50.8, 52.0);
+INSERT INTO `lk_u_laki` VALUES (37, 36, 46.8, 48.0, 49.5, 50.9, 52.1);
+INSERT INTO `lk_u_laki` VALUES (38, 37, 46.9, 48.1, 49.5, 51.0, 52.2);
+INSERT INTO `lk_u_laki` VALUES (39, 38, 46.9, 48.1, 49.6, 51.1, 52.3);
+INSERT INTO `lk_u_laki` VALUES (40, 39, 47.0, 48.2, 49.7, 51.2, 52.4);
+INSERT INTO `lk_u_laki` VALUES (41, 40, 47.0, 48.3, 49.7, 51.2, 52.4);
+INSERT INTO `lk_u_laki` VALUES (42, 41, 47.1, 48.3, 49.8, 51.3, 52.5);
+INSERT INTO `lk_u_laki` VALUES (43, 42, 47.2, 48.4, 49.9, 51.4, 52.6);
+INSERT INTO `lk_u_laki` VALUES (44, 43, 47.2, 48.4, 49.9, 51.4, 52.7);
+INSERT INTO `lk_u_laki` VALUES (45, 44, 47.3, 48.5, 50.0, 51.5, 52.7);
+INSERT INTO `lk_u_laki` VALUES (46, 45, 47.3, 48.5, 50.1, 51.6, 52.8);
+INSERT INTO `lk_u_laki` VALUES (47, 46, 47.4, 48.6, 50.1, 51.6, 52.8);
+INSERT INTO `lk_u_laki` VALUES (48, 47, 47.4, 48.6, 50.2, 51.7, 52.9);
+INSERT INTO `lk_u_laki` VALUES (49, 48, 47.5, 48.7, 50.2, 51.7, 53.0);
+INSERT INTO `lk_u_laki` VALUES (50, 49, 47.5, 48.7, 50.3, 51.8, 53.0);
+INSERT INTO `lk_u_laki` VALUES (51, 50, 47.5, 48.8, 50.3, 51.8, 53.1);
+INSERT INTO `lk_u_laki` VALUES (52, 51, 47.6, 48.8, 50.4, 51.9, 53.1);
+INSERT INTO `lk_u_laki` VALUES (53, 52, 47.6, 48.9, 50.4, 51.9, 53.2);
+INSERT INTO `lk_u_laki` VALUES (54, 53, 47.7, 48.9, 50.4, 52.0, 53.2);
+INSERT INTO `lk_u_laki` VALUES (55, 54, 47.7, 49.0, 50.5, 52.0, 53.3);
+INSERT INTO `lk_u_laki` VALUES (56, 55, 47.7, 49.0, 50.5, 52.1, 53.3);
+INSERT INTO `lk_u_laki` VALUES (57, 56, 47.8, 49.0, 50.6, 52.1, 53.4);
+INSERT INTO `lk_u_laki` VALUES (58, 57, 47.8, 49.1, 50.6, 52.2, 53.4);
+INSERT INTO `lk_u_laki` VALUES (59, 58, 47.9, 49.1, 50.7, 52.2, 53.5);
+INSERT INTO `lk_u_laki` VALUES (60, 59, 47.9, 49.2, 50.7, 52.2, 53.5);
+INSERT INTO `lk_u_laki` VALUES (61, 60, 47.9, 49.2, 50.7, 52.3, 53.5);
+
+-- ----------------------------
+-- Table structure for lk_u_perempuan
+-- ----------------------------
+DROP TABLE IF EXISTS `lk_u_perempuan`;
+CREATE TABLE `lk_u_perempuan`  (
+  `id_lku_p` int NOT NULL AUTO_INCREMENT,
+  `usia` int NOT NULL,
+  `3rd` decimal(10, 1) NOT NULL,
+  `15th` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `85th` decimal(10, 1) NOT NULL,
+  `97th` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_lku_p`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of lk_u_perempuan
+-- ----------------------------
+INSERT INTO `lk_u_perempuan` VALUES (1, 0, 31.7, 32.7, 33.9, 35.1, 36.1);
+INSERT INTO `lk_u_perempuan` VALUES (2, 1, 34.3, 35.3, 36.5, 37.8, 38.8);
+INSERT INTO `lk_u_perempuan` VALUES (3, 2, 36.0, 37.0, 38.3, 39.5, 40.5);
+INSERT INTO `lk_u_perempuan` VALUES (4, 3, 37.2, 38.2, 39.5, 40.8, 41.9);
+INSERT INTO `lk_u_perempuan` VALUES (5, 4, 38.2, 39.3, 40.6, 41.9, 43.0);
+INSERT INTO `lk_u_perempuan` VALUES (6, 5, 39.0, 40.1, 41.5, 42.8, 43.9);
+INSERT INTO `lk_u_perempuan` VALUES (7, 6, 39.7, 40.8, 42.2, 43.5, 44.6);
+INSERT INTO `lk_u_perempuan` VALUES (8, 7, 40.4, 41.5, 42.8, 44.2, 45.3);
+INSERT INTO `lk_u_perempuan` VALUES (9, 8, 40.9, 42.0, 43.4, 44.7, 45.9);
+INSERT INTO `lk_u_perempuan` VALUES (10, 9, 41.3, 42.4, 43.8, 45.2, 46.3);
+INSERT INTO `lk_u_perempuan` VALUES (11, 10, 41.7, 42.8, 44.2, 45.6, 46.8);
+INSERT INTO `lk_u_perempuan` VALUES (12, 11, 42.0, 43.2, 44.6, 46.0, 47.1);
+INSERT INTO `lk_u_perempuan` VALUES (13, 12, 42.3, 43.5, 44.9, 46.3, 47.5);
+INSERT INTO `lk_u_perempuan` VALUES (14, 13, 42.6, 43.8, 45.2, 46.6, 47.7);
+INSERT INTO `lk_u_perempuan` VALUES (15, 14, 42.9, 44.0, 45.4, 46.8, 48.0);
+INSERT INTO `lk_u_perempuan` VALUES (16, 15, 43.1, 44.2, 45.7, 47.1, 48.2);
+INSERT INTO `lk_u_perempuan` VALUES (17, 16, 43.3, 44.4, 45.9, 47.3, 48.5);
+INSERT INTO `lk_u_perempuan` VALUES (18, 17, 43.5, 44.6, 46.1, 47.5, 48.7);
+INSERT INTO `lk_u_perempuan` VALUES (19, 18, 43.6, 44.8, 46.2, 47.7, 48.8);
+INSERT INTO `lk_u_perempuan` VALUES (20, 19, 43.8, 45.0, 46.4, 47.8, 49.0);
+INSERT INTO `lk_u_perempuan` VALUES (21, 20, 44.0, 45.1, 46.6, 48.0, 49.2);
+INSERT INTO `lk_u_perempuan` VALUES (22, 21, 44.1, 45.3, 46.7, 48.2, 49.4);
+INSERT INTO `lk_u_perempuan` VALUES (23, 22, 44.3, 45.4, 46.9, 48.3, 49.5);
+INSERT INTO `lk_u_perempuan` VALUES (24, 23, 44.4, 45.6, 47.0, 48.5, 49.7);
+INSERT INTO `lk_u_perempuan` VALUES (25, 24, 44.6, 45.7, 47.2, 48.6, 49.8);
+INSERT INTO `lk_u_perempuan` VALUES (26, 25, 44.7, 45.9, 47.3, 48.8, 49.9);
+INSERT INTO `lk_u_perempuan` VALUES (27, 26, 44.8, 46.0, 47.5, 48.9, 50.1);
+INSERT INTO `lk_u_perempuan` VALUES (28, 27, 44.9, 46.1, 47.6, 49.0, 50.2);
+INSERT INTO `lk_u_perempuan` VALUES (29, 28, 45.1, 46.3, 47.7, 49.2, 50.3);
+INSERT INTO `lk_u_perempuan` VALUES (30, 29, 45.2, 46.4, 47.8, 49.3, 50.5);
+INSERT INTO `lk_u_perempuan` VALUES (31, 30, 45.3, 46.5, 47.9, 49.4, 50.6);
+INSERT INTO `lk_u_perempuan` VALUES (32, 31, 45.4, 46.6, 48.0, 49.5, 50.7);
+INSERT INTO `lk_u_perempuan` VALUES (33, 32, 45.5, 46.7, 48.1, 49.6, 50.8);
+INSERT INTO `lk_u_perempuan` VALUES (34, 33, 45.6, 46.8, 48.2, 49.7, 50.9);
+INSERT INTO `lk_u_perempuan` VALUES (35, 34, 45.7, 46.9, 48.3, 49.8, 51.0);
+INSERT INTO `lk_u_perempuan` VALUES (36, 35, 45.8, 47.0, 48.4, 49.9, 51.1);
+INSERT INTO `lk_u_perempuan` VALUES (37, 36, 45.9, 47.0, 48.5, 50.0, 51.2);
+INSERT INTO `lk_u_perempuan` VALUES (38, 37, 45.9, 47.1, 48.6, 50.1, 51.3);
+INSERT INTO `lk_u_perempuan` VALUES (39, 38, 46.0, 47.2, 48.7, 50.1, 51.3);
+INSERT INTO `lk_u_perempuan` VALUES (40, 39, 46.1, 47.3, 48.7, 50.2, 51.4);
+INSERT INTO `lk_u_perempuan` VALUES (41, 40, 46.2, 47.4, 48.8, 50.3, 51.5);
+INSERT INTO `lk_u_perempuan` VALUES (42, 41, 46.2, 47.4, 48.9, 50.4, 51.6);
+INSERT INTO `lk_u_perempuan` VALUES (43, 42, 46.3, 47.5, 49.0, 50.4, 51.6);
+INSERT INTO `lk_u_perempuan` VALUES (44, 43, 46.4, 47.6, 49.0, 50.5, 51.7);
+INSERT INTO `lk_u_perempuan` VALUES (45, 44, 46.4, 47.6, 49.1, 50.6, 51.8);
+INSERT INTO `lk_u_perempuan` VALUES (46, 45, 46.5, 47.7, 49.2, 50.6, 51.8);
+INSERT INTO `lk_u_perempuan` VALUES (47, 46, 46.5, 47.7, 49.2, 50.7, 51.9);
+INSERT INTO `lk_u_perempuan` VALUES (48, 47, 46.5, 47.8, 49.3, 50.7, 51.9);
+INSERT INTO `lk_u_perempuan` VALUES (49, 48, 46.7, 47.9, 49.3, 50.8, 52.0);
+INSERT INTO `lk_u_perempuan` VALUES (50, 49, 46.7, 47.9, 49.4, 50.9, 52.1);
+INSERT INTO `lk_u_perempuan` VALUES (51, 50, 46.8, 48.0, 49.4, 50.9, 52.1);
+INSERT INTO `lk_u_perempuan` VALUES (52, 51, 46.8, 48.0, 49.5, 51.0, 52.2);
+INSERT INTO `lk_u_perempuan` VALUES (53, 52, 46.9, 48.1, 49.5, 51.0, 52.2);
+INSERT INTO `lk_u_perempuan` VALUES (54, 53, 46.9, 48.1, 49.6, 51.1, 52.3);
+INSERT INTO `lk_u_perempuan` VALUES (55, 54, 47.0, 48.2, 49.6, 51.1, 52.3);
+INSERT INTO `lk_u_perempuan` VALUES (56, 55, 47.0, 48.2, 49.7, 51.2, 52.4);
+INSERT INTO `lk_u_perempuan` VALUES (57, 56, 47.1, 48.3, 49.7, 51.2, 52.4);
+INSERT INTO `lk_u_perempuan` VALUES (58, 57, 47.1, 48.3, 49.8, 51.3, 52.5);
+INSERT INTO `lk_u_perempuan` VALUES (59, 58, 47.2, 48.4, 49.8, 51.3, 52.5);
+INSERT INTO `lk_u_perempuan` VALUES (60, 59, 47.2, 48.4, 49.9, 51.4, 52.6);
+INSERT INTO `lk_u_perempuan` VALUES (61, 60, 47.2, 48.4, 49.9, 51.4, 52.6);
+
+-- ----------------------------
+-- Table structure for tb_u_laki
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_u_laki`;
+CREATE TABLE `tb_u_laki`  (
+  `id_tbu_l` int NOT NULL AUTO_INCREMENT,
+  `usia` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_tbu_l`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of tb_u_laki
+-- ----------------------------
+INSERT INTO `tb_u_laki` VALUES (1, '0', 44.2, 46.1, 48.0, 49.9, 51.8, 53.7, 55.6);
+INSERT INTO `tb_u_laki` VALUES (2, '1', 48.9, 50.8, 52.8, 54.7, 56.7, 58.6, 60.6);
+INSERT INTO `tb_u_laki` VALUES (3, '2', 52.4, 54.4, 56.4, 58.4, 60.4, 62.4, 64.4);
+INSERT INTO `tb_u_laki` VALUES (4, '3', 55.3, 57.3, 59.4, 61.4, 63.5, 65.5, 67.6);
+INSERT INTO `tb_u_laki` VALUES (5, '4', 57.6, 59.7, 61.8, 63.9, 66.0, 68.0, 70.1);
+INSERT INTO `tb_u_laki` VALUES (6, '5', 59.6, 61.7, 63.8, 65.9, 68.0, 70.1, 72.2);
+INSERT INTO `tb_u_laki` VALUES (7, '6', 61.2, 63.3, 65.5, 67.6, 69.8, 71.9, 74.0);
+INSERT INTO `tb_u_laki` VALUES (8, '7', 62.7, 64.8, 67.0, 69.2, 71.3, 73.5, 75.7);
+INSERT INTO `tb_u_laki` VALUES (9, '8', 64.0, 66.2, 68.4, 70.6, 72.8, 75.0, 77.2);
+INSERT INTO `tb_u_laki` VALUES (10, '9', 65.2, 67.5, 69.7, 72.0, 74.2, 76.5, 78.7);
+INSERT INTO `tb_u_laki` VALUES (11, '10', 66.4, 68.7, 71.0, 73.3, 75.6, 77.9, 80.1);
+INSERT INTO `tb_u_laki` VALUES (12, '11', 67.6, 69.9, 72.2, 74.5, 76.9, 79.2, 81.5);
+INSERT INTO `tb_u_laki` VALUES (13, '12', 68.6, 71.0, 73.4, 75.7, 78.1, 80.5, 82.9);
+INSERT INTO `tb_u_laki` VALUES (14, '13', 69.6, 72.1, 74.5, 76.9, 79.3, 81.8, 84.2);
+INSERT INTO `tb_u_laki` VALUES (15, '14', 70.6, 73.1, 75.6, 78.0, 80.5, 83.0, 85.5);
+INSERT INTO `tb_u_laki` VALUES (16, '15', 71.6, 74.1, 76.6, 79.1, 81.7, 84.2, 86.7);
+INSERT INTO `tb_u_laki` VALUES (17, '16', 72.5, 75.0, 77.6, 80.2, 82.8, 85.4, 88.0);
+INSERT INTO `tb_u_laki` VALUES (18, '17', 73.3, 76.0, 78.6, 81.2, 83.9, 86.5, 89.2);
+INSERT INTO `tb_u_laki` VALUES (19, '18', 74.2, 76.9, 79.6, 82.3, 85.0, 87.7, 90.4);
+INSERT INTO `tb_u_laki` VALUES (20, '19', 75.0, 77.7, 80.5, 83.2, 86.0, 88.8, 91.5);
+INSERT INTO `tb_u_laki` VALUES (21, '20', 75.8, 78.6, 81.4, 84.2, 87.0, 89.8, 92.6);
+INSERT INTO `tb_u_laki` VALUES (22, '21', 76.5, 79.4, 82.3, 85.1, 88.0, 90.9, 93.8);
+INSERT INTO `tb_u_laki` VALUES (23, '22', 77.2, 80.2, 83.1, 86.0, 89.0, 91.9, 94.9);
+INSERT INTO `tb_u_laki` VALUES (24, '23', 78.0, 81.0, 83.9, 86.9, 89.9, 92.9, 95.9);
+INSERT INTO `tb_u_laki` VALUES (25, '24t', 78.7, 81.7, 84.8, 87.8, 90.9, 93.9, 97.0);
+INSERT INTO `tb_u_laki` VALUES (26, '24b', 78.0, 81.0, 84.1, 87.1, 90.2, 93.2, 96.3);
+INSERT INTO `tb_u_laki` VALUES (27, '25', 78.6, 81.7, 84.9, 88.0, 91.1, 94.2, 97.3);
+INSERT INTO `tb_u_laki` VALUES (28, '26', 79.3, 82.5, 85.6, 88.8, 92.0, 95.2, 98.3);
+INSERT INTO `tb_u_laki` VALUES (29, '27', 79.9, 83.1, 86.4, 89.6, 92.9, 96.1, 99.3);
+INSERT INTO `tb_u_laki` VALUES (30, '28', 80.5, 83.8, 87.1, 90.4, 93.7, 97.0, 100.3);
+INSERT INTO `tb_u_laki` VALUES (31, '29', 81.1, 84.5, 87.8, 91.2, 94.5, 97.9, 101.2);
+INSERT INTO `tb_u_laki` VALUES (32, '30', 81.7, 85.1, 88.5, 91.9, 95.3, 98.7, 102.1);
+INSERT INTO `tb_u_laki` VALUES (33, '31', 82.3, 85.7, 89.2, 92.7, 96.1, 99.6, 103.0);
+INSERT INTO `tb_u_laki` VALUES (34, '32', 82.8, 86.4, 89.9, 93.4, 96.9, 100.4, 103.9);
+INSERT INTO `tb_u_laki` VALUES (35, '33', 83.4, 86.9, 90.5, 94.1, 97.6, 101.2, 104.8);
+INSERT INTO `tb_u_laki` VALUES (36, '34', 83.9, 87.5, 91.1, 94.8, 98.4, 102.0, 105.6);
+INSERT INTO `tb_u_laki` VALUES (37, '35', 84.4, 88.1, 91.8, 95.4, 99.1, 102.7, 106.4);
+INSERT INTO `tb_u_laki` VALUES (38, '36', 85.0, 88.7, 92.4, 96.1, 99.8, 103.5, 107.2);
+INSERT INTO `tb_u_laki` VALUES (39, '37', 85.5, 89.2, 93.0, 96.7, 100.5, 104.2, 108.0);
+INSERT INTO `tb_u_laki` VALUES (40, '38', 86.0, 89.8, 93.6, 97.4, 101.2, 105.0, 108.8);
+INSERT INTO `tb_u_laki` VALUES (41, '39', 86.5, 90.3, 94.2, 98.0, 101.8, 105.7, 109.5);
+INSERT INTO `tb_u_laki` VALUES (42, '40', 87.0, 90.9, 94.7, 98.6, 102.5, 106.4, 110.3);
+INSERT INTO `tb_u_laki` VALUES (43, '41', 87.5, 91.4, 95.3, 99.2, 103.2, 107.1, 111.0);
+INSERT INTO `tb_u_laki` VALUES (44, '42', 88.0, 91.9, 95.9, 99.9, 103.8, 107.8, 111.7);
+INSERT INTO `tb_u_laki` VALUES (45, '43', 88.4, 92.4, 96.4, 100.4, 104.5, 108.5, 112.5);
+INSERT INTO `tb_u_laki` VALUES (46, '44', 88.9, 93.0, 97.0, 101.0, 105.1, 109.1, 113.2);
+INSERT INTO `tb_u_laki` VALUES (47, '45', 89.4, 93.5, 97.5, 101.6, 105.7, 109.8, 113.9);
+INSERT INTO `tb_u_laki` VALUES (48, '46', 89.8, 94.0, 98.1, 102.2, 106.3, 110.4, 114.6);
+INSERT INTO `tb_u_laki` VALUES (49, '47', 90.3, 94.4, 98.6, 102.8, 106.9, 111.1, 115.2);
+INSERT INTO `tb_u_laki` VALUES (50, '48', 90.7, 94.9, 99.1, 103.3, 107.5, 111.7, 115.9);
+INSERT INTO `tb_u_laki` VALUES (51, '49', 91.2, 95.4, 99.7, 103.9, 108.1, 112.4, 116.6);
+INSERT INTO `tb_u_laki` VALUES (52, '50', 91.6, 95.9, 100.2, 104.4, 108.7, 113.0, 117.3);
+INSERT INTO `tb_u_laki` VALUES (53, '51', 92.1, 96.4, 100.7, 105.0, 109.3, 113.6, 117.9);
+INSERT INTO `tb_u_laki` VALUES (54, '52', 92.5, 96.9, 101.2, 105.6, 109.9, 114.2, 118.6);
+INSERT INTO `tb_u_laki` VALUES (55, '53', 93.0, 97.4, 101.7, 106.1, 110.5, 114.9, 119.2);
+INSERT INTO `tb_u_laki` VALUES (56, '54', 93.4, 97.8, 102.3, 106.7, 111.1, 115.5, 119.9);
+INSERT INTO `tb_u_laki` VALUES (57, '55', 93.9, 98.3, 102.8, 107.2, 111.7, 116.1, 120.6);
+INSERT INTO `tb_u_laki` VALUES (58, '56', 94.3, 98.8, 103.3, 107.8, 112.3, 116.7, 121.2);
+INSERT INTO `tb_u_laki` VALUES (59, '57', 94.7, 99.3, 103.8, 108.3, 112.8, 117.4, 121.9);
+INSERT INTO `tb_u_laki` VALUES (60, '58', 95.2, 99.7, 104.3, 108.9, 113.4, 118.0, 122.6);
+INSERT INTO `tb_u_laki` VALUES (61, '59', 95.6, 100.2, 104.8, 109.4, 114.0, 118.6, 123.2);
+INSERT INTO `tb_u_laki` VALUES (62, '60', 96.1, 100.7, 105.3, 110.0, 114.6, 119.2, 123.9);
+
+-- ----------------------------
+-- Table structure for tb_u_perempuan
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_u_perempuan`;
+CREATE TABLE `tb_u_perempuan`  (
+  `id_tbu_p` int NOT NULL AUTO_INCREMENT,
+  `usia` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `-3sd` decimal(10, 1) NOT NULL,
+  `-2sd` decimal(10, 1) NOT NULL,
+  `-1sd` decimal(10, 1) NOT NULL,
+  `median` decimal(10, 1) NOT NULL,
+  `+1sd` decimal(10, 1) NOT NULL,
+  `+2sd` decimal(10, 1) NOT NULL,
+  `+3sd` decimal(10, 1) NOT NULL,
+  PRIMARY KEY (`id_tbu_p`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of tb_u_perempuan
+-- ----------------------------
+INSERT INTO `tb_u_perempuan` VALUES (1, '0', 43.6, 45.4, 47.3, 49.1, 51.0, 52.9, 54.7);
+INSERT INTO `tb_u_perempuan` VALUES (2, '1', 47.8, 49.8, 51.7, 53.7, 55.6, 57.6, 59.5);
+INSERT INTO `tb_u_perempuan` VALUES (3, '2', 51.0, 53.0, 55.0, 57.1, 59.1, 61.1, 63.2);
+INSERT INTO `tb_u_perempuan` VALUES (4, '3', 53.5, 55.6, 57.7, 59.8, 61.9, 64.0, 66.1);
+INSERT INTO `tb_u_perempuan` VALUES (5, '4', 55.6, 57.8, 59.9, 62.1, 64.3, 66.4, 68.6);
+INSERT INTO `tb_u_perempuan` VALUES (6, '5', 57.4, 29.6, 61.8, 64.0, 66.2, 68.5, 70.7);
+INSERT INTO `tb_u_perempuan` VALUES (7, '6', 58.9, 61.2, 63.5, 65.7, 68.0, 70.3, 72.5);
+INSERT INTO `tb_u_perempuan` VALUES (8, '7', 60.3, 62.7, 65.0, 67.3, 69.6, 71.9, 74.2);
+INSERT INTO `tb_u_perempuan` VALUES (9, '8', 61.7, 64.0, 66.4, 68.7, 71.1, 73.5, 75.8);
+INSERT INTO `tb_u_perempuan` VALUES (10, '9', 62.9, 65.3, 67.7, 70.1, 72.6, 75.0, 77.4);
+INSERT INTO `tb_u_perempuan` VALUES (11, '10', 64.1, 66.5, 69.0, 71.5, 73.9, 76.4, 78.9);
+INSERT INTO `tb_u_perempuan` VALUES (12, '11', 65.2, 67.7, 70.3, 72.8, 75.3, 77.8, 80.3);
+INSERT INTO `tb_u_perempuan` VALUES (13, '12', 66.3, 68.9, 71.4, 74.0, 76.6, 79.8, 81.7);
+INSERT INTO `tb_u_perempuan` VALUES (14, '13', 67.3, 70.0, 72.6, 75.2, 77.8, 80.5, 83.1);
+INSERT INTO `tb_u_perempuan` VALUES (15, '14', 68.3, 71.0, 73.7, 76.4, 79.1, 81.7, 84.4);
+INSERT INTO `tb_u_perempuan` VALUES (16, '15', 69.3, 72.0, 74.8, 77.5, 80.2, 83.0, 85.7);
+INSERT INTO `tb_u_perempuan` VALUES (17, '16', 70.2, 73.0, 75.8, 78.6, 81.4, 84.2, 87.0);
+INSERT INTO `tb_u_perempuan` VALUES (18, '17', 71.1, 74.0, 76.8, 79.7, 82.5, 85.4, 88.2);
+INSERT INTO `tb_u_perempuan` VALUES (19, '18', 72.0, 74.9, 77.8, 80.7, 83.6, 86.5, 89.4);
+INSERT INTO `tb_u_perempuan` VALUES (20, '19', 72.8, 75.8, 78.8, 81.7, 84.7, 87.6, 90.6);
+INSERT INTO `tb_u_perempuan` VALUES (21, '20', 73.7, 76.7, 79.7, 82.7, 85.7, 88.7, 91.7);
+INSERT INTO `tb_u_perempuan` VALUES (22, '21', 74.5, 77.5, 80.6, 83.7, 86.7, 89.8, 92.9);
+INSERT INTO `tb_u_perempuan` VALUES (23, '22', 75.2, 78.4, 81.5, 84.6, 87.7, 90.8, 94.0);
+INSERT INTO `tb_u_perempuan` VALUES (24, '23', 76.0, 79.2, 82.3, 85.5, 88.7, 91.9, 95.0);
+INSERT INTO `tb_u_perempuan` VALUES (25, '24t', 76.7, 80.0, 83.2, 86.4, 89.6, 92.9, 96.1);
+INSERT INTO `tb_u_perempuan` VALUES (26, '24b', 76.0, 79.3, 82.5, 85.7, 88.9, 92.2, 95.4);
+INSERT INTO `tb_u_perempuan` VALUES (27, '25', 76.8, 80.0, 83.3, 86.6, 89.9, 93.1, 96.4);
+INSERT INTO `tb_u_perempuan` VALUES (28, '26', 77.5, 80.8, 84.1, 87.4, 90.8, 94.1, 97.4);
+INSERT INTO `tb_u_perempuan` VALUES (29, '27', 78.1, 81.5, 84.9, 88.3, 91.7, 95.0, 98.4);
+INSERT INTO `tb_u_perempuan` VALUES (30, '28', 78.8, 82.2, 85.7, 89.1, 92.5, 96.0, 99.4);
+INSERT INTO `tb_u_perempuan` VALUES (31, '29', 79.5, 82.9, 86.4, 89.9, 93.4, 96.9, 100.3);
+INSERT INTO `tb_u_perempuan` VALUES (32, '30', 80.1, 83.6, 87.1, 90.7, 94.2, 97.7, 101.3);
+INSERT INTO `tb_u_perempuan` VALUES (33, '31', 80.7, 84.3, 87.9, 91.4, 95.0, 98.6, 102.2);
+INSERT INTO `tb_u_perempuan` VALUES (34, '32', 81.3, 84.9, 88.6, 92.2, 95.8, 99.4, 103.1);
+INSERT INTO `tb_u_perempuan` VALUES (35, '33', 81.9, 85.6, 89.3, 92.9, 96.6, 100.3, 103.9);
+INSERT INTO `tb_u_perempuan` VALUES (36, '34', 82.5, 86.2, 89.9, 93.6, 97.4, 101.1, 104.8);
+INSERT INTO `tb_u_perempuan` VALUES (37, '35', 83.1, 86.8, 90.6, 94.4, 98.1, 101.9, 105.6);
+INSERT INTO `tb_u_perempuan` VALUES (38, '36', 83.6, 87.4, 91.2, 95.1, 98.9, 102.7, 106.5);
+INSERT INTO `tb_u_perempuan` VALUES (39, '37', 84.2, 88.0, 91.9, 95.7, 99.6, 103.4, 107.3);
+INSERT INTO `tb_u_perempuan` VALUES (40, '38', 84.7, 88.6, 92.5, 96.4, 100.3, 104.2, 108.1);
+INSERT INTO `tb_u_perempuan` VALUES (41, '39', 85.3, 89.2, 93.1, 97.1, 101.0, 105.0, 108.9);
+INSERT INTO `tb_u_perempuan` VALUES (42, '40', 85.8, 89.8, 93.8, 97.7, 101.7, 105.7, 109.7);
+INSERT INTO `tb_u_perempuan` VALUES (43, '41', 86.3, 90.4, 94.4, 98.4, 102.4, 106.4, 110.5);
+INSERT INTO `tb_u_perempuan` VALUES (44, '42', 86.8, 90.9, 95.0, 99.0, 103.1, 107.2, 111.2);
+INSERT INTO `tb_u_perempuan` VALUES (45, '43', 87.4, 91.5, 95.6, 99.7, 103.8, 107.9, 112.0);
+INSERT INTO `tb_u_perempuan` VALUES (46, '44', 87.9, 92.0, 96.2, 100.3, 104.5, 108.6, 112.7);
+INSERT INTO `tb_u_perempuan` VALUES (47, '45', 88.4, 92.5, 96.7, 100.9, 105.1, 109.3, 113.5);
+INSERT INTO `tb_u_perempuan` VALUES (48, '46', 88.9, 93.1, 97.3, 101.5, 105.8, 110.0, 114.2);
+INSERT INTO `tb_u_perempuan` VALUES (49, '47', 89.3, 93.6, 97.9, 102.1, 106.4, 110.7, 114.9);
+INSERT INTO `tb_u_perempuan` VALUES (50, '48', 89.8, 94.1, 98.4, 102.7, 107.0, 111.3, 115.7);
+INSERT INTO `tb_u_perempuan` VALUES (51, '49', 90.3, 94.6, 99.0, 103.3, 107.7, 112.0, 116.4);
+INSERT INTO `tb_u_perempuan` VALUES (52, '50', 90.7, 95.1, 99.5, 103.9, 108.3, 112.7, 117.1);
+INSERT INTO `tb_u_perempuan` VALUES (53, '51', 91.2, 95.6, 100.1, 104.5, 108.9, 113.3, 117.7);
+INSERT INTO `tb_u_perempuan` VALUES (54, '52', 91.7, 96.1, 100.6, 105.0, 109.5, 114.0, 118.4);
+INSERT INTO `tb_u_perempuan` VALUES (55, '53', 92.1, 96.6, 101.1, 105.6, 110.1, 114.6, 119.1);
+INSERT INTO `tb_u_perempuan` VALUES (56, '54', 92.6, 97.1, 101.6, 106.2, 110.7, 115.2, 119.8);
+INSERT INTO `tb_u_perempuan` VALUES (57, '55', 93.0, 97.6, 102.2, 106.7, 111.3, 115.9, 120.4);
+INSERT INTO `tb_u_perempuan` VALUES (58, '56', 93.4, 98.1, 102.7, 107.3, 111.9, 116.5, 121.1);
+INSERT INTO `tb_u_perempuan` VALUES (59, '57', 93.9, 98.5, 103.2, 107.8, 112.5, 117.1, 121.8);
+INSERT INTO `tb_u_perempuan` VALUES (60, '58', 94.3, 99.0, 103.7, 108.4, 113.0, 117.7, 122.4);
+INSERT INTO `tb_u_perempuan` VALUES (61, '59', 94.7, 99.5, 104.2, 108.9, 113.6, 118.3, 123.1);
+INSERT INTO `tb_u_perempuan` VALUES (62, '60', 95.2, 99.9, 104.7, 109.4, 114.2, 118.9, 123.7);
+
+-- ----------------------------
+-- Table structure for ukur_balitas
+-- ----------------------------
+DROP TABLE IF EXISTS `ukur_balitas`;
+CREATE TABLE `ukur_balitas`  (
+  `id_ukur` int NOT NULL AUTO_INCREMENT,
+  `id_balita` int NOT NULL,
+  `usia_ukur` int NOT NULL,
+  `bb_ukur` decimal(20, 1) NOT NULL DEFAULT 0.0,
+  `tb_ukur` decimal(20, 1) NOT NULL DEFAULT 0.0,
+  `lk_ukur` decimal(20, 1) NOT NULL,
+  `pengukuran` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `jenis_kelamin` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sberat` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `stinggi` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sgizi` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `skepala` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `bulan` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tahun` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_ukur`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of ukur_balitas
+-- ----------------------------
+INSERT INTO `ukur_balitas` VALUES (1, 28, 44, 15.5, 97.0, 49.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juni', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:46');
+INSERT INTO `ukur_balitas` VALUES (2, 29, 37, 12.1, 88.0, 49.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:46');
+INSERT INTO `ukur_balitas` VALUES (3, 30, 34, 13.6, 93.0, 49.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:46');
+INSERT INTO `ukur_balitas` VALUES (4, 31, 19, 8.7, 80.0, 45.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:47');
+INSERT INTO `ukur_balitas` VALUES (5, 32, 35, 16.0, 96.0, 46.0, 'Berdiri', 'P', 'Risiko BB lebih', 'Normal', 'Berisiko gizi lebih', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:47');
+INSERT INTO `ukur_balitas` VALUES (6, 33, 24, 12.0, 86.0, 47.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:47');
+INSERT INTO `ukur_balitas` VALUES (7, 34, 17, 10.0, 75.0, 45.0, 'Telentang', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:48');
+INSERT INTO `ukur_balitas` VALUES (8, 35, 26, 11.0, 88.0, 47.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:48');
+INSERT INTO `ukur_balitas` VALUES (9, 36, 26, 12.0, 88.0, 47.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:48');
+INSERT INTO `ukur_balitas` VALUES (10, 37, 13, 10.8, 105.0, 47.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:49');
+INSERT INTO `ukur_balitas` VALUES (11, 38, 36, 16.0, 95.0, 48.0, 'Berdiri', 'P', 'Risiko BB lebih', 'Normal', 'Berisiko gizi lebih', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:49');
+INSERT INTO `ukur_balitas` VALUES (12, 40, 31, 10.0, 86.0, 48.0, 'Berdiri', 'P', 'Kurang', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:49');
+INSERT INTO `ukur_balitas` VALUES (13, 41, 16, 10.3, 78.0, 44.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:49');
+INSERT INTO `ukur_balitas` VALUES (14, 42, 15, 9.0, 74.0, 46.0, 'Telentang', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:50');
+INSERT INTO `ukur_balitas` VALUES (15, 43, 18, 10.7, 81.0, 48.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:50');
+INSERT INTO `ukur_balitas` VALUES (16, 44, 16, 12.4, 84.0, 46.0, 'Telentang', 'L', 'Risiko BB lebih', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:50');
+INSERT INTO `ukur_balitas` VALUES (17, 45, 51, 22.0, 100.0, 48.0, 'Berdiri', 'P', 'Risiko BB lebih', 'Normal', 'Obesitas', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:50');
+INSERT INTO `ukur_balitas` VALUES (18, 46, 43, 9.4, 81.0, 47.0, 'Berdiri', 'P', 'Kurang', 'Sangat pendek', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:51');
+INSERT INTO `ukur_balitas` VALUES (19, 47, 47, 16.0, 103.0, 47.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:51');
+INSERT INTO `ukur_balitas` VALUES (20, 48, 15, 10.0, 72.0, 46.0, 'Telentang', 'P', 'Normal', 'Normal', 'Berisiko gizi lebih', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:51');
+INSERT INTO `ukur_balitas` VALUES (21, 49, 12, 9.3, 73.0, 44.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:51');
+INSERT INTO `ukur_balitas` VALUES (22, 50, 3, 6.0, 67.0, 39.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi buruk', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:52');
+INSERT INTO `ukur_balitas` VALUES (23, 51, 23, 9.6, 80.0, 44.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:52');
+INSERT INTO `ukur_balitas` VALUES (24, 52, 22, 10.6, 79.0, 48.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:52');
+INSERT INTO `ukur_balitas` VALUES (25, 53, 25, 13.2, 88.0, 49.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:52');
+INSERT INTO `ukur_balitas` VALUES (26, 54, 44, 15.9, 106.0, 47.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:53');
+INSERT INTO `ukur_balitas` VALUES (27, 55, 44, 13.0, 90.0, 52.0, 'Berdiri', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:53');
+INSERT INTO `ukur_balitas` VALUES (28, 56, 23, 10.9, 89.0, 50.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi kurang', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:53');
+INSERT INTO `ukur_balitas` VALUES (29, 57, 13, 8.7, 73.0, 46.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:53');
+INSERT INTO `ukur_balitas` VALUES (30, 58, 55, 16.6, 104.0, 50.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:54');
+INSERT INTO `ukur_balitas` VALUES (31, 59, 16, 9.0, 71.0, 47.0, 'Telentang', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:54');
+INSERT INTO `ukur_balitas` VALUES (32, 60, 41, 16.5, 82.0, 49.0, 'Berdiri', 'P', 'Normal', 'Sangat pendek', 'Obesitas', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:54');
+INSERT INTO `ukur_balitas` VALUES (33, 61, 34, 11.5, 85.0, 46.0, 'Berdiri', 'P', 'Normal', 'Pendek', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:54');
+INSERT INTO `ukur_balitas` VALUES (34, 62, 35, 10.3, 89.0, 49.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi kurang', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:55');
+INSERT INTO `ukur_balitas` VALUES (35, 63, 34, 10.8, 88.0, 48.0, 'Berdiri', 'L', 'Kurang', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:55');
+INSERT INTO `ukur_balitas` VALUES (36, 64, 35, 10.3, 89.0, 48.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi kurang', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:55');
+INSERT INTO `ukur_balitas` VALUES (37, 65, 34, 12.5, 89.0, 48.0, 'Berdiri', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:56');
+INSERT INTO `ukur_balitas` VALUES (38, 66, 35, 12.0, 89.0, 47.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:56');
+INSERT INTO `ukur_balitas` VALUES (39, 67, 28, 11.1, 84.0, 48.0, 'Berdiri', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:56');
+INSERT INTO `ukur_balitas` VALUES (40, 68, 14, 8.3, 72.0, 46.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:56');
+INSERT INTO `ukur_balitas` VALUES (41, 69, 16, 9.0, 77.5, 47.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:56');
+INSERT INTO `ukur_balitas` VALUES (42, 70, 17, 9.9, 77.0, 49.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:57');
+INSERT INTO `ukur_balitas` VALUES (43, 71, 13, 8.7, 74.0, 45.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:57');
+INSERT INTO `ukur_balitas` VALUES (44, 72, 24, 10.6, 85.5, 44.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:57');
+INSERT INTO `ukur_balitas` VALUES (45, 73, 41, 12.2, 85.0, 49.0, 'Berdiri', 'P', 'Normal', 'Sangat pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:57');
+INSERT INTO `ukur_balitas` VALUES (46, 74, 10, 9.0, 73.0, 46.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:58');
+INSERT INTO `ukur_balitas` VALUES (47, 75, 6, 6.8, 69.0, 44.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi kurang', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:58');
+INSERT INTO `ukur_balitas` VALUES (48, 76, 4, 8.0, 67.0, 42.0, 'Telentang', 'P', 'Risiko BB lebih', 'Normal', 'Gizi baik', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:58');
+INSERT INTO `ukur_balitas` VALUES (49, 77, 7, 8.2, 73.0, 46.0, 'Telentang', 'L', 'Normal', 'Normal', 'Gizi baik', 'Terlalu besar', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:58');
+INSERT INTO `ukur_balitas` VALUES (50, 78, 48, 12.2, 91.0, 49.0, 'Berdiri', 'P', 'Normal', 'Pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:58');
+INSERT INTO `ukur_balitas` VALUES (51, 79, 24, 11.0, 82.0, 45.0, 'Telentang', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:59');
+INSERT INTO `ukur_balitas` VALUES (52, 80, 28, 10.3, 84.0, 51.0, 'Berdiri', 'L', 'Normal', 'Pendek', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:59');
+INSERT INTO `ukur_balitas` VALUES (53, 81, 51, 18.7, 110.0, 51.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:59');
+INSERT INTO `ukur_balitas` VALUES (54, 82, 52, 15.5, 101.0, 47.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Terlalu kecil', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:29:59');
+INSERT INTO `ukur_balitas` VALUES (55, 83, 52, 17.8, 106.0, 50.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Gizi baik', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:30:00');
+INSERT INTO `ukur_balitas` VALUES (56, 28, 45, 16.0, 98.0, 49.0, 'Berdiri', 'P', 'Normal', 'Normal', 'Berisiko gizi lebih', 'Normal', 'Juli', 2023, '2023-08-03 23:31:12', '2023-08-04 06:30:00');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id_user` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `password` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `avatar` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `role_id` tinyint(1) NOT NULL DEFAULT 0,
+  `is_active` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`id_user`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'ADMIN', 'itujun7@gmail.com', '$2y$10$4zfpuMJATdqi7iaRAPTjhOZdZ6A3jLq0FUbUSh54.SGZsCwKB.0G2', 'default.png', 1, 1, '2023-06-21 08:48:54');
+INSERT INTO `users` VALUES (7, 'EKA', 'tester@mail.com', '$2y$10$4zfpuMJATdqi7iaRAPTjhOZdZ6A3jLq0FUbUSh54.SGZsCwKB.0G2', 'default.png', 0, 1, '2023-08-04 14:07:48');
 
 SET FOREIGN_KEY_CHECKS = 1;
