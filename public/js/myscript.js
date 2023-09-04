@@ -149,7 +149,7 @@ $(document).ready(function() {
     $('#dataTable').DataTable();
 
     // Modal detail balita
-    $('.detailModalBalita').on('click', function() {
+    $('body').on('click', '.detailModalBalita', function() {
         // Mengambil ID balita dari atribut data-id
         var idBalita = $(this).closest('a').data('id');
         $.ajax({
@@ -161,7 +161,7 @@ $(document).ready(function() {
                 $('#namabalita').text(response.nama);
 
                 // Menginisasi jenis kelamin
-                var jk = response.jenis_kelamin;
+                let jk = response.jenis_kelamin;
                 if (jk == 'P') {
                     jk = 'Perempuan';
                 } else if (jk == 'L') {

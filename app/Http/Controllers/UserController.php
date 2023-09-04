@@ -13,7 +13,7 @@ class UserController extends Controller
         $balita = UkurBalita::with('balita')->where('id_balita', 28)->get();
         return view('user.dashboard', [
             'title' => 'Dashboard',
-            'nama' => Balita::where('id', 28)->first()->nama,
+            'nama' => Balita::where('id_balita', 28)->first()->nama,
             'balita' => $balita->toArray(),
             'saranBerat' => $this->saranBerat($balita->last()->sberat),
             'saranTinggi' => $this->saranTinggi($balita->last()->stinggi),

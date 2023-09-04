@@ -14,7 +14,7 @@ class UkurBalita extends Model
 
     public function balita()
     {
-        return $this->belongsTo(Balita::class, 'id_balita', 'id');
+        return $this->belongsTo(Balita::class, 'id_balita', 'id_balita');
     }
 
     public function getJarakBerat($usia, $bb, $k, $jk, $p)
@@ -22,7 +22,7 @@ class UkurBalita extends Model
         $query = 'SQRT(POW((usia - ' . $usia . '), 2) + POW((bb - ' . $bb . '), 2))';
         $res = Dataset::where('jenis_kelamin', $jk)
             ->where('pengukuran', $p)
-            ->select('id', 'usia', 'bb', 'sberat')
+            ->select('id_dataset', 'usia', 'bb', 'sberat')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)
@@ -35,7 +35,7 @@ class UkurBalita extends Model
         $query = 'SQRT(POW((usia - ' . $usia . '), 2) + POW((tb - ' . $tb . '), 2))';
         $res = Dataset::where('jenis_kelamin', $jk)
             ->where('pengukuran', $p)
-            ->select('id', 'usia', 'tb', 'jenis_kelamin', 'pengukuran', 'stinggi')
+            ->select('id_dataset', 'usia', 'tb', 'jenis_kelamin', 'pengukuran', 'stinggi')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)
@@ -48,7 +48,7 @@ class UkurBalita extends Model
         $query = 'SQRT(POW((bb - ' . $bb . '), 2) + POW((tb - ' . $tb . '), 2))';
         $res = Dataset::where('jenis_kelamin', $jk)
             ->where('pengukuran', $p)
-            ->select('id', 'bb', 'tb', 'jenis_kelamin', 'pengukuran', 'sgizi')
+            ->select('id_dataset', 'bb', 'tb', 'jenis_kelamin', 'pengukuran', 'sgizi')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)
@@ -60,7 +60,7 @@ class UkurBalita extends Model
     {
         $query = 'SQRT(POW((usia - ' . $usia . '), 2) + POW((lk - ' . $lk . '), 2))';
         $res = Dataset::where('jenis_kelamin', $jk)
-            ->select('id', 'usia', 'lk', 'skepala')
+            ->select('id_dataset', 'usia', 'lk', 'skepala')
             ->selectRAW($query . 'AS jarak')
             ->orderBy('jarak', 'asc')
             ->limit($k)

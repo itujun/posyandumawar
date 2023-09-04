@@ -66,7 +66,7 @@ class BalitaController extends Controller
      */
     public function show(Balita $balitum)
     {
-        $balita = Balita::where('id', $balitum->id)->first();
+        $balita = Balita::where('id_balita', $balitum->id_balita)->first();
         return json_encode($balita);
     }
 
@@ -87,7 +87,7 @@ class BalitaController extends Controller
      */
     public function update(Request $request, Balita $balitum)
     {
-        $dataBalita = Balita::findOrFail($balitum->id);
+        $dataBalita = Balita::findOrFail($balitum->id_balita);
         $dataLama = $dataBalita->getAttributes();
 
         $validateData = $request->validate([
@@ -113,12 +113,9 @@ class BalitaController extends Controller
      */
     public function destroy(Balita $balitum)
     {
-        $balita = Balita::where('id', $balitum->id)->first()->nama;
-        $ukurBalita = UkurBalita::where('id_balita', $balitum->id)->first();
-        if ($ukurBalita) {
-            UkurBalita::destroy($ukurBalita->id_ukur);
-        }
-        Balita::destroy($balitum->id);
+        $balita = Balita::where('id_balita', $balitum->id_balita)->first()->nama;
+        UkurBalita::where('id_balita', $balitum->id_balita)->delete();
+        Balita::destroy($balitum->id_balita);
         return redirect('balita')->with('sukses', 'Balita ' . $balita . ' berhasil dihapus!');
     }
 }

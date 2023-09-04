@@ -75,7 +75,6 @@ class UkurBalitaController extends Controller
 
             ]
         );
-
         $validateData['id_balita'] = $request->pilih_balita;
         $validateData['jenis_kelamin'] = $request->jenis_kelamin === 'Laki-laki' ? 'L' : 'P';
         $validateData['usia_ukur'] = $request->usia_ukur;
@@ -104,7 +103,7 @@ class UkurBalitaController extends Controller
         return view('ukurbalita.detail', [
             'title' => 'Detail Balita',
             'ukurbalita' => $data,
-            'balita' => Balita::where('id', $ukur_balitum->id_balita)->first(),
+            'balita' => Balita::where('id_balita', $ukur_balitum->id_balita)->first(),
             'class1' => $data['class1'],
             'class2' => $data['class2'],
             'class3' => $data['class3'],
@@ -124,10 +123,10 @@ class UkurBalitaController extends Controller
      */
     public function edit(UkurBalita $ukur_balitum)
     {
-        // dd(Balita::where('id', $ukur_balitum->id_balita)->first());
+        // dd(Balita::where('id_balita', $ukur_balitum->id_balita)->first());
         return view('ukurbalita.edit', [
             'title' => 'Ubah Ukur Balita',
-            'balita' => Balita::where('id', $ukur_balitum->id_balita)->first(),
+            'balita' => Balita::where('id_balita', $ukur_balitum->id_balita)->first(),
             'ukurbalita' => $ukur_balitum,
             'bulan' => ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
         ]);
@@ -156,7 +155,7 @@ class UkurBalitaController extends Controller
         $dataUpdate = $dataUkur->getAttributes();
 
         $namaBalita = UkurBalita::select('ukur_balitas.*', 'balitas.nama')
-            ->rightJoin('balitas', 'ukur_balitas.id_balita', '=', 'balitas.id')
+            ->rightJoin('balitas', 'ukur_balitas.id_balita', '=', 'balitas.id_balita')
             ->where('id_ukur', $validateData['id_ukur'])
             ->first()->nama;
 
@@ -176,10 +175,11 @@ class UkurBalitaController extends Controller
     public function destroy(UkurBalita $ukur_balitum)
     {
         $balita = UkurBalita::select('ukur_balitas.*', 'balitas.nama')
-            ->leftJoin('balitas', 'ukur_balitas.id_balita', '=', 'balitas.id')
+            ->leftJoin('balitas', 'ukur_balitas.id_balita', '=', 'balitas.id_balita')
             ->where('id_ukur', $ukur_balitum->id_ukur)
             ->first();
-        UkurBalita::destroy($ukur_balitum->id_ukur);
+        dd($balita);
+        // UkurBalita::destroy($ukur_balitum->id_ukur);
         return redirect('ukur-balita')->with('sukses', 'Data ukur balita ' . $balita->nama . ' pada bulan ' . $balita->bulan . ' tahun ' . $balita->tahun . ' berhasil dihapus!');
     }
 
@@ -256,17 +256,6 @@ class UkurBalitaController extends Controller
         }
     }
 
-    public function cekUlang()
-    {
-        $this->klasifikasiUlang(1);
-        // $allDataUkurBalita = UkurBalita::all();
-        // $countDataUkurBalita = UkurBalita::count();
-        // for ($i = 0; $i < $countDataUkurBalita; $i++) {
-        //     $idCek = $allDataUkurBalita[$i]->id_ukur;
-        //     $this->klasifikasiUlang($idCek);
-        //     echo 'Sukses ' . $i + 1 . ' <br>';
-        // }
-    }
     private function klasifikasiUlang($id)
     {
         $dataDiubah = UkurBalita::where('id_ukur', $id)->first();
@@ -286,12 +275,12 @@ class UkurBalitaController extends Controller
         $jaraklk = [];
 
         foreach ($query as $key) {
-            $jarakberat[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['bb'] - $bdb, 2));
-            $jaraktinggi[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['tb'] - $tdb, 2));
-            $jaraklk[$key['id']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['lk'] - $lkdb, 2));
+            $jarakberat[$key['id_dataset']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['bb'] - $bdb, 2));
+            $jaraktinggi[$key['id_dataset']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['tb'] - $tdb, 2));
+            $jaraklk[$key['id_dataset']] = sqrt(pow($key['usia'] - $udb, 2) + pow($key['lk'] - $lkdb, 2));
         }
         foreach ($queryGizi as $key) {
-            $jarakgizi[$key['id']] = sqrt(pow($key['bb'] - $bdb, 2) + pow($key['tb'] - $tdb, 2));
+            $jarakgizi[$key['id_dataset']] = sqrt(pow($key['bb'] - $bdb, 2) + pow($key['tb'] - $tdb, 2));
         }
         $k = 5;
 
@@ -329,7 +318,7 @@ class UkurBalitaController extends Controller
             'skepala' => $slkepala,
         ];
 
-        // Dataset::create($datasetBaru);
+        Dataset::create($datasetBaru);
     }
 
     private function customBgGizi($gizi)
@@ -377,7 +366,7 @@ class UkurBalitaController extends Controller
     private function getKTerdekat($data, $filter)
     {
         foreach ($data as $dt => $value) {
-            $status = Dataset::where('id', $dt)->value($filter);
+            $status = Dataset::where('id_dataset', $dt)->value($filter);
             if (isset($totalstatus[$status])) {
                 $totalstatus[$status]++;
             } else {

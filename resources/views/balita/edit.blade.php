@@ -29,7 +29,8 @@
                     <div class="form-group row">
                         <label for="nama" class="col-sm-2 col-form-label">Nama Balita</label>
                         <input type="text" class="form-control col-sm-5 @error('nama') is-invalid @enderror"
-                            id="nama" name="nama" placeholder="....." value="{{ old('nama', $balita->nama) }}">
+                            id="nama" name="nama" placeholder="....." oninput="toUpperCase(this)"
+                            value="{{ old('nama', $balita->nama) }}">
                         @error('nama')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -63,7 +64,8 @@
                         <label for="nama_ibu" class="col-sm-2 col-form-label @error('nama_ibu') is-invalid @enderror">Nama
                             Ibu</label>
                         <input type="text" class="form-control col-sm-5" id="nama_ibu" name="nama_ibu"
-                            placeholder="....." value="{{ old('nama_ibu', $balita->nama_ibu) }}">
+                            placeholder="....." oninput="toUpperCase(this)"
+                            value="{{ old('nama_ibu', $balita->nama_ibu) }}">
                         @error('nama_ibu')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -74,7 +76,8 @@
                     <div class="form-group row">
                         <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                         <input type="text" class="form-control col-sm-5 @error('alamat') is-invalid @enderror"
-                            id="alamat" name="alamat" placeholder="....." value="{{ old('alamat', $balita->alamat) }}">
+                            id="alamat" name="alamat" oninput="toUpperCase(this)" placeholder="....."
+                            value="{{ old('alamat', $balita->alamat) }}">
                         @error('alamat')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -91,4 +94,12 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        function toUpperCase(element) {
+            element.value = element.value.toUpperCase();
+        }
+    </script>
 @endsection

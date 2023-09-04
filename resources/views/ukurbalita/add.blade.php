@@ -21,8 +21,9 @@
                             <option hidden disabled selected value="{{ old('pilih_balita') }}">Pilih balita yang akan diukur
                             </option>
                             @foreach ($balita as $b)
-                                <option value="{{ $b->id }}" {{ old('pilih_balita') == $b->id ? 'selected' : '' }}>
-                                    {{ $selectedBalita && $b->id == $selectedBalita->id ? 'selected' : '' }}
+                                <option value="{{ $b->id_balita }}"
+                                    {{ old('pilih_balita') == $b->id_balita ? 'selected' : '' }}>
+                                    {{ $selectedBalita && $b->id_balita == $selectedBalita->id_balita ? 'selected' : '' }}
                                     {{ $b->nik . ' | ' . $b->nama }}
                                 </option>
                             @endforeach

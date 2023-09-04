@@ -100,20 +100,22 @@
                                             <td class="text-center">{{ $nmb->bulan }}</td>
                                             <td class="text-center">{{ $nmb->tahun }}</td>
                                             <td class="text-center">
-                                                <a href="/ukur-balita/{{ $nmb->id_ukur }}"
-                                                    class="btn btn-success btn-sm font-weight-bold">Detail</a>
-                                                <a href="/ukur-balita/{{ $nmb->id_ukur }}/edit"><span
-                                                        class="btn btn-warning btn-sm font-weight-bold">Ubah</span></a>
-                                                <form action="/ukur-balita/{{ $nmb->id_ukur }}" method="post"
-                                                    class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="tombolHapus btn btn-danger font-weight-bold btn-sm"
-                                                        data-nama="{{ $nmb->balita->nama }}"
-                                                        data-bulan="{{ $nmb->bulan }}"
-                                                        data-tahun="{{ $nmb->tahun }}">Hapus</button>
-                                                </form>
+                                                <div class="btn-group" role="group">
+                                                    <a href="/ukur-balita/{{ $nmb->id_ukur }}"
+                                                        class="btn btn-success btn-sm font-weight-bold">Detail</a>
+                                                    <a href="/ukur-balita/{{ $nmb->id_ukur }}/edit"><span
+                                                            class="btn btn-warning btn-sm font-weight-bold mx-1">Ubah</span></a>
+                                                    <form action="/ukur-balita/{{ $nmb->id_ukur }}" method="post"
+                                                        class="d-inline">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit"
+                                                            class="tombolHapus btn btn-danger font-weight-bold btn-sm"
+                                                            data-nama="{{ $nmb->balita->nama }}"
+                                                            data-bulan="{{ $nmb->bulan }}"
+                                                            data-tahun="{{ $nmb->tahun }}">Hapus</button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

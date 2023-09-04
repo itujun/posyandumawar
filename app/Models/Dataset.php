@@ -10,6 +10,7 @@ class Dataset extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_dataset';
     protected $guarded = ['id'];
 
     public function getZscoreGizi($usia, $berat, $tinggi, $pengukuran, $jk)

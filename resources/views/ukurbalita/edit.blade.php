@@ -17,7 +17,7 @@
 
                     <div class="form-group row">
                         <label for="usia" class="col-sm-2 col-form-label">Nama Balita</label>
-                        <input type="hidden" name="id_balita" value="{{ $balita['id'] }}">
+                        <input type="hidden" name="id_balita" value="{{ $balita['id_balita'] }}">
                         <input type="text" class="form-control col-sm-5" readonly name="nama"
                             value="{{ $balita['nama'] }}">
                     </div>

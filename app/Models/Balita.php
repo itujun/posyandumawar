@@ -9,7 +9,8 @@ class Balita extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'updated_at', 'created_at'];
+    protected $primaryKey = 'id_balita';
+    protected $guarded = ['id_balita', 'updated_at', 'created_at'];
 
     public function ukurBalitas()
     {

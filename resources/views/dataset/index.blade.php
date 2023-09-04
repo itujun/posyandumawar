@@ -103,7 +103,7 @@
                                                 class="text-center font-weight-bold {{ $dts->skepala === 'Terlalu kecil' || $dts->skepala === 'Terlalu besar' ? 'bg-danger text-white ' : '' }}{{ $dts->skepala === 'Normal' ? 'bg-success text-white' : '' }}">
                                                 {{ $dts->skepala }}</td>
                                             <td class="text-center">
-                                                <form action="/dataset/{{ $dts->id }}" method="post"
+                                                <form action="/dataset/{{ $dts->id_dataset }}" method="post"
                                                     class="d-inline">
                                                     @method('delete')
                                                     @csrf

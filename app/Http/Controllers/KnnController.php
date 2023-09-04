@@ -36,10 +36,10 @@ class KnnController extends Controller
         $jaraklk = [];
 
         foreach ($query as $key) {
-            $jarakberat[$key['id']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['bb'] - $beratDataBaru, 2));
-            $jaraktinggi[$key['id']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['tb'] - $tinggiDataBaru, 2));
-            $jarakgizi[$key['id']] = sqrt(pow($key['bb'] - $beratDataBaru, 2) + pow($key['tb'] - $tinggiDataBaru, 2));
-            $jaraklk[$key['id']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['lk'] - $lingkarDataBaru, 2));
+            $jarakberat[$key['id_dataset']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['bb'] - $beratDataBaru, 2));
+            $jaraktinggi[$key['id_dataset']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['tb'] - $tinggiDataBaru, 2));
+            $jarakgizi[$key['id_dataset']] = sqrt(pow($key['bb'] - $beratDataBaru, 2) + pow($key['tb'] - $tinggiDataBaru, 2));
+            $jaraklk[$key['id_dataset']] = sqrt(pow($key['usia'] - $usiaDataBaru, 2) + pow($key['lk'] - $lingkarDataBaru, 2));
         }
 
         $hasil =  [$jarakberat, $jaraktinggi, $jarakgizi, $jaraklk, $id_ukur];
@@ -58,7 +58,7 @@ class KnnController extends Controller
         $knnlk = collect($data[3])->sort()->take($k);
 
         foreach ($knnberat as $kb => $value) {
-            $statusberat = Dataset::where('id', $kb)->value('sberat');
+            $statusberat = Dataset::where('id_dataset', $kb)->value('sberat');
             if (isset($totalstatusberat[$statusberat])) {
                 $totalstatusberat[$statusberat]++;
             } else {
@@ -66,7 +66,7 @@ class KnnController extends Controller
             }
         }
         foreach ($knntinggi as $kt => $value) {
-            $statustinggi = Dataset::where('id', $kt)->value('stinggi');
+            $statustinggi = Dataset::where('id_dataset', $kt)->value('stinggi');
             if (isset($totalstatustinggi[$statustinggi])) {
                 $totalstatustinggi[$statustinggi]++;
             } else {
@@ -74,7 +74,7 @@ class KnnController extends Controller
             }
         }
         foreach ($knngizi as $kg => $value) {
-            $statusgizi = Dataset::where('id', $kg)->value('sgizi');
+            $statusgizi = Dataset::where('id_dataset', $kg)->value('sgizi');
             if (isset($totalstatusgizi[$statusgizi])) {
                 $totalstatusgizi[$statusgizi]++;
             } else {
@@ -82,7 +82,7 @@ class KnnController extends Controller
             }
         }
         foreach ($knnlk as $klk => $value) {
-            $statuslk = Dataset::where('id', $klk)->value('skepala');
+            $statuslk = Dataset::where('id_dataset', $klk)->value('skepala');
             if (isset($totalstatuslk[$statuslk])) {
                 $totalstatuslk[$statuslk]++;
             } else {

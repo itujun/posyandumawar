@@ -131,7 +131,7 @@ class DatasetController extends Controller
      */
     public function destroy(Dataset $dataset)
     {
-        Dataset::destroy($dataset->id);
+        Dataset::destroy($dataset->id_dataset);
         return redirect('dataset')->with('sukses', 'Dataset usia ' . $dataset->usia . ' bulan, berat badan ' . $dataset->bb . 'kg, tinggi badan ' . $dataset->tb . 'cm, lingkar kepala ' . $dataset->lk . 'cm berhasil dihapus!');
     }
 
@@ -191,71 +191,5 @@ class DatasetController extends Controller
 
         $hasil = Dataset::where($cek)->first();
         return $hasil;
-    }
-
-    public function cekUlang()
-    {
-        $data = Dataset::all();
-        $jumlah = Dataset::count();
-
-        for ($i = 0; $i < $jumlah; $i++) {
-            $id =  $data[$i]->id;
-            $usia =  $data[$i]->usia;
-            $bb =  $data[$i]->bb;
-            $tb =  $data[$i]->tb;
-
-            $arrayJenisKelamin = ['L', 'P'];
-            $indeksJenisKelamin = array_rand($arrayJenisKelamin);
-            $jenis_kelamin = $arrayJenisKelamin[$indeksJenisKelamin];
-
-            if ($jenis_kelamin === 'L') {
-                $query = collect(DB::table('lk_u_laki')->where('usia', $usia)->first())->toArray();
-                $max = $query['85th'] + 1;
-                $min = $query['15th'] - 1;
-                $lk = rand($min, $max);
-            } else {
-                $query = collect(DB::table('lk_u_perempuan')->where('usia', $usia)->first())->toArray();
-                $max = $query['85th'] + 1;
-                $min = $query['15th'] - 1;
-                $lk = rand($min, $max);
-            }
-
-            if ($usia <= 23) {
-                $pengukuran = 'Telentang';
-            } else if ($usia >= 25) {
-                $pengukuran = 'Berdiri';
-            } else {
-                $pilihanUkur = ['Telentang', 'Berdiri'];
-                $indeksUkur = array_rand($pilihanUkur);
-                $pengukuran = $pilihanUkur[$indeksUkur];
-            }
-
-            $zscoregizi = $this->DatasetM->getZscoreGizi($usia, $bb, $tb, $pengukuran, $jenis_kelamin);
-            $statusgizi = $this->getKelasStatusGizi($zscoregizi);
-
-            $zscoreberat = $this->DatasetM->getZscoreBerat($usia, $bb, $jenis_kelamin);
-            $statusberat = $this->getKelasStatusBerat($zscoreberat);
-
-            $zscoretinggi = $this->DatasetM->getZscoreTinggi($usia, $tb, $pengukuran, $jenis_kelamin);
-            $statustinggi = $this->getKelasStatusTinggi($zscoretinggi);
-
-            $statuslebarkepala = $this->DatasetM->getZscoreKepala($usia, $lk, $jenis_kelamin);
-
-            $db['id'] = $id;
-            $db['usia'] = $usia;
-            $db['bb'] = $bb;
-            $db['tb'] = $tb;
-            $db['lk'] = $lk;
-            $db['pengukuran'] = $pengukuran;
-            $db['jenis_kelamin'] = $jenis_kelamin;
-
-            $db['sberat'] = $statusberat;
-            $db['stinggi'] = $statustinggi;
-            $db['sgizi'] = $statusgizi;
-            $db['skepala'] = $statuslebarkepala;
-
-            Dataset::where('id', $id)->update($db);
-            echo 'Sukses update data ke-' . $i + 1 . ' <br>';
-        };
     }
 }
