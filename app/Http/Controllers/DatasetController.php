@@ -7,6 +7,7 @@ use App\Models\UkurBalita;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class DatasetController extends Controller
 {
@@ -24,9 +25,9 @@ class DatasetController extends Controller
     {
         return view('dataset.index', [
             'title' => 'Dataset',
-            'dataset' => Dataset::all()
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -133,6 +134,11 @@ class DatasetController extends Controller
     {
         Dataset::destroy($dataset->id_dataset);
         return redirect('dataset')->with('sukses', 'Dataset usia ' . $dataset->usia . ' bulan, berat badan ' . $dataset->bb . 'kg, tinggi badan ' . $dataset->tb . 'cm, lingkar kepala ' . $dataset->lk . 'cm berhasil dihapus!');
+    }
+
+    public function datasetJson()
+    {
+        return Datatables::of(Dataset::limit(10))->make(true);
     }
 
     private function getKelasStatusGizi($z)

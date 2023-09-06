@@ -32,5 +32,4 @@ Route::resource('/ukur-balita', UkurBalitaController::class)->middleware('isAdmi
 
 Route::post('/hitungusia', [UkurBalitaController::class, 'hitungusia'])->name('hitungusia')->middleware('isAdmin');
 Route::post('/getjk', [UkurBalitaController::class, 'getJenisKelamin'])->name('getjk')->middleware('isAdmin');
-Route::get('/cek-cuy', [DatasetController::class, 'cekUlang'])->middleware('auth');
-Route::get('/cekin', [UkurBalitaController::class, 'cekUlang'])->middleware('auth');
+Route::get('/dataset-json', [DatasetController::class, 'datasetJson'])->middleware('auth');

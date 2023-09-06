@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
 
     // tombolHapus
-    $('.tombolHapus').on('click', function(e) {
+    $(document).on('click', '.tombolHapus', function(e) {
 
         e.preventDefault();
 

@@ -38,87 +38,26 @@
                 <div class="card-body">
                     <a href="/dataset/create" class="btn btn-primary btn-sm font-weight-bold mb-3">Tambah Dataset</a>
                     <div class="table-responsive">
-                        @if ($dataset->count() === 0)
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th class="text-center">Usia</th>
-                                        <th class="text-center">BB</th>
-                                        <th class="text-center">TB</th>
-                                        <th class="text-center">LK</th>
-                                        <th class="text-center">JK</th>
-                                        <th class="text-center">Pengukuran</th>
-                                        <th class="text-center">Status BB/U</th>
-                                        <th class="text-center">Status TB/U</th>
-                                        <th class="text-center">Status Gizi</th>
-                                        <th class="text-center">Status LK</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="12" class="text-center"><b>Tidak ada dataset.</b></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        @else
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th class="text-center">Usia</th>
-                                        <th class="text-center">BB</th>
-                                        <th class="text-center">TB</th>
-                                        <th class="text-center">LK</th>
-                                        <th class="text-center">JK</th>
-                                        <th class="text-center">Pengukuran</th>
-                                        <th class="text-center">Status BB/U</th>
-                                        <th class="text-center">Status TB/U</th>
-                                        <th class="text-center">Status Gizi</th>
-                                        <th class="text-center">Status LK</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($dataset as $dts)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $dts->usia }} <span>bulan</span></td>
-                                            <td>{{ $dts->bb }} <span>kg</span></td>
-                                            <td>{{ $dts->tb }} <span>cm</span></td>
-                                            <td>{{ $dts->lk }} <span>cm</span></td>
-                                            <td>{{ $dts->jenis_kelamin }}</td>
-                                            <td>{{ $dts->pengukuran }}</td>
-                                            <td
-                                                class="text-center font-weight-bold {{ $dts->sberat === 'Sangat kurang' || $dts->sberat === 'Risiko BB lebih' ? 'bg-danger text-white ' : '' }}{{ $dts->sberat === 'Normal' ? 'bg-success text-white' : '' }}{{ $dts->sberat === 'Kurang' ? 'bg-warning text-dark' : '' }} ">
-                                                {{ $dts->sberat }}</td>
-                                            <td
-                                                class="text-center font-weight-bold {{ $dts->stinggi === 'Sangat pendek' || $dts->stinggi === 'Tinggi' ? 'bg-danger text-white ' : '' }}{{ $dts->stinggi === 'Normal' ? 'bg-success text-white' : '' }}{{ $dts->stinggi === 'Pendek' ? 'bg-warning text-dark' : '' }}">
-                                                {{ $dts->stinggi }}</td>
-                                            <td
-                                                class="text-center font-weight-bold {{ $dts->sgizi === 'Gizi buruk' || $dts->sgizi === 'Gizi lebih' || $dts->sgizi === 'Obesitas' ? 'bg-danger text-white ' : '' }}{{ $dts->sgizi === 'Gizi baik' ? 'bg-success text-white' : '' }}{{ $dts->sgizi === 'Gizi kurang' || $dts->sgizi === 'Berisiko gizi lebih' ? 'bg-warning text-dark' : '' }}">
-                                                {{ $dts->sgizi }}</td>
-                                            <td
-                                                class="text-center font-weight-bold {{ $dts->skepala === 'Terlalu kecil' || $dts->skepala === 'Terlalu besar' ? 'bg-danger text-white ' : '' }}{{ $dts->skepala === 'Normal' ? 'bg-success text-white' : '' }}">
-                                                {{ $dts->skepala }}</td>
-                                            <td class="text-center">
-                                                <form action="/dataset/{{ $dts->id_dataset }}" method="post"
-                                                    class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="tombolHapus btn btn-danger font-weight-bold btn-sm"
-                                                        data-usia="{{ $dts->usia }}" data-bb="{{ $dts->bb }}"
-                                                        data-tb="{{ $dts->tb }}"
-                                                        data-lk="{{ $dts->lk }}">Hapus</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @endif
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Usia</th>
+                                    <th class="text-center">BB</th>
+                                    <th class="text-center">TB</th>
+                                    <th class="text-center">LK</th>
+                                    <th class="text-center">JK</th>
+                                    <th class="text-center">Pengukuran</th>
+                                    <th class="text-center">Status BB/U</th>
+                                    <th class="text-center">Status TB/U</th>
+                                    <th class="text-center">Status LK</th>
+                                    <th class="text-center">Status Gizi</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -172,4 +111,152 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            if ($.fn.DataTable.isDataTable('#dataTable')) {
+                $('#dataTable').DataTable().destroy();
+            }
+            $('#dataTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: 'http://127.0.0.1:8000/dataset-json',
+                columns: [{
+                        data: null,
+                        orderable: false,
+                        searchable: false,
+                        render: function(data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    }, {
+                        data: 'usia',
+                        name: 'usia'
+                    },
+                    {
+                        data: 'bb',
+                        name: 'bb'
+                    },
+                    {
+                        data: 'tb',
+                        name: 'tb'
+                    },
+                    {
+                        data: 'lk',
+                        name: 'lk'
+                    },
+                    {
+                        data: 'jenis_kelamin',
+                        name: 'jenis_kelamin'
+                    },
+                    {
+                        data: 'pengukuran',
+                        name: 'pengukuran'
+                    },
+                    {
+                        data: 'sberat',
+                        name: 'sberat',
+                        className: 'text-center font-weight-bold',
+                        render: function(data, type, row) {
+                            let classes = 'text-center font-weight-bold';
+                            if (data === 'Normal') {
+                                classes += ' text-success';
+                            } else if (data === 'Kurang') {
+                                classes += ' text-warning';
+                            } else if (data === 'Sangat kurang' || data === 'Risiko BB lebih' ||
+                                data ===
+                                'Obesitas') {
+                                classes += ' text-danger';
+                            }
+                            return '<div class="' + classes + '">' +
+                                data + '</div>';
+                        }
+                    },
+                    {
+                        data: 'stinggi',
+                        name: 'stinggi',
+                        className: 'text-center font-weight-bold',
+                        render: function(data, type, row) {
+                            let classes = 'text-center font-weight-bold';
+                            if (data === 'Normal') {
+                                classes += ' text-success';
+                            } else if (data === 'Pendek') {
+                                classes += ' text-warning';
+                            } else if (data === 'Sangat pendek' || data === 'Tinggi' ||
+                                data ===
+                                'Obesitas') {
+                                classes += ' text-danger';
+                            }
+                            return '<div class="' + classes + '">' +
+                                data + '</div>';
+                        }
+                    },
+                    {
+                        data: 'skepala',
+                        name: 'skepala',
+                        className: 'text-center font-weight-bold',
+                        render: function(data, type, row) {
+                            let classes = 'text-center font-weight-bold';
+                            if (data === 'Normal') {
+                                classes += ' text-success';
+                            } else if (data === 'Terlalu kecil' || data === 'Terlalu besar') {
+                                classes += ' text-danger';
+                            }
+                            return '<div class="' + classes + '">' +
+                                data + '</div>';
+                        }
+                    },
+                    {
+                        data: 'sgizi',
+                        name: 'sgizi',
+                        className: 'text-center font-weight-bold',
+                        render: function(data, type, row) {
+                            let classes = 'text-center font-weight-bold';
+                            if (data === 'Gizi baik') {
+                                classes += ' text-success';
+                            } else if (data === 'Gizi buruk' || data === 'Gizi lebih' || data ===
+                                'Obesitas') {
+                                classes += ' text-danger';
+                            } else if (data === 'Gizi kurang' || data === 'Berisiko gizi lebih' ||
+                                data ===
+                                'Obesitas') {
+                                classes += ' text-warning';
+                            }
+                            return '<div class="' + classes + '">' +
+                                data + '</div>';
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function(data, type, row) {
+                            return '<form action="/dataset/' + row.id_dataset +
+                                '" method="post" class="d-inline">' +
+                                '@method('delete')' +
+                                '@csrf' +
+                                '<button type="submit" class="tombolHapus btn btn-danger font-weight-bold btn-sm" ' +
+                                'data-usia="' + row.usia + '" data-bb="' + row.bb + '" ' +
+                                'data-tb="' + row.tb + '" data-lk="' + row.lk + '">Hapus</button>' +
+                                '</form>';
+                        }
+                    }
+
+                ],
+                pagingType: 'full_numbers', // Aktifkan tipe paging yang lengkap
+                order: [
+                    [0, 'asc']
+                ], // Urutkan kolom pertama secara ascending (sesuaikan dengan kolom nomor urut)
+                drawCallback: function() {
+                    var api = this.api();
+                    var startIndex = api.context[0]
+                        ._iDisplayStart; // Mengambil indeks awal data pada halaman aktif
+                    api.column(0).nodes().each(function(cell, i) {
+                        cell.innerHTML = startIndex + i +
+                            1; // Mengatur nomor urut sesuai dengan halaman aktif
+                    });
+                }
+            });
+
+        });
+    </script>
 @endsection
