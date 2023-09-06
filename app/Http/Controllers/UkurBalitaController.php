@@ -51,7 +51,7 @@ class UkurBalitaController extends Controller
             [
                 'pilih_balita' => 'required',
                 'bb_ukur' => 'required|numeric|max:50|min:0',
-                'tb_ukur' => 'required|numeric|max:140|min:10',
+                'tb_ukur' => 'required|numeric|max:150|min:10',
                 'lk_ukur' => 'required|numeric|max:70|min:10',
                 'bulan' => 'required',
                 'pengukuran' => 'required',
@@ -178,7 +178,6 @@ class UkurBalitaController extends Controller
             ->leftJoin('balitas', 'ukur_balitas.id_balita', '=', 'balitas.id_balita')
             ->where('id_ukur', $ukur_balitum->id_ukur)
             ->first();
-        dd($balita);
         // UkurBalita::destroy($ukur_balitum->id_ukur);
         return redirect('ukur-balita')->with('sukses', 'Data ukur balita ' . $balita->nama . ' pada bulan ' . $balita->bulan . ' tahun ' . $balita->tahun . ' berhasil dihapus!');
     }

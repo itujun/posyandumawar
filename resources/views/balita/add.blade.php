@@ -56,6 +56,11 @@
                             <option value="L" @if (old('jenis_kelamin') === 'L') selected @endif>Laki-laki</option>
                             <option value="P" @if (old('jenis_kelamin') === 'P') selected @endif>Perempuan</option>
                         </select>
+                        @error('jenis_kelamin')
+                            <div class="invalid-feedback col-sm-5">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="form-group row">

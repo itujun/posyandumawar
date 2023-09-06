@@ -3,7 +3,7 @@
 @section('container')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form <span class="text-primary">{{ $title }} Baru</span></h1>
+        <h1 class="h3 mb-0 text-gray-800">Form <span class="text-primary">Tambah Data Ukur Balita Baru</span></h1>
     </div>
 
     <!-- Content Row -->
@@ -17,7 +17,7 @@
                     <div class="form-group row">
                         <label for="pilih_balita" class="col-sm-2 col-form-label">Pilih Balita</label>
                         <select class="select2 form-control col-sm-5 @error('pilih_balita') is-invalid @enderror"
-                            id="pilih_balita" name="pilih_balita" autofocus>
+                            id="pilih_balita" name="pilih_balita" autofocus required>
                             <option hidden disabled selected value="{{ old('pilih_balita') }}">Pilih balita yang akan diukur
                             </option>
                             @foreach ($balita as $b)
@@ -38,7 +38,7 @@
                     <div class="form-group row">
                         <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                         <input type="text" class="form-control col-sm-2" readonly id="jenis_kelamin" name="jenis_kelamin"
-                            placeholder="....." value="{{ old('jenis_kelamin') }}">
+                            placeholder="....." value="{{ old('jenis_kelamin') }}" required>
                         @error('jenis_kelamin')
                             <div class="invalid-feedback col-sm-5">
                                 {{ $message }}
@@ -48,7 +48,7 @@
                     <div class="form-group row">
                         <label for="usia_ukur" class="col-sm-2 col-form-label">Usia</label>
                         <input type="text" class="form-control col-sm-2" readonly id="usia_ukur" name="usia_ukur"
-                            placeholder="....." value="{{ old('usia_ukur') }}">
+                            placeholder="....." value="{{ old('usia_ukur') }}" required>
                         <div class="col-form-label col-sm-2"> Bulan.</div>
                         @error('usia_ukur')
                             <div class="invalid-feedback col-sm-5">
@@ -60,7 +60,7 @@
                     <div class="form-group row">
                         <label for="bb_ukur" class="col-sm-2 col-form-label">Berat Badan</label>
                         <input type="text" class="form-control col-sm-2 @error('bb_ukur') is-invalid @enderror"
-                            id="bb_ukur" name="bb_ukur" placeholder="..... kg" value="{{ old('bb_ukur') }}">
+                            id="bb_ukur" name="bb_ukur" placeholder="..... kg" value="{{ old('bb_ukur') }}" required>
                         <div class=" col-form-label col-sm-2"> Kg.
                         </div>
                         @error('bb_ukur')
@@ -72,7 +72,7 @@
                     <div class="form-group row">
                         <label for="tb_ukur" class="col-sm-2 col-form-label">Tinggi Badan</label>
                         <input type="text" class="form-control col-sm-2 @error('tb_ukur') is-invalid @enderror"
-                            id="tb_ukur" name="tb_ukur" placeholder="..... cm" value="{{ old('tb_ukur') }}">
+                            id="tb_ukur" name="tb_ukur" placeholder="..... cm" value="{{ old('tb_ukur') }}" required>
                         <div class="col-form-label col-sm-2"> Cm.</div>
                         @error('tb_ukur')
                             <div class="invalid-feedback col-sm-5">
@@ -83,7 +83,7 @@
                     <div class="form-group row">
                         <label for="pengukuran" class="col-sm-2 col-form-label">Cara Pengukuran</label>
                         <select class="form-control col-sm-3 mr-5 @error('pengukuran') is-invalid @enderror" id="pengukuran"
-                            name="pengukuran">
+                            name="pengukuran" required>
                             <option hidden selected disabled>Pilih cara pengukuran</option>
                             @foreach ($pengukuran as $p)
                                 <option value="{{ $p }}" {{ old('pengukuran') === $p ? 'selected' : '' }}>
@@ -98,7 +98,7 @@
                     <div class="form-group row">
                         <label for="lk_ukur" class="col-sm-2 col-form-label">Lingkar Kepala</label>
                         <input type="text" class="form-control col-sm-2 @error('lk_ukur') is-invalid @enderror"
-                            id="lk_ukur" name="lk_ukur" placeholder="..... cm" value="{{ old('lk_ukur') }}">
+                            id="lk_ukur" name="lk_ukur" placeholder="..... cm" value="{{ old('lk_ukur') }}" required>
                         <div class="col-form-label col-sm-2"> Cm.</div>
                         @error('lk_ukur')
                             <div class="invalid-feedback col-sm-5">
@@ -109,7 +109,7 @@
                     <div class="form-group row">
                         <label for="bulan" class="col-sm-2 col-form-label">Bulan pengukuran</label>
                         <select class="form-control col-sm-4 @error('bulan') is-invalid @enderror" id="bulan"
-                            name="bulan">
+                            name="bulan" required>
                             <option selected hidden disabled>Pilih bulan pengukuran</option>
                             @foreach ($bulan as $bln)
                                 <option value="{{ $bln }}">{{ $bln }}</option>
@@ -125,7 +125,8 @@
                     </div>
                     <hr>
                     <a href="/ukur-balita" class="btn btn-secondary font-weight-bold float-left ">Kembali</a>
-                    <button type="submit" class="btn btn-primary font-weight-bold float-right">Tambah Balita</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold float-right">Tambah Data Ukur
+                        Balita</button>
                 </div>
             </form>
         </div>

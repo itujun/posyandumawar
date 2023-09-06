@@ -50,6 +50,7 @@ class BalitaController extends Controller
                 'nik.numeric' => 'Kolom NIK harus diisi berupa angka (0, 1, 2, ... dst)',
                 'nik.digits' => 'Kolom NIK harus berisi :digits digit.',
                 'tgl_lahir.before_or_equal' => 'Tanggal lahir tidak boleh melebihi tanggal saat ini.',
+                'jenis_kelamin.required' => 'Kolom Jenis Kelamin harus diisi.',
             ]
         );
 

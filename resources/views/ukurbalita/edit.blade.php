@@ -3,7 +3,7 @@
 @section('container')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Form <span class="text-primary">{{ $title }}</span></h1>
+        <h1 class="h3 mb-0 text-gray-800">Form <span class="text-primary">Ubah Data Ukur Balita</span></h1>
     </div>
 
     <!-- Content Row -->
@@ -86,7 +86,8 @@
                     </div>
                     <hr>
                     <a href="/ukur-balita" class="btn btn-secondary font-weight-bold float-left ">Kembali</a>
-                    <button type="submit" class="btn btn-primary font-weight-bold float-right">Update Balita</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold float-right">Update Data Ukur
+                        Balita</button>
                 </div>
             </form>
         </div>
