@@ -76,12 +76,14 @@ cp .env.example .env
 php artisan key:generate
 ```
 Atur koneksi database di `.env` (sesuaikan):
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=posyandumawar_
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
 ### 4) Siapkan database (import SQL)
 Aplikasi ini menyediakan file SQL di folder `db/`.
@@ -93,6 +95,8 @@ Langkah umum (phpMyAdmin):
 4. Import file SQL dari folder `db/`:
 - `posyandumawar_xampp.sql` (untuk XAMPP)
 - `posyandumawar_laragon+navicat.sql` (untuk Laragon + Navicat)
+
+
 Jika nama database berbeda, sesuaikan `DB_DATABASE` di file `.env`.
 
 ### 5) Install dependency frontend (opsional, jika perlu build asset)
@@ -165,7 +169,7 @@ Proyek ini dibuat untuk kebutuhan akademik/skripsi. Silakan sesuaikan lisensi se
 ---
 
 ## Kredit
-- Mohammad Junaedi — Pengembang / Penulis skripsi
+- [Mohammad Junaedi](https://instagram.com/itujun) — Pengembang / Penulis skripsi
 - Studi Kasus: Posyandu Mawar Bibis Tama, Surabaya
 
 
@@ -173,5 +177,3 @@ Proyek ini dibuat untuk kebutuhan akademik/skripsi. Silakan sesuaikan lisensi se
 - Buku panduan operasional & langkah DB/import/jalankan + akun demo: :contentReference[oaicite:0]{index=0}  
 - Deskripsi proyek skripsi (parameter antropometri & metode K-NN, konteks penelitian): :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
 
-Kalau kamu mau, aku juga bisa bikinkan versi README yang ada **screenshot**, **diagram arsitektur singkat**, dan **badge** (Laravel/PHP/Vite) biar makin “GitHub-ready”.
-::contentReference[oaicite:3]{index=3}
