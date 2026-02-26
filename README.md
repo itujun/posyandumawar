@@ -26,6 +26,7 @@ Aplikasi berbasis web untuk membantu **kader Posyandu Mawar (Bibis Tama, Surabay
 - [Struktur Folder Penting](#struktur-folder-penting)
 - [Lisensi](#lisensi)
 - [Kredit](#kredit)
+- [Buku Panduan Penggunaan](#buku-panduan-penggunaan)
 
 ---
 
@@ -283,7 +284,8 @@ Proyek ini dibuat untuk kebutuhan akademik/skripsi. Silakan sesuaikan lisensi se
 - Studi Kasus: Posyandu Mawar Bibis Tama, Surabaya
 
 
-### Referensi sumber (file yang kamu lampirkan)
-- Buku panduan operasional & langkah DB/import/jalankan + akun demo: :contentReference[oaicite:0]{index=0}  
-- Deskripsi proyek skripsi (parameter antropometri & metode K-NN, konteks penelitian): :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+## Buku Panduan Penggunaan
 
+Panduan lengkap penggunaan aplikasi (login, pengelolaan data balita, input ukur, dan melihat hasil klasifikasi).
+
+[![Download Guide (PDF)](https://img.shields.io/badge/Download-Guide%20(PDF)-2ea44f?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](docs/Buku%20Panduan%20Website.pdf?raw=1)
