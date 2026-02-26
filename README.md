@@ -62,3 +62,116 @@ Pastikan sudah terinstall:
 ```bash
 git clone https://github.com/itujun/posyandumawar.git
 cd posyandumawar
+```
+
+### 2) Install dependency backend
+```bash
+composer install
+```
+
+### 3) Setup environment
+Salin file `.env`
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+Atur koneksi database di `.env` (sesuaikan):
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=posyandumawar_
+DB_USERNAME=root
+DB_PASSWORD=
+
+### 4) Siapkan database (import SQL)
+Aplikasi ini menyediakan file SQL di folder `db/`.
+
+Langkah umum (phpMyAdmin):
+1. Jalankan Apache & MySQL (XAMPP/Laragon)
+2. Buka: `http://localhost/phpmyadmin`
+3. Buat database bernama: `posyandumawar_`
+4. Import file SQL dari folder `db/`:
+- `posyandumawar_xampp.sql` (untuk XAMPP)
+- `posyandumawar_laragon+navicat.sql` (untuk Laragon + Navicat)
+Jika nama database berbeda, sesuaikan `DB_DATABASE` di file `.env`.
+
+### 5) Install dependency frontend (opsional, jika perlu build asset)
+```bash
+npm install
+npm run build
+```
+Untuk development mode Vite:
+```bash
+npm run dev
+```
+
+### 6) Jalankan aplikasi
+```bash
+php artisan serve
+```
+Buka di browser:
+- `http://127.0.0.1:8000`
+
+---
+
+## Akun Demo (Default)
+Kredensial ini untuk kebutuhan demo/skripsi. Jangan gunakan di produksi.
+
+### User
+- Email: `tester@mail.com`
+- Password: `121212`
+
+### Admin
+- Email: `itujun7@gmail.com`
+- Password: `121212`
+
+---
+
+## Alur Penggunaan Singkat (Admin)
+1. Login sebagai Admin
+2. (Opsional) Tambah/cek Dataset
+3. Tambah Data Balita
+4. Input Data Ukur Balita
+5. Sistem menghitung & menyimpan hasil klasifikasi (K-NN)
+6. Lihat hasil di halaman ukur balita / detail hasil
+
+---
+
+## Catatan Penting Metode K-NN (Ringkas)
+- Metode K-NN mengklasifikasikan data baru berdasarkan tetangga terdekat dari data latih.
+- Ukuran kedekatan menggunakan Euclidean Distance.
+- Secara umum alur:
+1. Tentukan nilai K
+2. Hitung jarak data uji terhadap seluruh data latih
+3. Ambil K jarak terkecil
+4. Tentukan kelas berdasarkan voting terbanyak
+
+---
+
+## Struktur Folder Penting
+- `app/`: logic aplikasi (controller, model, dll.)
+- `routes/`: rute aplikasi
+- `resources/`: view (Blade), asset
+- `public/`: aset publik
+- `database/`: migration/seed(jika ada)
+- `db/`: file SQL untuk import database
+
+---
+
+## Lisensi
+
+Proyek ini dibuat untuk kebutuhan akademik/skripsi. Silakan sesuaikan lisensi sesuai kebutuhan repository kamu.
+
+---
+
+## Kredit
+- Mohammad Junaedi — Pengembang / Penulis skripsi
+- Studi Kasus: Posyandu Mawar Bibis Tama, Surabaya
+
+
+### Referensi sumber (file yang kamu lampirkan)
+- Buku panduan operasional & langkah DB/import/jalankan + akun demo: :contentReference[oaicite:0]{index=0}  
+- Deskripsi proyek skripsi (parameter antropometri & metode K-NN, konteks penelitian): :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+
+Kalau kamu mau, aku juga bisa bikinkan versi README yang ada **screenshot**, **diagram arsitektur singkat**, dan **badge** (Laravel/PHP/Vite) biar makin “GitHub-ready”.
+::contentReference[oaicite:3]{index=3}
