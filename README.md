@@ -1,9 +1,33 @@
 # POSYANDU MAWAR — Klasifikasi Status Gizi Balita (K-NN)
 
+![Laravel](https://img.shields.io/badge/Laravel-10-FF2D20?logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-4%2B-646CFF?logo=vite&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-MariaDB-4479A1?logo=mysql&logoColor=white)
+![License](https://img.shields.io/badge/License-Academic-lightgrey)
+
 Aplikasi berbasis web untuk membantu **kader Posyandu Mawar (Bibis Tama, Surabaya)** dalam:
 - mengelola data balita,
 - mencatat hasil pengukuran antropometri,
 - dan **mengklasifikasikan status gizi balita** menggunakan metode **K-Nearest Neighbor (K-NN)**.
+
+---
+
+## Daftar Isi
+- [Gambaran Umum](#gambaran-umum)
+- [Screenshot](#screenshot)
+- [Fitur](#fitur)
+- [Teknologi](#teknologi)
+- [Prasyarat](#prasyarat)
+- [Instalasi & Menjalankan Aplikasi (Local)](#instalasi--menjalankan-aplikasi-local)
+- [Akun Demo (Default)](#akun-demo-default)
+- [Alur Penggunaan Singkat (Admin)](#alur-penggunaan-singkat-admin)
+- [Catatan Penting Metode K-NN (Ringkas)](#catatan-penting-metode-k-nn-ringkas)
+- [Struktur Folder Penting](#struktur-folder-penting)
+- [Lisensi](#lisensi)
+- [Kredit](#kredit)
+
+---
 
 ## Gambaran Umum
 Penentuan status gizi dilakukan berdasarkan parameter:
@@ -20,6 +44,92 @@ Hasil klasifikasi yang ditampilkan mencakup:
 - Status gizi (mis. gizi buruk/kurang/baik, berisiko gizi lebih, gizi lebih, obesitas)
 
 Aplikasi ini dibuat untuk kebutuhan tugas akhir/skripsi dan berjalan dengan baik pada lingkungan lokal (localhost).
+
+---
+
+## Screenshot
+
+### Thumbnail Grid (Klik untuk memperbesar)
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/01-login.png">
+        <img src="docs/screenshots/01-login.png" width="300" alt="Halaman Login"/>
+      </a>
+      <br/><b>1. Halaman Login</b>
+    </td>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/02-dashboard-admin.png">
+        <img src="docs/screenshots/02-dashboard-admin.png" width="300" alt="Dashboard Admin"/>
+      </a>
+      <br/><b>2. Dashboard Admin</b>
+    </td>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/03-data-balita.png">
+        <img src="docs/screenshots/03-data-balita.png" width="300" alt="Data Balita"/>
+      </a>
+      <br/><b>3. Data Balita</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/04-input-ukur.png">
+        <img src="docs/screenshots/04-input-ukur.png" width="300" alt="Input Ukur Balita"/>
+      </a>
+      <br/><b>4. Input Ukur Balita</b>
+    </td>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/05-detail-hasil.png">
+        <img src="docs/screenshots/05-detail-hasil.png" width="300" alt="Detail Hasil Klasifikasi"/>
+      </a>
+      <br/><b>5. Detail Hasil Klasifikasi</b>
+    </td>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/06-detail-hasil-tabel-knn.png">
+        <img src="docs/screenshots/06-detail-hasil-tabel-knn.png" width="300" alt="Detail Hasil - Tabel KNN"/>
+      </a>
+      <br/><b>6. Detail Hasil (Tabel K-NN)</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" width="33%">
+      <a href="docs/screenshots/07-dashboard-user.png">
+        <img src="docs/screenshots/07-dashboard-user.png" width="300" alt="Dashboard User"/>
+      </a>
+      <br/><b>7. Dashboard User</b>
+    </td>
+    <td align="center" width="33%"></td>
+    <td align="center" width="33%"></td>
+  </tr>
+</table>
+
+---
+
+### Preview Detail (Ukuran besar)
+
+#### 1) Halaman Login
+![Halaman Login](docs/screenshots/01-login.png)
+
+#### 2) Dashboard Admin
+![Dashboard Admin](docs/screenshots/02-dashboard-admin.png)
+
+#### 3) Halaman Data Balita
+![Data Balita](docs/screenshots/03-data-balita.png)
+
+#### 4) Halaman Input Ukur Balita
+![Input Ukur](docs/screenshots/04-input-ukur.png)
+
+#### 5) Halaman Detail Hasil Klasifikasi
+![Detail Hasil](docs/screenshots/05-detail-hasil.png)
+
+#### 6) Detail Hasil (Tabel Perhitungan / Tetangga Terdekat K-NN)
+![Detail Hasil Tabel KNN](docs/screenshots/06-detail-hasil-tabel-knn.png)
+
+#### 7) Dashboard User Setelah Login
+![Dashboard User](docs/screenshots/07-dashboard-user.png)
 
 ---
 
